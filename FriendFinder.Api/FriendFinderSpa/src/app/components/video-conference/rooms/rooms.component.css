@@ -1,0 +1,293 @@
+div.jumbotron {
+    background-color: transparent;
+}
+
+button > i {
+    padding-right: 6px;
+}
+
+.twitter-red {
+    color: #F22F46;
+}
+
+a {
+    font-size: 1.25rem;
+}
+
+
+.jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #303030;
+    border-radius: 0.3rem;
+}
+
+@media (min-width: 576px) {
+    .jumbotron {
+        padding: 4rem 2rem;
+    }
+}
+
+.jumbotron-fluid {
+    padding-right: 0;
+    padding-left: 0;
+    border-radius: 0;
+}
+
+.display-1 {
+    font-size: 6rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.display-2 {
+    font-size: 5.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.display-3 {
+    font-size: 4.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.display-4 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.list-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.list-group-item-action {
+    width: 100%;
+    color: #444;
+    text-align: inherit;
+}
+
+    .list-group-item-action:hover, .list-group-item-action:focus {
+        color: #444;
+        text-decoration: none;
+        background-color: #444;
+    }
+
+    .list-group-item-action:active {
+        color: #fff;
+        background-color: #ebebeb;
+    }
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #303030;
+    border: 1px solid #444;
+}
+
+    .list-group-item:first-child {
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+    }
+
+    .list-group-item:last-child {
+        margin-bottom: 0;
+        border-bottom-right-radius: 0.25rem;
+        border-bottom-left-radius: 0.25rem;
+    }
+
+    .list-group-item:hover, .list-group-item:focus {
+        z-index: 1;
+        text-decoration: none;
+    }
+
+    .list-group-item.disabled, .list-group-item:disabled {
+        color: #999;
+        pointer-events: none;
+        background-color: #303030;
+    }
+
+    .list-group-item.active {
+        z-index: 2;
+        color: #fff;
+        background-color: #375a7f;
+        border-color: #375a7f;
+    }
+
+.list-group-flush .list-group-item {
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+}
+
+    .list-group-flush .list-group-item:last-child {
+        margin-bottom: -1px;
+    }
+
+.list-group-flush:first-child .list-group-item:first-child {
+    border-top: 0;
+}
+
+.list-group-flush:last-child .list-group-item:last-child {
+    margin-bottom: 0;
+    border-bottom: 0;
+}
+
+.list-group-item-primary {
+    color: #1d2f42;
+    background-color: #c7d1db;
+}
+
+    .list-group-item-primary.list-group-item-action:hover, .list-group-item-primary.list-group-item-action:focus {
+        color: #1d2f42;
+        background-color: #b7c4d1;
+    }
+
+    .list-group-item-primary.list-group-item-action.active {
+        color: #fff;
+        background-color: #1d2f42;
+        border-color: #1d2f42;
+    }
+
+.list-group-item-secondary {
+    color: #232323;
+    background-color: #cbcbcb;
+}
+
+    .list-group-item-secondary.list-group-item-action:hover, .list-group-item-secondary.list-group-item-action:focus {
+        color: #232323;
+        background-color: #bebebe;
+    }
+
+    .list-group-item-secondary.list-group-item-action.active {
+        color: #fff;
+        background-color: #232323;
+        border-color: #232323;
+    }
+
+.list-group-item-success {
+    color: #006249;
+    background-color: #b8ecdf;
+}
+
+    .list-group-item-success.list-group-item-action:hover, .list-group-item-success.list-group-item-action:focus {
+        color: #006249;
+        background-color: #a4e7d6;
+    }
+
+    .list-group-item-success.list-group-item-action.active {
+        color: #fff;
+        background-color: #006249;
+        border-color: #006249;
+    }
+
+.list-group-item-info {
+    color: #1b4f72;
+    background-color: #c6e2f5;
+}
+
+    .list-group-item-info.list-group-item-action:hover, .list-group-item-info.list-group-item-action:focus {
+        color: #1b4f72;
+        background-color: #b0d7f1;
+    }
+
+    .list-group-item-info.list-group-item-action.active {
+        color: #fff;
+        background-color: #1b4f72;
+        border-color: #1b4f72;
+    }
+
+.list-group-item-warning {
+    color: #7e5109;
+    background-color: #fce3bd;
+}
+
+    .list-group-item-warning.list-group-item-action:hover, .list-group-item-warning.list-group-item-action:focus {
+        color: #7e5109;
+        background-color: #fbd9a5;
+    }
+
+    .list-group-item-warning.list-group-item-action.active {
+        color: #fff;
+        background-color: #7e5109;
+        border-color: #7e5109;
+    }
+
+.list-group-item-danger {
+    color: #78281f;
+    background-color: #f8cdc8;
+}
+
+    .list-group-item-danger.list-group-item-action:hover, .list-group-item-danger.list-group-item-action:focus {
+        color: #78281f;
+        background-color: #f5b8b1;
+    }
+
+    .list-group-item-danger.list-group-item-action.active {
+        color: #fff;
+        background-color: #78281f;
+        border-color: #78281f;
+    }
+
+.list-group-item-light {
+    color: #191919;
+    background-color: #c5c5c5;
+}
+
+    .list-group-item-light.list-group-item-action:hover, .list-group-item-light.list-group-item-action:focus {
+        color: #191919;
+        background-color: #b8b8b8;
+    }
+
+    .list-group-item-light.list-group-item-action.active {
+        color: #fff;
+        background-color: #191919;
+        border-color: #191919;
+    }
+
+.list-group-item-dark {
+    color: #5a5e62;
+    background-color: #e8eaed;
+}
+
+    .list-group-item-dark.list-group-item-action:hover, .list-group-item-dark.list-group-item-action:focus {
+        color: #5a5e62;
+        background-color: #dadde2;
+    }
+
+    .list-group-item-dark.list-group-item-action.active {
+        color: #fff;
+        background-color: #5a5e62;
+        border-color: #5a5e62;
+    }
+
+    .d-flex {
+        display: -webkit-box !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+    }
+    
+    .d-inline-flex {
+        display: -webkit-inline-box !important;
+        display: -ms-inline-flexbox !important;
+        display: inline-flex !important;
+    }
+
+    .lead {
+        font-size: 1.171875rem;
+        font-weight: 300;
+    }
+
+
+    

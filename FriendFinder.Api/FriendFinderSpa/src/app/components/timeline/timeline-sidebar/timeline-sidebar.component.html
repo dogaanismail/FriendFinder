@@ -1,0 +1,47 @@
+<ul class="nav-news-feed">
+
+  <li *ngIf="signedUser">
+    <i class="icon ion-ios-paper"></i>
+    <div>
+      <a routerLink="/profile/{{signedUser.userName}}">My Newsfeed</a></div>
+  </li>
+
+  <li *ngIf="signedUser">
+    <i class="icon ion-ios-people"></i>
+    <div>
+      <a routerLink="/timeline/nearby">People Nearby</a></div>
+  </li>
+
+  <li *ngIf="signedUser">
+    <i class="icon ion-ios-people-outline"></i>
+    <div>
+      <a routerLink="/timeline/friends">Friends</a></div>
+  </li>
+
+
+  <li *ngIf="signedUser">
+    <i class="icon ion-chatboxes"></i>
+    <div>
+      <a routerLink="/timeline/messages">Messages</a></div>
+  </li>
+
+  <li>
+    <i class="icon ion-images"></i>
+    <div>
+      <a routerLink="/timeline/images">Images</a></div>
+  </li>
+
+  <li>
+    <i class="icon ion-ios-videocam"></i>
+    <div>
+      <a routerLink="/timeline/videos">Videos</a></div>
+  </li>
+
+  <li *ngIf="signedUser">
+    <i class="icon ion-ios-videocam"></i>
+    <div>
+      <a routerLink="/video-conference/home">Video Conference</a></div>
+  </li>
+
+</ul>
+<!--news-feed links ends-->

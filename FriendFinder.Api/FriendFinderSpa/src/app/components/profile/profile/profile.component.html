@@ -1,0 +1,71 @@
+<div class="container" *ngIf="user$ | async as user">
+
+  <!-- Timeline
+  ================================================= -->
+  <div class="timeline">
+
+    <app-profile-navbar [user]="user$ | async" [newPhoto]="isNewPhoto$ | async" [newCover]="isNewCover$ | async"
+      [signedUser]="signedUser$ | async">
+    </app-profile-navbar>
+
+    <div id="page-contents">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-7">
+
+          <!-- Post Create Box
+        ================================================= -->
+          <app-profile-create-post></app-profile-create-post>
+          <!-- Post Create Box End-->
+
+          <!-- Post Content
+          ================================================= -->
+          <div class="post-content" *ngFor="let post of user.userPosts">
+
+            <!--Post Date-->
+            <div class="post-date hidden-xs hidden-sm">
+              <h5>{{post.createdByUserName}}</h5>
+            </div>
+            <!--Post Date End-->
+
+            <img src="{{post.imageUrl}}" *ngIf="post.imageUrl" alt="post-image" class="img-responsive post-image" />
+            <div class="post-container">
+              <img src="{{post.createdByUserPhoto}}" alt="user" class="profile-photo-md pull-left" />
+              <div class="post-detail">
+                <div class="user-info">
+                  <h5><a routerLink="/profile/{{post.createdByUserName}}"
+                      class="profile-link">{{post.createdByUserName}}</a> <span class="following">following</span></h5>
+                  <p class="text-muted">Published at {{post.createdDate | date:'short' }}</p>
+                </div>
+                <div class="reaction">
+                  <a class="btn text-green"><i class="icon ion-thumbsup"></i> 13</a>
+                  <a class="btn text-red"><i class="fa fa-thumbs-down"></i> 0</a>
+                </div>
+                <div class="line-divider"></div>
+                <div class="post-text">
+                  <div [innerHTML]="post.text"></div>
+                </div>
+                <div class="line-divider"></div>
+
+                <!--Post Comments-->
+                <div *ngIf="post.comments">
+                  <div class="post-comment" *ngFor="let comment of post.comments">
+                    <img src="{{comment.createdByUserPhoto}}" alt="" class="profile-photo-sm" />
+                    <p style="margin-right: 15px;"><a routerLink="/profile/{{post.createdByUserName}}"
+                        class="profile-link">{{comment.createdByUserName}} </a>
+                    </p>
+                    <div [innerHTML]="comment.text"></div>
+                  </div>
+                </div>
+                <!--End of the post comments !-->
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <app-profile-activity [user]="user$ | async"></app-profile-activity>
+      </div>
+    </div>
+  </div>
+</div>

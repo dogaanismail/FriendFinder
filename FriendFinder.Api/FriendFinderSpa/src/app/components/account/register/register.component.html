@@ -1,0 +1,143 @@
+<!-- Landing Page Contents
+    ================================================= -->
+<div id="lp-register">
+  <div class="container wrapper">
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="intro-texts">
+          <h1 class="text-white">Make Cool Friends !!!</h1>
+          <p>Friend Finder is a social network template that can be used to connect people. The template offers Landing
+            pages, News Feed, Image/Video Feed, Chat Box, Timeline and lot more. <br /> <br />Why are you waiting for?
+            Buy it now.</p>
+          <button class="btn btn-primary">Learn More</button>
+        </div>
+      </div>
+      <div class="col-sm-6 col-sm-offset-1">
+        <div class="reg-form-container">
+
+
+          <!--Registration Form Contents-->
+          <div class="tab-content">
+            <div class="tab-pane active" id="register">
+              <h3>Register Now </h3>
+              <p class="text-muted">Be cool and join today. Meet millions</p>
+
+              <!--Register Form-->
+              <form name="registration_form" id='registration_form' [formGroup]="registerForm" (ngSubmit)="register()"
+                class="form-inline">
+                <div class="row">
+                  <div class="form-group col-xs-6">
+                    <label for="firstName" class="sr-only">First Name</label>
+
+                    <input id="firstName" formControlName="firstName" class="form-control input-group-lg" type="text"
+                      name="firstName" title="Enter first name" placeholder="First name" />
+
+                    <span class="help-block"
+                      *ngIf="registerForm.get('firstName').hasError('required') && registerForm.get('firstName').touched">
+                      First Name is required
+                    </span>
+                  </div>
+
+                  <div class="form-group col-xs-6">
+                    <label for="lastName" class="sr-only">Last Name</label>
+                    <input id="lastName" formControlName="lastName" class="form-control input-group-lg" type="text"
+                      name="lastName" title="Enter last name" placeholder="Last name" />
+                    <span class="help-block"
+                      *ngIf="registerForm.get('lastName').hasError('required') && registerForm.get('lastName').touched">
+                      Last Name is required
+                    </span>
+                  </div>
+
+                </div>
+
+                <div class="row">
+                  <div class="form-group col-xs-12">
+                    <label for="userName" class="sr-only">Username</label>
+                    <input id="userName" formControlName="userName" class="form-control input-group-lg" type="text"
+                      name="userName" title="Enter username" placeholder="Your Username" />
+                    <span class="help-block"
+                      *ngIf="registerForm.get('userName').hasError('required') && registerForm.get('userName').touched">
+                      Username is required
+                    </span>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-group col-xs-12">
+                    <label for="email" class="sr-only">Email</label>
+                    <input id="email" formControlName="email" class="form-control input-group-lg" type="text"
+                      name="email" title="Enter Email" placeholder="Your Email" />
+
+                    <span class="help-block danger"
+                      *ngIf="registerForm.get('email').hasError('required') && registerForm.get('email').touched">
+                      Email is required
+                    </span>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-group col-xs-12">
+                    <label for="password" class="sr-only">Password</label>
+                    <input id="password" formControlName="password" class="form-control input-group-lg" type="password"
+                      name="password" title="Enter password" placeholder="Password" />
+                  </div>
+
+                  <span class="help-block"
+                    *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').touched">
+                    Password is required
+                  </span>
+                  <span class="help-block"
+                    *ngIf="registerForm.get('password').hasError('minlength') && registerForm.get('password').touched">
+                    Password must be at least 4 characters
+                  </span>
+                  <span class="help-block"
+                    *ngIf="registerForm.get('password').hasError('maxlength') && registerForm.get('password').touched">
+                    Password cannot exceed 12 characters
+                  </span>
+
+                </div>
+
+                <div class="row">
+                  <div class="form-group col-xs-12">
+                    <label for="rePassword" class="sr-only">RePassword</label>
+                    <input id="rePassword" formControlName="rePassword" class="form-control input-group-lg"
+                      type="password" name="rePassword" title="Enter Repassword" placeholder="Repassword" />
+
+                    <span class="help-block"
+                      *ngIf="registerForm.get('rePassword').hasError('required') && registerForm.get('rePassword').touched">
+                      Confirm password is required
+                    </span>
+                    <span class="help-block" *ngIf="registerForm.get('rePassword').touched 
+                              && registerForm.hasError('misMatch')">
+                      Confirm password must match password
+                    </span>
+
+                  </div>
+                </div>
+                <p><a routerLink="/acoount/login">Already have an account?</a></p>
+                <button class="btn btn-primary" type="submit" [disabled]="!registerForm.valid">Register Now</button>
+              </form>
+              <!--Register Now Form Ends-->
+
+            </div>
+            <!--Registration Form Contents Ends-->
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-6">
+
+        <!--Social Icons-->
+        <ul class="list-inline social-icons">
+          <li><a href="#"><i class="icon ion-social-facebook"></i></a></li>
+          <li><a href="#"><i class="icon ion-social-twitter"></i></a></li>
+          <li><a href="#"><i class="icon ion-social-googleplus"></i></a></li>
+          <li><a href="#"><i class="icon ion-social-pinterest"></i></a></li>
+          <li><a href="#"><i class="icon ion-social-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

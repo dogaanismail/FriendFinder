@@ -1,0 +1,209 @@
+<!-- Post Content
+        ================================================= -->
+<!--preloader-->
+<div id="spinner-wrapper" *ngIf="!posts || newPost || newComment">
+  <div class="spinner"></div>
+</div>
+
+<div *ngIf="errorMessage" class="alert alert-danger">
+  Error: {{ errorMessage }}
+</div>
+
+<div *ngFor="let post of posts | orderBy : '-createdDate'" [@EnterLeave]="'flyIn'">
+
+  <!--Image Post-->
+  <div *ngIf="post.postType==1">
+    <div class="post-content">
+      <img src="{{post.imageUrl}}" *ngIf="post.imageUrl" alt="post-image" class="img-responsive post-image" />
+      <div class="post-container">
+        <img src="{{post.createdByUserPhoto}}" alt="user" class="profile-photo-md pull-left" />
+        <div class="post-detail">
+          <div class="user-info">
+            <h5><a routerLink="/profile/{{post.createdByUserName}}" class="profile-link">{{post.createdByUserName}}</a>
+              <span class="following">following</span>
+            </h5>
+            <p class="text-muted">Published a post at {{post.createdDate | date:'short' }} </p>
+          </div>
+          <div class="reaction">
+            <a class="btn text-green"><i class="icon ion-thumbsup"></i> 13</a>
+            <a class="btn text-red"><i class="fa fa-thumbs-down"></i> 0</a>
+          </div>
+          <div class="line-divider"></div>
+          <div class="post-text">
+            <div [innerHTML]="post.text"></div>
+          </div>
+
+          <!--Divider-->
+          <div class="line-divider"></div>
+
+          <!-- Post Comments
+                 ================================================= -->
+          <div *ngIf="post.comments">
+            <div class="post-comment" *ngFor="let comment of post.comments">
+              <img src="{{comment.createdByUserPhoto}}" alt="" class="profile-photo-sm" />
+              <!-- <div class="user-info">
+                <h5><a href="timeline.html" class="profile-link">isodgn</a>
+                  <span class="following">following</span>
+                </h5> 
+                <div class="comment-reaction">
+                    <a class="btn text-green"><i class="icon ion-thumbsup"></i> 15</a>
+                    <a class="btn text-red"><i class="fa fa-thumbs-down"></i> 0</a>
+                  </div>               
+                <p class="text-muted">Published a post at {{comment.createdDate | date:'short' }} </p>
+              </div> -->
+
+              <div class="comment-text">
+                <div [innerHTML]="comment.text"></div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="post-comment" *ngIf="signedUser">
+            <img src="{{signedUser.profilePhotoUrl}}" alt="" class="profile-photo-sm" />
+            <input type="text" class="form-control" *ngIf="commentField != post.id" (click)="getCommentField(post.id)"
+              placeholder="Post a comment">
+
+            <div *ngIf="commentField == post.id">
+              <form #commentCreateForm="ngForm" (ngSubmit)="saveComment(post.id)">
+                <app-ngx-editor [config]="editorConfig" [(ngModel)]="commentCreate.text" required name="text" id="text"
+                  class="form-control" class="form-cityadd ">
+                </app-ngx-editor>
+                <button class="btn btn-warning pull-right" (click)="closeCommentField()"
+                  style="margin-top: 10px; margin-left: 10px">Cancel</button>
+                <button class="btn btn-primary pull-right" [disabled]="!commentCreateForm.valid"
+                  style="margin-top: 10px" type="submit">Reply</button>
+              </form>
+            </div>
+
+          </div>
+          <!--End of the post comments-->
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--End of the image post-->
+
+  <!--Video Post-->
+  <div *ngIf="post.postType==2">
+    <div class="post-content">
+      <div class="video-wrapper">
+        <video class="post-video" controls>
+          <source src="{{post.videoUrl}}" type="video/mp4">
+        </video>
+      </div>
+      <div class="post-container">
+        <img src="{{post.createdByUserPhoto}}" alt="user" class="profile-photo-md pull-left" />
+        <div class="post-detail">
+          <div class="user-info">
+            <h5>
+              <a routerLink="/profile/{{post.createdByUserName}}" class="profile-link">{{post.createdByUserName}}</a>
+              <span class="following">following</span>
+            </h5>
+            <p class="text-muted">Published a post at {{post.createdDate | date:'short' }}</p>
+          </div>
+          <div class="reaction">
+            <a class="btn text-green"><i class="icon ion-thumbsup"></i> 75</a>
+            <a class="btn text-red"><i class="fa fa-thumbs-down"></i> 8</a>
+          </div>
+          <div class="line-divider"></div>
+          <div class="post-text">
+            <div [innerHTML]="post.text"></div>
+          </div>
+          <!--Divider-->
+          <div class="line-divider"></div>
+
+          <!-- Post Comments
+                  ================================================= -->
+          <div *ngIf="post.comments">
+            <div class="post-comment" *ngFor="let comment of post.comments">
+              <img src="{{comment.createdByUserPhoto}}" alt="" class="profile-photo-sm" />
+              <div [innerHTML]="comment.text"></div>
+            </div>
+          </div>
+
+          <div class="post-comment" *ngIf="signedUser">
+            <img src="{{signedUser.profilePhotoUrl}}" alt="" class="profile-photo-sm" />
+            <input type="text" class="form-control" *ngIf="commentField != post.id" (click)="getCommentField(post.id)"
+              placeholder="Post a comment">
+
+            <div *ngIf="commentField == post.id">
+              <form #commentCreateForm="ngForm" (ngSubmit)="saveComment(post.id)">
+                <app-ngx-editor [config]="editorConfig" [(ngModel)]="commentCreate.text" required name="text" id="text"
+                  class="form-control" class="form-cityadd ">
+                </app-ngx-editor>
+                <button class="btn btn-warning pull-right" (click)="closeCommentField()"
+                  style="margin-top: 10px; margin-left: 10px">Cancel</button>
+                <button class="btn btn-primary pull-right" [disabled]="!commentCreateForm.valid"
+                  style="margin-top: 10px" type="submit">Reply</button>
+              </form>
+            </div>
+
+          </div>
+          <!--End of the post comments-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--End of the video post-->
+
+  <!--Text Post-->
+  <div *ngIf="post.postType==3">
+    <div class="post-content">
+      <div class="post-container">
+        <img src="{{post.createdByUserPhoto}}" alt="user" class="profile-photo-md pull-left" />
+        <div class="post-detail">
+          <div class="user-info">
+            <h5><a routerLink="/profile/{{post.createdByUserName}}" class="profile-link">{{post.createdByUserName}}</a>
+              <span class="following">following</span>
+            </h5>
+            <p class="text-muted">Published a post at {{post.createdDate | date:'short' }}</p>
+          </div>
+          <div class="reaction">
+            <a class="btn text-green"><i class="icon ion-thumbsup"></i> 23</a>
+            <a class="btn text-red"><i class="fa fa-thumbs-down"></i> 4</a>
+          </div>
+          <div class="line-divider"></div>
+          <div class="post-text">
+            <div [innerHTML]="post.text"></div>
+          </div>
+          <!--Divider-->
+          <div class="line-divider"></div>
+
+          <!-- Post Comments
+                 ================================================= -->
+          <div *ngIf="post.comments">
+            <div class="post-comment" *ngFor="let comment of post.comments">
+              <img src="{{comment.createdByUserPhoto}}" alt="" class="profile-photo-sm" />
+              <div [innerHTML]="comment.text"></div>
+            </div>
+          </div>
+
+          <div class="post-comment" *ngIf="signedUser">
+            <img src="{{signedUser.profilePhotoUrl}}" alt="" class="profile-photo-sm" />
+            <input type="text" class="form-control" *ngIf="commentField != post.id" (click)="getCommentField(post.id)"
+              placeholder="Post a comment">
+
+            <div *ngIf="commentField == post.id">
+              <form #commentCreateForm="ngForm" (ngSubmit)="saveComment(post.id)">
+                <app-ngx-editor [config]="editorConfig" [(ngModel)]="commentCreate.text" required name="text" id="text"
+                  class="form-control" class="form-cityadd ">
+                </app-ngx-editor>
+                <button class="btn btn-warning pull-right" (click)="closeCommentField()"
+                  style="margin-top: 10px; margin-left: 10px">Cancel</button>
+                <button class="btn btn-primary pull-right" [disabled]="!commentCreateForm.valid"
+                  style="margin-top: 10px" type="submit">Reply</button>
+              </form>
+            </div>
+
+          </div>
+          <!--End of the post comments-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!--End of the post contents-->

@@ -1,0 +1,23 @@
+2019-07-30 17:24:48.586 +03:00 [INF] ChatController - GetChatById Logged
+2019-07-30 17:24:53.269 +03:00 [ERR] HandleExceptionAsync
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at FriendFinder.Business.Services.ChatService.GetMessageById(Int32 chatId) in C:\Users\oguzo\source\Workspaces\FriendFinder\FriendFinder\FriendFinder.Business\Services\ChatService.cs:line 50
+   at FriendFinder.Api.Controllers.ChatController.GetChatById(Int32 chatId) in C:\Users\oguzo\source\Workspaces\FriendFinder\FriendFinder\FriendFinder.Api\Controllers\ChatController.cs:line 33
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at FriendFinder.Core.Middleware.ErrorHandlingMiddleware.Invoke(HttpContext context) in C:\Users\oguzo\source\Workspaces\FriendFinder\FriendFinder\FriendFinder.Core\Middleware\ErrorHandlingMiddleware.cs:line 22

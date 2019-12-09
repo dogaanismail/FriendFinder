@@ -1,0 +1,114 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{FB08214D-DA2E-4631-9D6E-41B3E579D12B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{63A6E51E-68F2-4D73-8BE6-EECAD66570AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{630EFC7A-FBB2-4287-87D1-3C7C1F247015}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{FC89475B-9F89-439D-B91B-0208EDC27158}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FriendFinder.Api", "FriendFinder.Api\FriendFinder.Api.csproj", "{C914112B-B170-4829-9E06-3E03E11182DC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FriendFinder.Business", "FriendFinder.Business\FriendFinder.Business.csproj", "{4B5BB2A3-4111-450D-BC75-9DE309E54936}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FriendFinder.Domain", "FriendFinder.Domain\FriendFinder.Domain.csproj", "{88DCB074-3315-497F-B1B4-429DA05B9EF0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FriendFinder.Entities", "FriendFinder.Entities\FriendFinder.Entities.csproj", "{BB41E85B-FA06-4ADB-B1EE-05424A648719}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FriendFinder.Repository", "FriendFinder.Repository\FriendFinder.Repository.csproj", "{6E3E92A3-F69F-4E22-AAA6-E3BD922A93DE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FriendFinder.Core", "FriendFinder.Core\FriendFinder.Core.csproj", "{2EE74168-10F5-47B7-83CB-34F5258F3831}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{B2FC909C-6749-47E9-B3D9-953D8A34780C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FriendFinder.Api.Test", "FriendFinder.Api.Test\FriendFinder.Api.Test.csproj", "{FCC42F6E-ED4C-49F1-8DA8-0FAF4EE0F126}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C914112B-B170-4829-9E06-3E03E11182DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C914112B-B170-4829-9E06-3E03E11182DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C914112B-B170-4829-9E06-3E03E11182DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C914112B-B170-4829-9E06-3E03E11182DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B5BB2A3-4111-450D-BC75-9DE309E54936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B5BB2A3-4111-450D-BC75-9DE309E54936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B5BB2A3-4111-450D-BC75-9DE309E54936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B5BB2A3-4111-450D-BC75-9DE309E54936}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88DCB074-3315-497F-B1B4-429DA05B9EF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88DCB074-3315-497F-B1B4-429DA05B9EF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88DCB074-3315-497F-B1B4-429DA05B9EF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88DCB074-3315-497F-B1B4-429DA05B9EF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB41E85B-FA06-4ADB-B1EE-05424A648719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB41E85B-FA06-4ADB-B1EE-05424A648719}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB41E85B-FA06-4ADB-B1EE-05424A648719}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB41E85B-FA06-4ADB-B1EE-05424A648719}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E3E92A3-F69F-4E22-AAA6-E3BD922A93DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E3E92A3-F69F-4E22-AAA6-E3BD922A93DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E3E92A3-F69F-4E22-AAA6-E3BD922A93DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E3E92A3-F69F-4E22-AAA6-E3BD922A93DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EE74168-10F5-47B7-83CB-34F5258F3831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EE74168-10F5-47B7-83CB-34F5258F3831}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EE74168-10F5-47B7-83CB-34F5258F3831}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EE74168-10F5-47B7-83CB-34F5258F3831}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCC42F6E-ED4C-49F1-8DA8-0FAF4EE0F126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCC42F6E-ED4C-49F1-8DA8-0FAF4EE0F126}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCC42F6E-ED4C-49F1-8DA8-0FAF4EE0F126}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCC42F6E-ED4C-49F1-8DA8-0FAF4EE0F126}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C914112B-B170-4829-9E06-3E03E11182DC} = {FB08214D-DA2E-4631-9D6E-41B3E579D12B}
+		{4B5BB2A3-4111-450D-BC75-9DE309E54936} = {63A6E51E-68F2-4D73-8BE6-EECAD66570AE}
+		{88DCB074-3315-497F-B1B4-429DA05B9EF0} = {630EFC7A-FBB2-4287-87D1-3C7C1F247015}
+		{BB41E85B-FA06-4ADB-B1EE-05424A648719} = {630EFC7A-FBB2-4287-87D1-3C7C1F247015}
+		{6E3E92A3-F69F-4E22-AAA6-E3BD922A93DE} = {630EFC7A-FBB2-4287-87D1-3C7C1F247015}
+		{2EE74168-10F5-47B7-83CB-34F5258F3831} = {FC89475B-9F89-439D-B91B-0208EDC27158}
+		{FCC42F6E-ED4C-49F1-8DA8-0FAF4EE0F126} = {B2FC909C-6749-47E9-B3D9-953D8A34780C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {50DA5203-850E-49F6-8314-1D022EF336A0}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/1631101
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = FriendFinder.Api.Test\\FriendFinder.Api.Test.csproj
+		SccProjectTopLevelParentUniqueName1 = FriendFinder.sln
+		SccProjectName1 = FriendFinder.Api.Test
+		SccLocalPath1 = FriendFinder.Api.Test
+		SccProjectUniqueName2 = FriendFinder.Api\\FriendFinder.Api.csproj
+		SccProjectTopLevelParentUniqueName2 = FriendFinder.sln
+		SccProjectName2 = FriendFinder.Api
+		SccLocalPath2 = FriendFinder.Api
+		SccProjectUniqueName3 = FriendFinder.Business\\FriendFinder.Business.csproj
+		SccProjectTopLevelParentUniqueName3 = FriendFinder.sln
+		SccProjectName3 = FriendFinder.Business
+		SccLocalPath3 = FriendFinder.Business
+		SccProjectUniqueName4 = FriendFinder.Core\\FriendFinder.Core.csproj
+		SccProjectTopLevelParentUniqueName4 = FriendFinder.sln
+		SccProjectName4 = FriendFinder.Core
+		SccLocalPath4 = FriendFinder.Core
+		SccProjectUniqueName5 = FriendFinder.Domain\\FriendFinder.Domain.csproj
+		SccProjectTopLevelParentUniqueName5 = FriendFinder.sln
+		SccProjectName5 = FriendFinder.Domain
+		SccLocalPath5 = FriendFinder.Domain
+		SccProjectUniqueName6 = FriendFinder.Entities\\FriendFinder.Entities.csproj
+		SccProjectTopLevelParentUniqueName6 = FriendFinder.sln
+		SccProjectName6 = FriendFinder.Entities
+		SccLocalPath6 = FriendFinder.Entities
+		SccProjectUniqueName7 = FriendFinder.Repository\\FriendFinder.Repository.csproj
+		SccProjectTopLevelParentUniqueName7 = FriendFinder.sln
+		SccProjectName7 = FriendFinder.Repository
+		SccLocalPath7 = FriendFinder.Repository
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,9 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<app-navbar [signedUser]="signedUser$ | async"></app-navbar>
+
+
+<router-outlet></router-outlet>
+
+
+<app-footer *ngIf="showFooter"></app-footer>

@@ -1,0 +1,28 @@
+2019-07-29 09:59:34.383 +03:00 [ERR] HandleExceptionAsync
+System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at FriendFinder.Core.Security.JwtSecurity.JwtTokenDefinitions.get_IssuerSigningKey() in C:\Users\oguzo\source\Workspaces\FriendFinder\FriendFinder\FriendFinder.Core\Security\JwtSecurity\JwtTokenDefinitions.cs:line 25
+   at FriendFinder.Core.Security.JwtSecurity.JwtTokenDefinitions.get_SigningCredentials() in C:\Users\oguzo\source\Workspaces\FriendFinder\FriendFinder\FriendFinder.Core\Security\JwtSecurity\JwtTokenDefinitions.cs:line 27
+   at FriendFinder.Core.Security.TokenService.GenerateAccessToken(IEnumerable`1 claims) in C:\Users\oguzo\source\Workspaces\FriendFinder\FriendFinder\FriendFinder.Core\Security\TokenService.cs:line 44
+   at FriendFinder.Core.Security.TokenService.GenerateToken(AppUserDto appUserDto) in C:\Users\oguzo\source\Workspaces\FriendFinder\FriendFinder\FriendFinder.Core\Security\TokenService.cs:line 25
+   at FriendFinder.Api.Controllers.AccountController.Login(LoginApiRequest model) in C:\Users\oguzo\source\Workspaces\FriendFinder\FriendFinder\FriendFinder.Api\Controllers\AccountController.cs:line 43
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at FriendFinder.Core.Middleware.ErrorHandlingMiddleware.Invoke(HttpContext context) in C:\Users\oguzo\source\Workspaces\FriendFinder\FriendFinder\FriendFinder.Core\Middleware\ErrorHandlingMiddleware.cs:line 22

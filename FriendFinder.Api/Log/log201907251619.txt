@@ -1,0 +1,22 @@
+2019-07-25 16:19:28.585 +03:00 [ERR] Failed executing DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [ChatGroupUsers] (
+    [Id] int NOT NULL IDENTITY,
+    [Date] datetime2 NOT NULL,
+    [ChatGroupId] int NOT NULL,
+    [UserID] int NOT NULL,
+    CONSTRAINT [PK_ChatGroupUsers] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_ChatGroupUsers_ChatGroups_ChatGroupId] FOREIGN KEY ([ChatGroupId]) REFERENCES [ChatGroups] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_ChatGroupUsers_AppUser_UserID] FOREIGN KEY ([UserID]) REFERENCES [AppUser] ([Id]) ON DELETE CASCADE
+);
+System.Data.SqlClient.SqlException (0x80131904): Introducing FOREIGN KEY constraint 'FK_ChatGroupUsers_AppUser_UserID' on table 'ChatGroupUsers' may cause cycles or multiple cascade paths. Specify ON DELETE NO ACTION or ON UPDATE NO ACTION, or modify other FOREIGN KEY constraints.
+Could not create constraint. See previous errors.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+ClientConnectionId:9f9a9383-14c9-427e-8200-c761b0458e76
+Error Number:1785,State:0,Class:16

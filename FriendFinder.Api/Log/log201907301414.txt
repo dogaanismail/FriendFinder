@@ -1,0 +1,1 @@
+2019-07-30 14:14:57.148 +03:00 [INF] ChatController - GetAllMessages Logged

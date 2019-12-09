@@ -1,0 +1,42 @@
+<div class="container">
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    Error: {{ errorMessage }}
+  </div>
+  <!-- Timeline
+  ================================================= -->
+  <div class="timeline">
+
+    <app-profile-navbar [user]="user$ | async" [newPhoto]="isNewPhoto$ | async" [newCover]="isNewCover$ | async">
+    </app-profile-navbar>
+
+    <div id="page-contents">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-7">
+
+          <!-- Photo Album
+          ================================================= -->
+          <ul class="album-photos" *ngIf="imagePost$ | async as imagePost">>
+            <li *ngFor="let post of imagePost">
+              <div class="img-wrapper" (click)="openModal('user-photo', post.id)">
+                <img src="{{post.imageUrl}}" alt="photo" />
+              </div>
+
+              <jw-modal id="user-photo">
+                <div class="modal-dialog modal-lg" *ngIf="selectedPost">
+                  <div class="modal-content">
+                    <img src="{{selectedPost.imageUrl}}" alt="photo" />
+                  </div>
+                </div>
+              </jw-modal>
+
+            </li>
+          </ul>
+          <!---->
+
+        </div>
+        <app-profile-activity [user]="user$ | async"></app-profile-activity>
+      </div>
+    </div>
+  </div>
+</div>
