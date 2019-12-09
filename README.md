@@ -1,6 +1,6 @@
 # FriendFinder
 
-The purpose of this system is to provide dear users to meet and share their beneficial ideas each other on this website. Friend Finder is a social website that has so many interesting tools and features. The target of this website is to reach so many users and maket hem happy.
+The purpose of this system is to provide dear users to meet and share their beneficial ideas each other on this website. Friend Finder is a social website that has so many interesting tools and features. The target of this website is to reach so many users and make them happy.
 
 The fastest Friend Finder is a web application that provides users to create their own specific post, comments, and create a video conference room that the other users can join in.
 Users can find their friends that will be able to a close friend by using a specific finder. By using geocoordinate and geolocation special system, user can find easily a friend.
