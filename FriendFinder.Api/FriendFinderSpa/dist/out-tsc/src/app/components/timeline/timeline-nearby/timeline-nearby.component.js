@@ -1,7 +1,11 @@
 import * as tslib_1 from "tslib";
 import { Component, ViewChild } from '@angular/core';
+/* NgRx */
+import { select } from '@ngrx/store';
+import * as fromUser from '../../../ngrx/selectors/user.selectors';
 let TimelineNearbyComponent = class TimelineNearbyComponent {
-    constructor() {
+    constructor(userStore) {
+        this.userStore = userStore;
         this.isTracking = false;
     }
     ngOnInit() {
@@ -11,6 +15,7 @@ let TimelineNearbyComponent = class TimelineNearbyComponent {
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
+        this.signedUser$ = this.userStore.pipe(select(fromUser.getSignedUser));
     }
     findMe() {
         if (navigator.geolocation) {

@@ -3,9 +3,9 @@ import { Component } from "@angular/core";
 import { FileUploader } from "ng2-file-upload";
 import * as postActions from "../../../ngrx/actions/post.actions";
 let ProfileCreatePostComponent = class ProfileCreatePostComponent {
-    constructor(editorConfigService, store, authService, orderPipe) {
+    constructor(editorConfigService, postStore, authService, orderPipe) {
         this.editorConfigService = editorConfigService;
-        this.store = store;
+        this.postStore = postStore;
         this.authService = authService;
         this.orderPipe = orderPipe;
         this.postCreate = {};
@@ -45,7 +45,7 @@ let ProfileCreatePostComponent = class ProfileCreatePostComponent {
             formData.append("photo", this.fileData);
             formData.append("text", this.postCreate.text);
         }
-        this.store.dispatch(new postActions.CreatePost(formData));
+        this.postStore.dispatch(new postActions.CreatePost(formData));
     }
     initiliazeUploader() {
         this.uploader = new FileUploader({

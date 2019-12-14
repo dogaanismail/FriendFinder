@@ -6,17 +6,18 @@ import * as fromPost from '../../../ngrx/selectors/post.selectors';
 import * as fromUser from '../../../ngrx/selectors/user.selectors';
 import * as postActions from '../../../ngrx/actions/post.actions';
 let TimelineComponent = class TimelineComponent {
-    constructor(store) {
-        this.store = store;
+    constructor(postStore, userStore) {
+        this.postStore = postStore;
+        this.userStore = userStore;
         this.componentActive = true;
     }
     ngOnInit() {
-        this.store.dispatch(new postActions.Load());
-        this.posts$ = this.store.pipe(select(fromPost.getPosts));
-        this.errorMessage$ = this.store.pipe(select(fromPost.getError));
-        this.newPost$ = this.store.pipe(select(fromPost.getIsNewPost));
-        this.newComment$ = this.store.pipe(select(fromPost.getIsNewComment));
-        this.signedUser$ = this.store.pipe(select(fromUser.getSignedUser));
+        this.postStore.dispatch(new postActions.Load());
+        this.posts$ = this.postStore.pipe(select(fromPost.getPosts));
+        this.errorMessage$ = this.postStore.pipe(select(fromPost.getError));
+        this.newPost$ = this.postStore.pipe(select(fromPost.getIsNewPost));
+        this.newComment$ = this.postStore.pipe(select(fromPost.getIsNewComment));
+        this.signedUser$ = this.userStore.pipe(select(fromUser.getSignedUser));
     }
 };
 TimelineComponent = tslib_1.__decorate([

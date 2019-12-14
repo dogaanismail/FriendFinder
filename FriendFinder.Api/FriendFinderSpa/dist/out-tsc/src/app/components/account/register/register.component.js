@@ -3,11 +3,11 @@ import { Component } from "@angular/core";
 import { Validators } from "@angular/forms";
 import * as userActions from "../../../ngrx/actions/user.actions";
 let RegisterComponent = class RegisterComponent {
-    constructor(authService, formBuilder, alertifyService, store, router) {
+    constructor(authService, formBuilder, alertifyService, userStore, router) {
         this.authService = authService;
         this.formBuilder = formBuilder;
         this.alertifyService = alertifyService;
-        this.store = store;
+        this.userStore = userStore;
         this.router = router;
     }
     ngOnInit() {
@@ -41,10 +41,10 @@ let RegisterComponent = class RegisterComponent {
             this.authService.register(this.registerUser).subscribe((data) => {
                 if (data.result.status === false) {
                     this.alertifyService.error(data.result.message.toString());
-                    this.store.dispatch(new userActions.RegisterFail(data.result.message));
+                    this.userStore.dispatch(new userActions.RegisterFail(data.result.message));
                 }
                 else {
-                    this.store.dispatch(new userActions.RegisterSuccess(data.result.message));
+                    this.userStore.dispatch(new userActions.RegisterSuccess(data.result.message));
                     this.alertifyService.success("You can login !");
                     this.router.navigate(["/account/login"]);
                 }

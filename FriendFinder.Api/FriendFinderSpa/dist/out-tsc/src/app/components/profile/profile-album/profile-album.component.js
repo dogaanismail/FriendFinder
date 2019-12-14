@@ -11,34 +11,34 @@ import * as postActions from './../../../ngrx/actions/post.actions';
 import { throwError } from "rxjs";
 import { select } from "@ngrx/store";
 let ProfileAlbumComponent = class ProfileAlbumComponent {
-    constructor(modalService, route, store) {
+    constructor(modalService, route, userStore) {
         this.modalService = modalService;
         this.route = route;
-        this.store = store;
+        this.userStore = userStore;
     }
     ngOnInit() {
         const username = this.route.snapshot.paramMap.get("username");
         if (username) {
-            this.store.dispatch(new userActions.SetCurrentUser(username));
-            this.user$ = this.store.pipe(select(fromUser.getCurrentUser));
+            this.userStore.dispatch(new userActions.SetCurrentUser(username));
+            this.user$ = this.userStore.pipe(select(fromUser.getCurrentUser));
             this.imagePost$ = this.user$.pipe(map((imagePost) => imagePost.userPosts.filter((post) => post.postType === PostTypeEnum.PostImage)), catchError(this.handleError));
-            this.isNewCover$ = this.store.pipe(select(fromUser.getIsNewCover));
-            this.isNewPhoto$ = this.store.pipe(select(fromUser.getIsNewPhoto));
+            this.isNewCover$ = this.userStore.pipe(select(fromUser.getIsNewCover));
+            this.isNewPhoto$ = this.userStore.pipe(select(fromUser.getIsNewPhoto));
         }
     }
     openModal(id, postId) {
         this.modalService.open(id);
-        this.store.dispatch(new postActions.SetCurrentPost(postId));
+        this.userStore.dispatch(new postActions.SetCurrentPost(postId));
         this.filledPost();
     }
     filledPost() {
-        this.store.pipe(select(fromPost.getCurrentPost)).subscribe(selectPost => {
+        this.userStore.pipe(select(fromPost.getCurrentPost)).subscribe(selectPost => {
             this.selectedPost = selectPost;
         });
     }
     closeModal(id) {
         this.modalService.close(id);
-        this.store.dispatch(new postActions.ClearCurrentPost());
+        this.userStore.dispatch(new postActions.ClearCurrentPost());
     }
     handleError(err) {
         if (err.error instanceof ErrorEvent) {

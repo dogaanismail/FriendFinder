@@ -54,3 +54,17 @@ C:\Projects\FriendFinder\FriendFinder.Api.Test\obj\Debug\netcoreapp2.2\FriendFin
 C:\Projects\FriendFinder\FriendFinder.Api.Test\obj\Debug\netcoreapp2.2\FriendFinder.Api.Test.AssemblyInfo.cs
 C:\Projects\FriendFinder\FriendFinder.Api.Test\obj\Debug\netcoreapp2.2\FriendFinder.Api.Test.dll
 C:\Projects\FriendFinder\FriendFinder.Api.Test\obj\Debug\netcoreapp2.2\FriendFinder.Api.Test.pdb
+C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Api.Test\bin\Debug\netcoreapp2.2\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Api.Test\bin\Debug\netcoreapp2.2\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Api.Test\bin\Debug\netcoreapp2.2\xunit.runner.utility.netcoreapp10.dll
+C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Api.Test\bin\Debug\netcoreapp2.2\FriendFinder.Api.Test.deps.json
+C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Api.Test\bin\Debug\netcoreapp2.2\FriendFinder.Api.Test.runtimeconfig.json
+C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Api.Test\bin\Debug\netcoreapp2.2\FriendFinder.Api.Test.runtimeconfig.dev.json
+C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Api.Test\bin\Debug\netcoreapp2.2\FriendFinder.Api.Test.dll
+C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Api.Test\bin\Debug\netcoreapp2.2\FriendFinder.Api.Test.pdb
+C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Api.Test\obj\Debug\netcoreapp2.2\FriendFinder.Api.Test.csprojAssemblyReference.cache
+C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Api.Test\obj\Debug\netcoreapp2.2\FriendFinder.Api.Test.csproj.CoreCompileInputs.cache
+C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Api.Test\obj\Debug\netcoreapp2.2\FriendFinder.Api.Test.AssemblyInfoInputs.cache
+C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Api.Test\obj\Debug\netcoreapp2.2\FriendFinder.Api.Test.AssemblyInfo.cs
+C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Api.Test\obj\Debug\netcoreapp2.2\FriendFinder.Api.Test.dll
+C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Api.Test\obj\Debug\netcoreapp2.2\FriendFinder.Api.Test.pdb

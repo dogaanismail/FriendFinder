@@ -21,6 +21,9 @@ export function userReducer(state = initialState, action) {
             const updatedUser = state.currentUser;
             updatedUser.profilePhotoUrl = action.payload.toString();
             state.currentUser = updatedUser;
+            const signedUser = state.signedUser;
+            signedUser.profilePhotoUrl = action.payload.toString();
+            state.signedUser = signedUser;
             return Object.assign({}, state, { currentUser: updatedUser, error: null, isNewPhoto: false });
         case UserActionTypes.ChangeProfilePhotoFail:
             return Object.assign({}, state, { currentUser: null, error: action.payload });
@@ -28,6 +31,9 @@ export function userReducer(state = initialState, action) {
             const updatedCover = state.currentUser;
             updatedCover.coverPhotoUrl = action.payload.toString();
             state.currentUser = updatedCover;
+            const updatedCoverSigned = state.signedUser;
+            updatedCoverSigned.coverPhotoUrl = action.payload.toString();
+            state.signedUser = updatedCoverSigned;
             return Object.assign({}, state, { currentUser: updatedCover, error: null, isNewCover: false });
         case UserActionTypes.ChangeCoverPhotoFail:
             return Object.assign({}, state, { currentUser: null, error: action.payload });

@@ -6,9 +6,11 @@ import { map } from 'rxjs/operators';
 import { select } from '@ngrx/store';
 import * as postActions from './../../../ngrx/actions/post.actions';
 import * as fromPost from '../../../ngrx/selectors/post.selectors';
+import * as fromUser from '../../../ngrx/selectors/user.selectors';
 let TimelineImagesComponent = class TimelineImagesComponent {
-    constructor(store, modalService, editorConfigService) {
-        this.store = store;
+    constructor(postStore, userStore, modalService, editorConfigService) {
+        this.postStore = postStore;
+        this.userStore = userStore;
         this.modalService = modalService;
         this.editorConfigService = editorConfigService;
         this.commentCreate = {};
@@ -17,23 +19,24 @@ let TimelineImagesComponent = class TimelineImagesComponent {
     }
     ngOnInit() {
         this.editorConfig = this.editorConfigService.editorConfigForComment;
-        this.imagePost$ = this.store.pipe(select(fromPost.getPosts));
+        this.imagePost$ = this.postStore.pipe(select(fromPost.getPosts));
         this.imagePost$ = this.imagePost$.pipe(map(imagePost => imagePost.filter(x => x.postType === PostTypeEnum.PostImage)));
-        this.errorMessage$ = this.store.pipe(select(fromPost.getError));
+        this.errorMessage$ = this.postStore.pipe(select(fromPost.getError));
+        this.signedUser$ = this.userStore.pipe(select(fromUser.getSignedUser));
     }
     openModal(id, postId) {
         this.modalService.open(id);
-        this.store.dispatch(new postActions.SetCurrentPost(postId));
+        this.postStore.dispatch(new postActions.SetCurrentPost(postId));
         this.filledPost();
     }
     filledPost() {
-        this.store.pipe(select(fromPost.getCurrentPost)).subscribe(selectPost => {
+        this.postStore.pipe(select(fromPost.getCurrentPost)).subscribe(selectPost => {
             this.selectedPost = selectPost;
         });
     }
     closeModal(id) {
         this.modalService.close(id);
-        this.store.dispatch(new postActions.ClearCurrentPost());
+        this.postStore.dispatch(new postActions.ClearCurrentPost());
     }
     getCommentField(postId) {
         console.log(postId);
@@ -44,7 +47,7 @@ let TimelineImagesComponent = class TimelineImagesComponent {
     }
     saveComment(postId) {
         this.commentCreate.postId = postId;
-        this.store.dispatch(new postActions.CreateComment(this.commentCreate));
+        this.postStore.dispatch(new postActions.CreateComment(this.commentCreate));
         this.commentField = 0;
         this.commentCreate = {};
     }

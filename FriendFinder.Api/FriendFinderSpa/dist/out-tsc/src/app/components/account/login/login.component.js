@@ -2,11 +2,11 @@ import * as tslib_1 from "tslib";
 import { Component } from "@angular/core";
 import * as userActions from "../../../ngrx/actions/user.actions";
 let LoginComponent = class LoginComponent {
-    constructor(authService, alertifyService, router, store) {
+    constructor(authService, alertifyService, router, userStore) {
         this.authService = authService;
         this.alertifyService = alertifyService;
         this.router = router;
-        this.store = store;
+        this.userStore = userStore;
         this.loginUser = {};
     }
     ngOnInit() { }
@@ -16,10 +16,10 @@ let LoginComponent = class LoginComponent {
             console.log(data);
             if (data.result.status === false) {
                 this.alertifyService.error(data.result.message.toString());
-                this.store.dispatch(new userActions.LoginFail(data.result.message));
+                this.userStore.dispatch(new userActions.LoginFail(data.result.message));
             }
             else {
-                this.store.dispatch(new userActions.LoginSuccess(data.result));
+                this.userStore.dispatch(new userActions.LoginSuccess(data.result));
                 this.authService.saveToken(data.result.refreshToken.toString());
                 this.alertifyService.success("You have entered successfully !");
                 this.router.navigate(["/"]);

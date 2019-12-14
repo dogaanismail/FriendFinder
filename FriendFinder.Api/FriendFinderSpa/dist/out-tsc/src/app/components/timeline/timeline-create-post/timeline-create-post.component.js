@@ -3,9 +3,9 @@ import { Component, Input } from "@angular/core";
 import { FileUploader } from "ng2-file-upload";
 import * as postActions from "../../../ngrx/actions/post.actions";
 let TimelineCreatePostComponent = class TimelineCreatePostComponent {
-    constructor(editorConfigService, store, authService) {
+    constructor(editorConfigService, postStore, authService) {
         this.editorConfigService = editorConfigService;
-        this.store = store;
+        this.postStore = postStore;
         this.authService = authService;
         this.postCreate = {};
         this.errorMessage = "";
@@ -56,7 +56,7 @@ let TimelineCreatePostComponent = class TimelineCreatePostComponent {
                 formData.append("video", this.fileData);
         }
         formData.append("text", this.postCreate.text);
-        this.store.dispatch(new postActions.CreatePost(formData));
+        this.postStore.dispatch(new postActions.CreatePost(formData));
         this.postCreate.text = null;
         this.closePreview();
     }

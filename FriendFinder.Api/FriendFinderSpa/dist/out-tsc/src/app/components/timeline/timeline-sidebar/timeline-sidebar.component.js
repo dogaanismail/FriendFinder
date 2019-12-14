@@ -1,10 +1,13 @@
 import * as tslib_1 from "tslib";
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 let TimelineSidebarComponent = class TimelineSidebarComponent {
     constructor() { }
     ngOnInit() {
     }
 };
+tslib_1.__decorate([
+    Input()
+], TimelineSidebarComponent.prototype, "signedUser", void 0);
 TimelineSidebarComponent = tslib_1.__decorate([
     Component({
         selector: 'app-timeline-sidebar',

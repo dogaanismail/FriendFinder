@@ -3,9 +3,9 @@ import { Component, Input } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import * as postActions from '../../../ngrx/actions/post.actions';
 let TimelinePostListComponent = class TimelinePostListComponent {
-    constructor(editorConfigService, store) {
+    constructor(editorConfigService, postStore) {
         this.editorConfigService = editorConfigService;
-        this.store = store;
+        this.postStore = postStore;
         this.pageTitle = 'Posts';
         this.commentCreate = {};
         this.commentField = 0;
@@ -19,7 +19,7 @@ let TimelinePostListComponent = class TimelinePostListComponent {
     }
     saveComment(postId) {
         this.commentCreate.postId = postId;
-        this.store.dispatch(new postActions.CreateComment(this.commentCreate));
+        this.postStore.dispatch(new postActions.CreateComment(this.commentCreate));
         this.commentField = 0;
         this.commentCreate = {};
     }

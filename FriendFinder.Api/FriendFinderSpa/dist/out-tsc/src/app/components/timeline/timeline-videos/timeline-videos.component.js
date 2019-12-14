@@ -6,9 +6,11 @@ import { map } from 'rxjs/operators';
 import { select } from '@ngrx/store';
 import * as fromPost from '../../../ngrx/selectors/post.selectors';
 import * as postActions from './../../../ngrx/actions/post.actions';
+import * as fromUser from '../../../ngrx/selectors/user.selectors';
 let TimelineVideosComponent = class TimelineVideosComponent {
-    constructor(store, modalService, editorConfigService) {
-        this.store = store;
+    constructor(postStore, userStore, modalService, editorConfigService) {
+        this.postStore = postStore;
+        this.userStore = userStore;
         this.modalService = modalService;
         this.editorConfigService = editorConfigService;
         this.commentCreate = {};
@@ -17,23 +19,24 @@ let TimelineVideosComponent = class TimelineVideosComponent {
     }
     ngOnInit() {
         this.editorConfig = this.editorConfigService.editorConfigForComment;
-        this.videoPost$ = this.store.pipe(select(fromPost.getPosts));
+        this.videoPost$ = this.postStore.pipe(select(fromPost.getPosts));
         this.videoPost$ = this.videoPost$.pipe(map(videoPost => videoPost.filter(x => x.postType === PostTypeEnum.PostVideo)));
-        this.errorMessage$ = this.store.pipe(select(fromPost.getError));
+        this.errorMessage$ = this.postStore.pipe(select(fromPost.getError));
+        this.signedUser$ = this.userStore.pipe(select(fromUser.getSignedUser));
     }
     openModal(id, postId) {
         this.modalService.open(id);
-        this.store.dispatch(new postActions.SetCurrentPost(postId));
+        this.postStore.dispatch(new postActions.SetCurrentPost(postId));
         this.filledPost();
     }
     filledPost() {
-        this.store.pipe(select(fromPost.getCurrentPost)).subscribe(selectPost => {
+        this.postStore.pipe(select(fromPost.getCurrentPost)).subscribe(selectPost => {
             this.selectedPost = selectPost;
         });
     }
     closeModal(id) {
         this.modalService.close(id);
-        this.store.dispatch(new postActions.ClearCurrentPost());
+        this.postStore.dispatch(new postActions.ClearCurrentPost());
     }
     getCommentField(postId) {
         this.commentField = postId;
@@ -43,7 +46,7 @@ let TimelineVideosComponent = class TimelineVideosComponent {
     }
     saveComment(postId) {
         this.commentCreate.postId = postId;
-        this.store.dispatch(new postActions.CreateComment(this.commentCreate));
+        this.postStore.dispatch(new postActions.CreateComment(this.commentCreate));
         this.commentField = 0;
         this.commentCreate = {};
     }
