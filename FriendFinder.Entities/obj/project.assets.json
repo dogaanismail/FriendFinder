@@ -4071,11 +4071,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj",
+      "projectUniqueName": "C:\\Projects\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj",
       "projectName": "FriendFinder.Entities",
-      "projectPath": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj",
+      "projectPath": "C:\\Projects\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj",
       "packagesPath": "C:\\Users\\dogan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Entities\\obj\\",
+      "outputPath": "C:\\Projects\\FriendFinder\\FriendFinder.Entities\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

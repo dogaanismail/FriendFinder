@@ -7229,11 +7229,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Domain\\FriendFinder.Domain.csproj",
+      "projectUniqueName": "C:\\Projects\\FriendFinder\\FriendFinder.Domain\\FriendFinder.Domain.csproj",
       "projectName": "FriendFinder.Domain",
-      "projectPath": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Domain\\FriendFinder.Domain.csproj",
+      "projectPath": "C:\\Projects\\FriendFinder\\FriendFinder.Domain\\FriendFinder.Domain.csproj",
       "packagesPath": "C:\\Users\\dogan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Domain\\obj\\",
+      "outputPath": "C:\\Projects\\FriendFinder\\FriendFinder.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

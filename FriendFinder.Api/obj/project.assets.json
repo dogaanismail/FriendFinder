@@ -13673,11 +13673,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Api\\FriendFinder.Api.csproj",
+      "projectUniqueName": "C:\\Projects\\FriendFinder\\FriendFinder.Api\\FriendFinder.Api.csproj",
       "projectName": "FriendFinder.Api",
-      "projectPath": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Api\\FriendFinder.Api.csproj",
+      "projectPath": "C:\\Projects\\FriendFinder\\FriendFinder.Api\\FriendFinder.Api.csproj",
       "packagesPath": "C:\\Users\\dogan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Api\\obj\\",
+      "outputPath": "C:\\Projects\\FriendFinder\\FriendFinder.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13696,17 +13696,17 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Business\\FriendFinder.Business.csproj": {
-              "projectPath": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Business\\FriendFinder.Business.csproj"
+            "C:\\Projects\\FriendFinder\\FriendFinder.Business\\FriendFinder.Business.csproj": {
+              "projectPath": "C:\\Projects\\FriendFinder\\FriendFinder.Business\\FriendFinder.Business.csproj"
             },
-            "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Core\\FriendFinder.Core.csproj": {
-              "projectPath": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Core\\FriendFinder.Core.csproj"
+            "C:\\Projects\\FriendFinder\\FriendFinder.Core\\FriendFinder.Core.csproj": {
+              "projectPath": "C:\\Projects\\FriendFinder\\FriendFinder.Core\\FriendFinder.Core.csproj"
             },
-            "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Domain\\FriendFinder.Domain.csproj": {
-              "projectPath": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Domain\\FriendFinder.Domain.csproj"
+            "C:\\Projects\\FriendFinder\\FriendFinder.Domain\\FriendFinder.Domain.csproj": {
+              "projectPath": "C:\\Projects\\FriendFinder\\FriendFinder.Domain\\FriendFinder.Domain.csproj"
             },
-            "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj": {
-              "projectPath": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj"
+            "C:\\Projects\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj": {
+              "projectPath": "C:\\Projects\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj"
             }
           }
         }

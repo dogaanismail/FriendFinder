@@ -3945,11 +3945,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Repository\\FriendFinder.Repository.csproj",
+      "projectUniqueName": "C:\\Projects\\FriendFinder\\FriendFinder.Repository\\FriendFinder.Repository.csproj",
       "projectName": "FriendFinder.Repository",
-      "projectPath": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Repository\\FriendFinder.Repository.csproj",
+      "projectPath": "C:\\Projects\\FriendFinder\\FriendFinder.Repository\\FriendFinder.Repository.csproj",
       "packagesPath": "C:\\Users\\dogan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Repository\\obj\\",
+      "outputPath": "C:\\Projects\\FriendFinder\\FriendFinder.Repository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -3968,8 +3968,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj": {
-              "projectPath": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj"
+            "C:\\Projects\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj": {
+              "projectPath": "C:\\Projects\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj"
             }
           }
         }

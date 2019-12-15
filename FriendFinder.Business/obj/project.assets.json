@@ -8856,11 +8856,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Business\\FriendFinder.Business.csproj",
+      "projectUniqueName": "C:\\Projects\\FriendFinder\\FriendFinder.Business\\FriendFinder.Business.csproj",
       "projectName": "FriendFinder.Business",
-      "projectPath": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Business\\FriendFinder.Business.csproj",
+      "projectPath": "C:\\Projects\\FriendFinder\\FriendFinder.Business\\FriendFinder.Business.csproj",
       "packagesPath": "C:\\Users\\dogan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Business\\obj\\",
+      "outputPath": "C:\\Projects\\FriendFinder\\FriendFinder.Business\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -8879,11 +8879,11 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Domain\\FriendFinder.Domain.csproj": {
-              "projectPath": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Domain\\FriendFinder.Domain.csproj"
+            "C:\\Projects\\FriendFinder\\FriendFinder.Domain\\FriendFinder.Domain.csproj": {
+              "projectPath": "C:\\Projects\\FriendFinder\\FriendFinder.Domain\\FriendFinder.Domain.csproj"
             },
-            "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Repository\\FriendFinder.Repository.csproj": {
-              "projectPath": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Repository\\FriendFinder.Repository.csproj"
+            "C:\\Projects\\FriendFinder\\FriendFinder.Repository\\FriendFinder.Repository.csproj": {
+              "projectPath": "C:\\Projects\\FriendFinder\\FriendFinder.Repository\\FriendFinder.Repository.csproj"
             }
           }
         }

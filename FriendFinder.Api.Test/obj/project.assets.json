@@ -5854,11 +5854,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Api.Test\\FriendFinder.Api.Test.csproj",
+      "projectUniqueName": "C:\\Projects\\FriendFinder\\FriendFinder.Api.Test\\FriendFinder.Api.Test.csproj",
       "projectName": "FriendFinder.Api.Test",
-      "projectPath": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Api.Test\\FriendFinder.Api.Test.csproj",
+      "projectPath": "C:\\Projects\\FriendFinder\\FriendFinder.Api.Test\\FriendFinder.Api.Test.csproj",
       "packagesPath": "C:\\Users\\dogan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dogan\\Source\\Repos\\dogaanismail\\FriendFinder\\FriendFinder.Api.Test\\obj\\",
+      "outputPath": "C:\\Projects\\FriendFinder\\FriendFinder.Api.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
