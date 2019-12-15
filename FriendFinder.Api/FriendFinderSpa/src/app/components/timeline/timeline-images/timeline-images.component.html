@@ -7,7 +7,7 @@
       <div class="col-md-3 static">
         <div class="profile-card" *ngIf="signedUser$ | async as user">
           <img src="{{user.profilePhotoUrl}}" alt="user" class="profile-photo" />
-          <h5><a href="timeline.html" class="text-white">{{user.userName}}</a></h5>
+          <h5><a routerLink="/profile/{{user.userName}}" class="text-white">{{user.userName}}</a></h5>
           <a href="#" class="text-white"><i class="ion ion-android-person-add"></i> 1,299 followers</a>
         </div>
         <!--profile card ends-->
@@ -63,9 +63,10 @@
                   <a class="btn text-red"><i class="fa fa-thumbs-down"></i> 12</a>
                 </div>
                 <div class="user-info">
-                  <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left" />
+                  <img src="{{post.createdByUserPhoto}}" alt="" class="profile-photo-sm pull-left" />
                   <div class="user">
-                    <h6><a href="#" class="profile-link">{{post.createdByUserName}}</a></h6>
+                    <h6><a routerLink="/profile/{{post.createdByUserName}}"
+                        class="profile-link">{{post.createdByUserName}}</a></h6>
                     <a class="text-green" href="#">Friend</a>
                   </div>
                 </div>
@@ -90,7 +91,8 @@
                             class="profile-photo-md pull-left" />
                           <div class="post-detail">
                             <div class="user-info">
-                              <h5><a href="timeline.html" class="profile-link">{{selectedPost.createdByUserName}}</a>
+                              <h5><a routerLink="/profile/{{selectedPost.createdByUserName}}"
+                                  class="profile-link">{{selectedPost.createdByUserName}}</a>
                                 <span class="following">following</span></h5>
                               <p class="text-muted">Published a photo at {{post.createdDate | date:'short' }}</p>
                             </div>
@@ -114,8 +116,8 @@
                               </div>
                             </div>
 
-                            <div class="post-comment">
-                              <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm" />
+                            <div class="post-comment" *ngIf="signedUser$ | async as user">
+                              <img src="{{user.profilePhotoUrl}}" alt="" class="profile-photo-sm" />
                               <input type="text" class="form-control" *ngIf="commentField != selectedPost.id"
                                 (click)="getCommentField(selectedPost.id)" placeholder="Post a comment">
 

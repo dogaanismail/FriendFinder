@@ -1,14 +1,15 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { EditorConfigService } from "../../../config/editorConfig/editor-config.service";
 import { AuthService } from "../../../services/user/auth/auth.service";
 import { FileUploader } from "ng2-file-upload";
 import { Post } from "src/app/models/post/post";
 import { OrderPipe } from "ngx-order-pipe";
-
+import { SignedUser } from 'src/app/models/user/signedUser';
 /* NgRx */
 import { Store } from "@ngrx/store";
 import * as fromPost from "../../../ngrx/selectors/post.selectors";
 import * as postActions from "../../../ngrx/actions/post.actions";
+
 
 @Component({
   selector: "app-profile-create-post",
@@ -32,6 +33,7 @@ export class ProfileCreatePostComponent implements OnInit {
   uploader: FileUploader;
   path = "api/post/";
   savedPost: Post;
+  @Input() signedUser: SignedUser;
 
   ngOnInit() {
     this.editorConfig = this.editorConfigService.editorConfig;

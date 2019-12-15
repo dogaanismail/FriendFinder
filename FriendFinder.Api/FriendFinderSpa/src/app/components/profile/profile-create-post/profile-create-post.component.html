@@ -1,55 +1,55 @@
 <!-- Post Create Box
     ================================================= -->
-    <div class="create-post">
-      <div class="row">
-        <form #postCreateForm="ngForm" (ngSubmit)="savePost()">
-          <div class="col-md-12 col-sm-12">
-            <div class="form-group">
-              <img src="http://placehold.it/300x300" alt="" class="profile-photo-md" />
-              <!-- <textarea name="texts" id="exampleTextarea" cols="120" rows="1" class="form-control"
+<div class="create-post" *ngIf="signedUser">
+  <div class="row">
+    <form #postCreateForm="ngForm" (ngSubmit)="savePost()">
+      <div class="col-md-12 col-sm-12">
+        <div class="form-group">
+          <img src="{{signedUser.profilePhotoUrl}}" alt="" class="profile-photo-md" />
+          <!-- <textarea name="texts" id="exampleTextarea" cols="120" rows="1" class="form-control"
               placeholder="Write what you wish"></textarea> -->
-              <app-ngx-editor [config]="editorConfig" [(ngModel)]="postCreate.text" name="text" id="text"
-              class="form-control" class="form-cityadd "></app-ngx-editor>
-            </div>
-          </div>
-    
-          <div *ngIf="previewUrl" class="col-md-12 col-sm-12 pull-left">
-            <table>
-              <tr>
-                <td>
-                  <img [src]="previewUrl" height=60 width="60" class="img-circle mb-3">
-                  <span class="fixed-top" (click)="closePreview()"><i class="ion-close"></i></span>
-                </td>
-              </tr>
-            </table>
-          </div>
-    
-          <div class="col-md-5 col-sm-5 pull-right">
-            <div class="tools">
-              <ul class="publishing-tools list-inline">
-                <li><a href="#" title=""><i class="ion-compose"></i></a></li>
-                <!-- <li><a href="#" title="Share an image !" ng2FileSelect [uploader]="uploader"><i class="ion-images"></i></a></li> -->
-                <li>
-                  <label for="uploadImage">
-                    <a title="Share an image !">
-                      <i class="ion-images"></i>
-                    </a>
-                    <input type="file" (change)="fileProgress($event)" id="uploadImage" style="display:none">
-                  </label>
-                </li>
-                <li>
-                  <label for="uploadVideo">
-                    <a title="Share a video !">
-                      <i class="ion-ios-videocam"></i>
-                    </a>
-                    <input type="file" id="uploadVideo" style="display:none">
-                  </label>
-                </li>
-                <li><a href="#"><i class="ion-map"></i></a></li>
-              </ul>
-              <button class="btn btn-primary pull-right" type="submit" [disabled]="!postCreateForm.valid">Publish</button>
-            </div>
-          </div>
-        </form>
+          <app-ngx-editor [config]="editorConfig" [(ngModel)]="postCreate.text" name="text" id="text"
+            class="form-control" class="form-cityadd "></app-ngx-editor>
+        </div>
       </div>
-    </div><!-- Post Create Box End-->
+
+      <div *ngIf="previewUrl" class="col-md-12 col-sm-12 pull-left">
+        <table>
+          <tr>
+            <td>
+              <img [src]="previewUrl" height=60 width="60" class="img-circle mb-3">
+              <span class="fixed-top" (click)="closePreview()"><i class="ion-close"></i></span>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="col-md-5 col-sm-5 pull-right">
+        <div class="tools">
+          <ul class="publishing-tools list-inline">
+            <li><a href="#" title=""><i class="ion-compose"></i></a></li>
+            <!-- <li><a href="#" title="Share an image !" ng2FileSelect [uploader]="uploader"><i class="ion-images"></i></a></li> -->
+            <li>
+              <label for="uploadImage">
+                <a title="Share an image !">
+                  <i class="ion-images"></i>
+                </a>
+                <input type="file" (change)="fileProgress($event)" id="uploadImage" style="display:none">
+              </label>
+            </li>
+            <li>
+              <label for="uploadVideo">
+                <a title="Share a video !">
+                  <i class="ion-ios-videocam"></i>
+                </a>
+                <input type="file" id="uploadVideo" style="display:none">
+              </label>
+            </li>
+            <li><a href="#"><i class="ion-map"></i></a></li>
+          </ul>
+          <button class="btn btn-primary pull-right" type="submit" [disabled]="!postCreateForm.valid">Publish</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div><!-- Post Create Box End-->

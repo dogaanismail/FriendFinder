@@ -1,5 +1,5 @@
 import * as tslib_1 from "tslib";
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { FileUploader } from "ng2-file-upload";
 import * as postActions from "../../../ngrx/actions/post.actions";
 let ProfileCreatePostComponent = class ProfileCreatePostComponent {
@@ -66,6 +66,9 @@ let ProfileCreatePostComponent = class ProfileCreatePostComponent {
         };
     }
 };
+tslib_1.__decorate([
+    Input()
+], ProfileCreatePostComponent.prototype, "signedUser", void 0);
 ProfileCreatePostComponent = tslib_1.__decorate([
     Component({
         selector: "app-profile-create-post",

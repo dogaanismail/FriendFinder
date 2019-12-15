@@ -15,7 +15,7 @@
 
           <!-- Post Create Box
         ================================================= -->
-          <app-profile-create-post></app-profile-create-post>
+          <app-profile-create-post [signedUser]="signedUser$ | async"></app-profile-create-post>
           <!-- Post Create Box End-->
 
           <!-- Post Content
