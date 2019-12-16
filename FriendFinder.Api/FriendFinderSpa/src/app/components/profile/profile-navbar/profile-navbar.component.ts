@@ -13,7 +13,8 @@ import * as userActions from '../../../ngrx/actions/user.actions';
 export class ProfileNavbarComponent implements OnInit {
 
   constructor(
-    private userStore: Store<fromUser.State>) { }
+    private userStore: Store<fromUser.State>
+    ) { }
 
   profilePhotoData: File = null;
   coverPhotoData: File = null;

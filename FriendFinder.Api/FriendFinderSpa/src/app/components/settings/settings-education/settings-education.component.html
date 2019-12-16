@@ -3,7 +3,11 @@
   <!-- Timeline
   ================================================= -->
   <div class="timeline">
-    <app-settings-navbar></app-settings-navbar>
+    <app-settings-navbar [signedUser]="signedUser$ | async"
+    [newPhoto]="isNewPhoto$ | async" 
+    [newCover]="isNewCover$ | async">
+
+    </app-settings-navbar>
     <div id="page-contents">
       <div class="row">
         <div class="col-md-3">
@@ -17,7 +21,7 @@
             <div class="block-title">
               <h4 class="grey"><i class="icon ion-ios-book-outline"></i>My education</h4>
               <div class="line"></div>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate</p>
+              <p>You can edit your education informations ! </p>
               <div class="line"></div>
             </div>
             <div class="edit-block">
@@ -41,7 +45,8 @@
                 <div class="row">
                   <div class="form-group col-xs-12">
                     <label for="edu-description">Description</label>
-                    <textarea id="edu-description" name="description" class="form-control" placeholder="Some texts about my education" rows="4" cols="400">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate</textarea>
+                    <textarea id="edu-description" name="description" class="form-control" placeholder="Text here..." rows="4" cols="400">
+                    </textarea>
                   </div>
                 </div>
                 <div class="row">
@@ -56,7 +61,7 @@
             <div class="block-title">
               <h4 class="grey"><i class="icon ion-ios-briefcase-outline"></i>Work Experiences</h4>
               <div class="line"></div>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate</p>
+              <p>Edit your work experiences !</p>
               <div class="line"></div>
             </div>
             <div class="edit-block">
@@ -92,7 +97,8 @@
                 <div class="row">
                   <div class="form-group col-xs-12">
                     <label for="work-description">Description</label>
-                    <textarea id="work-description" name="description" class="form-control" placeholder="Some texts about my work" rows="4" cols="400">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate</textarea>
+                    <textarea id="work-description" name="description" class="form-control" placeholder="Text here..." rows="4" cols="400">
+                    </textarea>
                   </div>
                 </div>
                 <button class="btn btn-primary">Save Changes</button>
@@ -100,36 +106,11 @@
             </div>
           </div>
         </div>
-        <div class="col-md-2 static">
-          
+        <div class="col-md-2 static">        
           <!--Sticky Timeline Activity Sidebar-->
-          <div id="sticky-sidebar">
-            <h4 class="grey">Sarah's activity</h4>
-            <div class="feed-item">
-              <div class="live-activity">
-                <p><a href="#" class="profile-link">Sarah</a> Commended on a Photo</p>
-                <p class="text-muted">5 mins ago</p>
-              </div>
-            </div>
-            <div class="feed-item">
-              <div class="live-activity">
-                <p><a href="#" class="profile-link">Sarah</a> Has posted a photo</p>
-                <p class="text-muted">an hour ago</p>
-              </div>
-            </div>
-            <div class="feed-item">
-              <div class="live-activity">
-                <p><a href="#" class="profile-link">Sarah</a> Liked her friend's post</p>
-                <p class="text-muted">4 hours ago</p>
-              </div>
-            </div>
-            <div class="feed-item">
-              <div class="live-activity">
-                <p><a href="#" class="profile-link">Sarah</a> has shared an album</p>
-                <p class="text-muted">a day ago</p>
-              </div>
-            </div>
-          </div>
+          <app-settings-activitiy [signedUser]="signedUser$ | async" >
+
+          </app-settings-activitiy>
         </div>
       </div>
     </div>

@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-settings-menu',
-  templateUrl: './settings-menu.component.html',
-  styleUrls: ['./settings-menu.component.css']
+  templateUrl: './settings-menu.component.html'
 })
 export class SettingsMenuComponent implements OnInit {
 

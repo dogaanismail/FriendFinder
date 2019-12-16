@@ -1,21 +1,36 @@
-<div class="timeline-cover">
+<!--preloader-->
+<div id="spinner-wrapper" *ngIf="newPhoto || newCover">
+  <div class="spinner"></div>
+</div>
 
+<div class="timeline-cover" [ngStyle]="{'background-image':'url('+signedUser.coverPhotoUrl+')'}">
+
+  <!-- <a class="btn text-black top-right" (click)="changeCover()" style="font-size: 20px;"><i class="fa fa-edit"></i> Edit</a> -->
+  <label *ngIf="signedUser" for="editCover" class="btn text-black top-right" style="font-size: 20px;">
+    <a title="Edit your cover photo!"><i class="fa fa-edit" tyle="text-decoration: none;"></i>Edit</a>
+    <input type="file" (change)="changeCover($event)" id="editCover" style="display:none">
+  </label>
   <!--Timeline Menu for Large Screens-->
   <div class="timeline-nav-bar hidden-sm hidden-xs">
     <div class="row">
       <div class="col-md-3">
         <div class="profile-info">
-          <img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" />
-          <h3>Sarah Cruiz</h3>
-          <p class="text-muted">Creative Director</p>
+          <!-- <a class="btn text-black top-right" style="top:20px; left:80px" (click)="changeProfile()"><i class="fa fa-edit"></i> Edit</a> -->
+          <label *ngIf="signedUser" for="editPp" class="btn text-black top-right" style="top:20px; left:80px">
+            <a title="Edit your profile photo!" style="text-decoration: none;"><i class="fa fa-edit"></i>Edit</a>
+            <input type="file" (change)="changeProfile($event)" id="editPp" style="display:none">
+          </label>
+          <img src="{{signedUser.profilePhotoUrl}}" alt="" class="img-responsive profile-photo" />
+          <h4>{{signedUser.userName}}</h4>
+          <p class="text-muted">Computer Engineer</p>
         </div>
       </div>
       <div class="col-md-9">
         <ul class="list-inline profile-menu">
-          <li><a routerLink="/profile" class="active">Timeline</a></li>
-          <li><a routerLink="/profile/about">About</a></li>
-          <li><a routerLink="/profile/album">Album</a></li>
-          <li><a routerLink="/profile/friends">Friends</a></li>
+          <li><a routerLink="/profile/{{signedUser.userName}}" class="active">Timeline</a></li>
+          <li><a routerLink="/profile/about/{{signedUser.userName}}">About</a></li>
+          <li><a routerLink="/profile/album/{{signedUser.userName}}">Album</a></li>
+          <li><a routerLink="/profile/friends/{{signedUser.userName}}">Friends</a></li>
         </ul>
         <ul class="follow-me list-inline">
           <li>1,299 people following her</li>
@@ -23,24 +38,26 @@
         </ul>
       </div>
     </div>
-  </div><!--Timeline Menu for Large Screens End-->
+  </div>
+  <!--Timeline Menu for Large Screens End-->
 
   <!--Timeline Menu for Small Screens-->
   <div class="navbar-mobile hidden-lg hidden-md">
     <div class="profile-info">
-      <img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" />
-      <h4>Sarah Cruiz</h4>
-      <p class="text-muted">Creative Director</p>
+      <img src="{{signedUser.profilePhotoUrl}}" alt="" class="img-responsive profile-photo" />
+      <h4>{{signedUser.userName}}</h4>
+      <p class="text-muted">Computer Engineer</p>
     </div>
     <div class="mobile-menu">
-      <ul class="list-inline">
-        <li><a href="timline.html" class="active">Timeline</a></li>
-        <li><a href="timeline-about.html">About</a></li>
-        <li><a href="timeline-album.html">Album</a></li>
-        <li><a href="timeline-friends.html">Friends</a></li>
+      <ul class="list-inline profile-menu">
+        <li><a routerLink="/profile/{{signedUser.userName}}" class="active">Timeline</a></li>
+        <li><a routerLink="/profile/about/{{signedUser.userName}}">About</a></li>
+        <li><a routerLink="/profile/album/{{signedUser.userName}}">Album</a></li>
+        <li><a routerLink="/profile/friends/{{signedUser.userName}}">Friends</a></li>
       </ul>
       <button class="btn-primary">Add Friend</button>
     </div>
-  </div><!--Timeline Menu for Small Screens End-->
+  </div>
+  <!--Timeline Menu for Small Screens End-->
 
 </div>

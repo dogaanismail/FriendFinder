@@ -8,7 +8,8 @@ import { SettingsInterestComponent } from './settings-interest/settings-interest
 import { SettingsPasswordComponent } from './settings-password/settings-password.component';
 import { SettingsMenuComponent } from './settings-menu/settings-menu.component';
 import { SettingsNavbarComponent } from './settings-navbar/settings-navbar.component';
-
+import { SharedModule } from "../../shared/shared.module";
+import { SettingsActivitiyComponent } from './settings-activitiy/settings-activitiy.component';
 
 const settingsRoutes: Routes = [
     { path: "settings/information", component: SettingsInformationComponent },
@@ -21,6 +22,7 @@ const settingsRoutes: Routes = [
 @NgModule({
     imports: [
         RouterModule.forChild(settingsRoutes),
+        SharedModule
     ],
     declarations: [
         SettingsAccountComponent,
@@ -29,7 +31,8 @@ const settingsRoutes: Routes = [
         SettingsInterestComponent,
         SettingsPasswordComponent,
         SettingsMenuComponent,
-        SettingsNavbarComponent
+        SettingsNavbarComponent,
+        SettingsActivitiyComponent
     ]
 })
 export class SettingsModule { }
