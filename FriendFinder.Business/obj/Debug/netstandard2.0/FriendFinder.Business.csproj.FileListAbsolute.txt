@@ -56,7 +56,6 @@ C:\Projects\FriendFinder\FriendFinder.Business\bin\Debug\netstandard2.0\FriendFi
 C:\Projects\FriendFinder\FriendFinder.Business\bin\Debug\netstandard2.0\FriendFinder.Repository.pdb
 C:\Projects\FriendFinder\FriendFinder.Business\bin\Debug\netstandard2.0\FriendFinder.Entities.pdb
 C:\Projects\FriendFinder\FriendFinder.Business\obj\Debug\netstandard2.0\FriendFinder.Business.csprojAssemblyReference.cache
-C:\Projects\FriendFinder\FriendFinder.Business\obj\Debug\netstandard2.0\FriendFinder.Business.csproj.CoreCompileInputs.cache
 C:\Projects\FriendFinder\FriendFinder.Business\obj\Debug\netstandard2.0\FriendFinder.Business.AssemblyInfoInputs.cache
 C:\Projects\FriendFinder\FriendFinder.Business\obj\Debug\netstandard2.0\FriendFinder.Business.AssemblyInfo.cs
 C:\Projects\FriendFinder\FriendFinder.Business\obj\Debug\netstandard2.0\FriendFinder.Business.csproj.CopyComplete

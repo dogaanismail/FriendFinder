@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\oguzo\\source\\Workspaces\\FriendFinder\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj": {}
+    "C:\\Projects\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\oguzo\\source\\Workspaces\\FriendFinder\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj": {
+    "C:\\Projects\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\oguzo\\source\\Workspaces\\FriendFinder\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj",
+        "projectUniqueName": "C:\\Projects\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj",
         "projectName": "FriendFinder.Entities",
-        "projectPath": "C:\\Users\\oguzo\\source\\Workspaces\\FriendFinder\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj",
-        "packagesPath": "C:\\Users\\oguzo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\oguzo\\source\\Workspaces\\FriendFinder\\FriendFinder\\FriendFinder.Entities\\obj\\",
+        "projectPath": "C:\\Projects\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj",
+        "packagesPath": "C:\\Users\\dogan\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\FriendFinder\\FriendFinder.Entities\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\oguzo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dogan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -41,11 +38,21 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
-            "Microsoft.AspNetCore.Identity": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[2.2.0, )"
             },
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[2.2.0, )"
             },
@@ -57,10 +64,16 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

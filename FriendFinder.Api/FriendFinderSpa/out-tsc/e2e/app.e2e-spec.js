@@ -1,5 +1,4 @@
 "use strict";
-var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = require("tslib");
 var app_po_1 = require("./app.po");
@@ -13,7 +12,7 @@ describe('workspace-project App', function () {
         page.navigateTo();
         expect(page.getTitleText()).toEqual('Welcome to FriendFinder-SPA!');
     });
-    afterEach(function () { return tslib_1.__awaiter(_this, void 0, void 0, function () {
+    afterEach(function () { return tslib_1.__awaiter(void 0, void 0, void 0, function () {
         var logs;
         return tslib_1.__generator(this, function (_a) {
             switch (_a.label) {

@@ -29,7 +29,6 @@ C:\Projects\FriendFinder\FriendFinder.Entities\bin\Debug\netstandard2.0\FriendFi
 C:\Projects\FriendFinder\FriendFinder.Entities\bin\Debug\netstandard2.0\FriendFinder.Entities.dll
 C:\Projects\FriendFinder\FriendFinder.Entities\bin\Debug\netstandard2.0\FriendFinder.Entities.pdb
 C:\Projects\FriendFinder\FriendFinder.Entities\obj\Debug\netstandard2.0\FriendFinder.Entities.csprojAssemblyReference.cache
-C:\Projects\FriendFinder\FriendFinder.Entities\obj\Debug\netstandard2.0\FriendFinder.Entities.csproj.CoreCompileInputs.cache
 C:\Projects\FriendFinder\FriendFinder.Entities\obj\Debug\netstandard2.0\FriendFinder.Entities.AssemblyInfoInputs.cache
 C:\Projects\FriendFinder\FriendFinder.Entities\obj\Debug\netstandard2.0\FriendFinder.Entities.AssemblyInfo.cs
 C:\Projects\FriendFinder\FriendFinder.Entities\obj\Debug\netstandard2.0\FriendFinder.Entities.dll
