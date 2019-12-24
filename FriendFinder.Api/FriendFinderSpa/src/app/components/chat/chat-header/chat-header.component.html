@@ -1,12 +1,11 @@
 <div class="chat-nav">
   <div class="nav-start">
-    <div class="recipient-block">
+    <div class="recipient-block" *ngIf="signedUser">
       <div class="avatar-container">
-        <img class="user-avatar" src="https://via.placeholder.com/300x300" data-demo-src="assets/images/avatars/dan.jpg"
-          alt="">
+        <img class="user-avatar" src="{{signedUser.profilePhotoUrl}}" alt="">
       </div>
       <div class="username">
-        <span>Dan Walker</span>
+        <span>{{signedUser.userName}}</span>
         <span><i data-feather="star"></i> <span>| Online</span></span>
       </div>
     </div>

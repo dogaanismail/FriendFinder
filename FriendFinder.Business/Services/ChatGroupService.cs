@@ -45,6 +45,7 @@ namespace FriendFinder.Business.Services
             throw new NotImplementedException();
         }
 
+
         public IEnumerable<ChatGroupDto> GetChatGroups(string username)
         {
             //needs to have code refactoring later
@@ -57,9 +58,10 @@ namespace FriendFinder.Business.Services
                 .Where(c => c.ChatGroupMembers.Any(ty => ty.GroupMember.Id == authUser.Id))
                 .ToList();
 
+                //needs to have code refactoring because of selecting single user of a chat group
                 IEnumerable<ChatGroupDto> chatGroupsDto = chatGroups.Where(x => x.ChatGroupMembers.Any(t => t.GroupMember.Id != authUser.Id)).Select(p => new ChatGroupDto
                 {
-                    AppUserId = authUser.Id,
+                    AppUserId = p.ChatGroupMembers.Where(x => x.GroupMember.Id != authUser.Id).FirstOrDefault().GroupMember.Id, //code refactoring
                     ChatGroupId = p.Id,
                     ChatGroupName = p.Name,
                     CreatedDate = p.CreatedDate,

@@ -6,17 +6,25 @@ namespace FriendFinder.Business.Interfaces
     public interface IChatService
     {
         /// <summary>
-        /// Sistemdeki Bütün Mesajları Getir
+        /// Returns all chat messages in the system.
         /// </summary>
         /// <returns></returns>
         IEnumerable<MessageDto> GetAllMessages();
 
         /// <summary>
-        /// Gelen id'ye göre ilgili chat'i döndürmektedir.
+        /// Returns the messages by chatId.
         /// </summary>
         /// <param name="chatId"></param>
         /// <returns></returns>
         MessageDto GetMessageById(int chatId);
-      
+
+
+        /// <summary>
+        /// Returns the messages by chat group name.
+        /// </summary>
+        /// <param name="chatId"></param>
+        /// <returns></returns>
+        IEnumerable<MessageDto> GetMessagesByGroupName(string groupName);
+
     }
 }

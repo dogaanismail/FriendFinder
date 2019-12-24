@@ -89,7 +89,6 @@ C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\FriendFinder.E
 C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\FriendFinder.Domain.pdb
 C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\FriendFinder.Repository.pdb
 C:\Projects\FriendFinder\FriendFinder.Api\obj\Debug\netcoreapp2.2\FriendFinder.Api.csprojAssemblyReference.cache
-C:\Projects\FriendFinder\FriendFinder.Api\obj\Debug\netcoreapp2.2\FriendFinder.Api.csproj.CoreCompileInputs.cache
 C:\Projects\FriendFinder\FriendFinder.Api\obj\Debug\netcoreapp2.2\FriendFinder.Api.RazorAssemblyInfo.cache
 C:\Projects\FriendFinder\FriendFinder.Api\obj\Debug\netcoreapp2.2\FriendFinder.Api.RazorAssemblyInfo.cs
 C:\Projects\FriendFinder\FriendFinder.Api\obj\Debug\netcoreapp2.2\FriendFinder.Api.AssemblyInfoInputs.cache
@@ -123,3 +122,14 @@ C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Api\obj\Debug
 C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Api\obj\Debug\netcoreapp2.2\FriendFinder.Api.csproj.CopyComplete
 C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Api\obj\Debug\netcoreapp2.2\FriendFinder.Api.dll
 C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Api\obj\Debug\netcoreapp2.2\FriendFinder.Api.pdb
+C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\appsettings.Development.json
+C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\appsettings.json
+C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\FriendFinderSpa\angular.json
+C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\FriendFinderSpa\e2e\tsconfig.json
+C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\FriendFinderSpa\package-lock.json
+C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\FriendFinderSpa\package.json
+C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\FriendFinderSpa\tsconfig.app.json
+C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\FriendFinderSpa\tsconfig.json
+C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\FriendFinderSpa\tsconfig.spec.json
+C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\FriendFinderSpa\tslint.json
+C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\Properties\launchSettings.json

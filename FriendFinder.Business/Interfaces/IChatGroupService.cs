@@ -17,5 +17,6 @@ namespace FriendFinder.Business.Interfaces
         /// </summary>
         /// <returns></returns>
         IEnumerable<ChatGroupDto> GetChatGroups(string username);
+
     }
 }

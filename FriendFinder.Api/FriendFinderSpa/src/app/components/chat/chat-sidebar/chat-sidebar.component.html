@@ -1,20 +1,14 @@
 <!-- Chat sidebar -->
 <div id="chat-sidebar" class="users-sidebar">
   <!-- Header -->
-  <a href="/feed.html" class="header-item">
-
+  <a routerLink="timeline" class="header-item">
   </a>
   <!-- User list -->
   <div class="conversations-list has-slimscroll-xs">
     <!-- User -->
-    <div class="user-item is-active" *ngFor="let group of chatGroups" data-status="Online">
+    <div class="user-item is-active" *ngFor="let group of groupUsers" data-status="Online">
       <div class="avatar-container">
-
-        <img class="user-avatar" title="Chat with {{group.userName}}" *ngIf="group.profilePhotoUrl"
-          src=" group.profilePhotoUrl" alt="">
-
-        <img class="user-avatar" title="Chat with {{group.userName}}" *ngIf="!group.profilePhotoUrl"
-          src="https://via.placeholder.com/300x300" alt="">
+        <img class="user-avatar" (click)="selectUser(group)" title="Chat with {{group.userName}}" src="{{group.profilePhotoUrl}}" alt=""/>
       </div>
     </div>
 

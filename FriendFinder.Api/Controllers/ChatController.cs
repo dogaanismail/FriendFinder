@@ -10,19 +10,20 @@ namespace FriendFinder.Api.Controllers
     {
         #region Constructor
         private readonly IChatService _chatService;
-
-        public ChatController(IChatService chatService)
+        private readonly IChatGroupService _chatGroupService;
+        public ChatController(IChatService chatService, IChatGroupService chatGroupService)
         {
             _chatService = chatService;
+            _chatGroupService = chatGroupService;
         }
         #endregion
 
-        [HttpGet("GetAllMessages")]
-        public JsonResult GetAllMessages()
+        [HttpGet("getgroupmessages")]
+        public JsonResult GetMessagesByGroupName(string groupName)
         {
-            Log.Logger.Information("ChatController - GetAllMessages Logged");
+            Log.Logger.Information("ChatController - GetMessagesByGroupName Logged");
 
-            var data = _chatService.GetAllMessages();
+            var data = _chatService.GetMessagesByGroupName(groupName);
             return OkResponse(data);
         }
 

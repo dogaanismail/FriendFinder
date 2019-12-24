@@ -22,7 +22,7 @@ import { postReducer } from './ngrx/reducers/post.reducer';
 import { userReducer } from './ngrx/reducers/user.reducer';
 import { globalErrorReducer } from './ngrx/reducers/global-error.reducer';
 import { EffectsModule } from '@ngrx/effects';
-import { PostEffects } from 'src/app/ngrx/effects/post.effects';
+import { PostEffects } from './ngrx/effects/post.effects';
 import { UserEffects } from './ngrx/effects/user.effects';
 
 /* Modules */
