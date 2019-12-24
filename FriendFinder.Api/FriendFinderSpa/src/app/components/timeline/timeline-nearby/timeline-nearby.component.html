@@ -14,26 +14,7 @@
         <app-timeline-sidebar [signedUser]="signedUser$ | async"></app-timeline-sidebar>
         <div id="chat-block">
           <div class="title">Chat online</div>
-          <ul class="online-users list-inline">
-            <li><a href="newsfeed-messages.html" title="Linda Lohan"><img src="http://placehold.it/300x300" alt="user"
-                  class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-            <li><a href="newsfeed-messages.html" title="Sophia Lee"><img src="http://placehold.it/300x300" alt="user"
-                  class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-            <li><a href="newsfeed-messages.html" title="John Doe"><img src="http://placehold.it/300x300" alt="user"
-                  class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-            <li><a href="newsfeed-messages.html" title="Alexis Clark"><img src="http://placehold.it/300x300" alt="user"
-                  class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-            <li><a href="newsfeed-messages.html" title="James Carter"><img src="http://placehold.it/300x300" alt="user"
-                  class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-            <li><a href="newsfeed-messages.html" title="Robert Cook"><img src="http://placehold.it/300x300" alt="user"
-                  class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-            <li><a href="newsfeed-messages.html" title="Richard Bell"><img src="http://placehold.it/300x300" alt="user"
-                  class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-            <li><a href="newsfeed-messages.html" title="Anna Young"><img src="http://placehold.it/300x300" alt="user"
-                  class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-            <li><a href="newsfeed-messages.html" title="Julia Cox"><img src="http://placehold.it/300x300" alt="user"
-                  class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-          </ul>
+          <app-timeline-chat-online></app-timeline-chat-online>
         </div>
         <!--chat block ends-->
       </div>
@@ -74,129 +55,9 @@
                 <img src="http://placehold.it/300x300" alt="user" class="profile-photo-lg" />
               </div>
               <div class="col-md-7 col-sm-7">
-                <h5><a href="#" class="profile-link">Emma Johnson</a></h5>
-                <p>Model at Fashion</p>
+                <h5><a href="#" class="profile-link">Gökhan Akpınar</a></h5>
+                <p>Computer Engineer</p>
                 <p class="text-muted">800m away</p>
-              </div>
-              <div class="col-md-3 col-sm-3">
-                <button class="btn btn-primary pull-right">Add Friend</button>
-              </div>
-            </div>
-          </div>
-          <div class="nearby-user">
-            <div class="row">
-              <div class="col-md-2 col-sm-2">
-                <img src="http://placehold.it/300x300" alt="user" class="profile-photo-lg" />
-              </div>
-              <div class="col-md-7 col-sm-7">
-                <h5><a href="#" class="profile-link">Nora Wilson</a></h5>
-                <p>Writer at Newspaper</p>
-                <p class="text-muted">2.5km away</p>
-              </div>
-              <div class="col-md-3 col-sm-3">
-                <button class="btn btn-primary pull-right">Add Friend</button>
-              </div>
-            </div>
-          </div>
-          <div class="nearby-user">
-            <div class="row">
-              <div class="col-md-2 col-sm-2">
-                <img src="http://placehold.it/300x300" alt="user" class="profile-photo-lg" />
-              </div>
-              <div class="col-md-7 col-sm-7">
-                <h5><a href="#" class="profile-link">Diana Amber</a></h5>
-                <p>Student</p>
-                <p class="text-muted">700m away</p>
-              </div>
-              <div class="col-md-3 col-sm-3">
-                <button class="btn btn-primary pull-right">Add Friend</button>
-              </div>
-            </div>
-          </div>
-          <div class="nearby-user">
-            <div class="row">
-              <div class="col-md-2 col-sm-2">
-                <img src="http://placehold.it/300x300" alt="user" class="profile-photo-lg" />
-              </div>
-              <div class="col-md-7 col-sm-7">
-                <h5><a href="#" class="profile-link">Addison Thomas</a></h5>
-                <p>Barber at Fashion</p>
-                <p class="text-muted">1.5km away</p>
-              </div>
-              <div class="col-md-3 col-sm-3">
-                <button class="btn btn-primary pull-right">Add Friend</button>
-              </div>
-            </div>
-          </div>
-          <div class="nearby-user">
-            <div class="row">
-              <div class="col-md-2 col-sm-2">
-                <img src="http://placehold.it/300x300" alt="user" class="profile-photo-lg" />
-              </div>
-              <div class="col-md-7 col-sm-7">
-                <h5><a href="#" class="profile-link">Jonathon Thompson</a></h5>
-                <p>Fashion Designer</p>
-                <p class="text-muted">2km away</p>
-              </div>
-              <div class="col-md-3 col-sm-3">
-                <button class="btn btn-primary pull-right">Add Friend</button>
-              </div>
-            </div>
-          </div>
-          <div class="nearby-user">
-            <div class="row">
-              <div class="col-md-2 col-sm-2">
-                <img src="http://placehold.it/300x300" alt="user" class="profile-photo-lg" />
-              </div>
-              <div class="col-md-7 col-sm-7">
-                <h5><a href="#" class="profile-link">Olivia Steward</a></h5>
-                <p>Creative Director</p>
-                <p class="text-muted">2km away</p>
-              </div>
-              <div class="col-md-3 col-sm-3">
-                <button class="btn btn-primary pull-right">Add Friend</button>
-              </div>
-            </div>
-          </div>
-          <div class="nearby-user">
-            <div class="row">
-              <div class="col-md-2 col-sm-2">
-                <img src="http://placehold.it/300x300" alt="user" class="profile-photo-lg" />
-              </div>
-              <div class="col-md-7 col-sm-7">
-                <h5><a href="#" class="profile-link">Elena Foster</a></h5>
-                <p>Executive Officer</p>
-                <p class="text-muted">4km away</p>
-              </div>
-              <div class="col-md-3 col-sm-3">
-                <button class="btn btn-primary pull-right">Add Friend</button>
-              </div>
-            </div>
-          </div>
-          <div class="nearby-user">
-            <div class="row">
-              <div class="col-md-2 col-sm-2">
-                <img src="http://placehold.it/300x300" alt="user" class="profile-photo-lg" />
-              </div>
-              <div class="col-md-7 col-sm-7">
-                <h5><a href="#" class="profile-link">Brian Walton</a></h5>
-                <p>Designer at Designer</p>
-                <p class="text-muted">3km away</p>
-              </div>
-              <div class="col-md-3 col-sm-3">
-                <button class="btn btn-primary pull-right">Add Friend</button>
-              </div>
-            </div>
-          </div>
-          <div class="nearby-user">
-            <div class="row">
-              <div class="col-md-2 col-sm-2">
-                <img src="http://placehold.it/300x300" alt="user" class="profile-photo-lg" />
-              </div>
-              <div class="col-md-7 col-sm-7">
-                <h5><a href="#" class="profile-link">Cris Haris</a></h5>
-                <p>General Manager at Manager</p>
-                <p class="text-muted">1km away</p>
               </div>
               <div class="col-md-3 col-sm-3">
                 <button class="btn btn-primary pull-right">Add Friend</button>
@@ -209,44 +70,7 @@
       <!-- Newsfeed Common Side Bar Right
       ================================================= -->
       <div class="col-md-2 static">
-        <div class="suggestions" id="sticky-sidebar">
-          <h4 class="grey">Who to Follow</h4>
-          <div class="follow-user">
-            <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left" />
-            <div>
-              <h5><a href="timeline.html">Diana Amber</a></h5>
-              <a href="#" class="text-green">Add friend</a>
-            </div>
-          </div>
-          <div class="follow-user">
-            <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left" />
-            <div>
-              <h5><a href="timeline.html">Cris Haris</a></h5>
-              <a href="#" class="text-green">Add friend</a>
-            </div>
-          </div>
-          <div class="follow-user">
-            <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left" />
-            <div>
-              <h5><a href="timeline.html">Brian Walton</a></h5>
-              <a href="#" class="text-green">Add friend</a>
-            </div>
-          </div>
-          <div class="follow-user">
-            <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left" />
-            <div>
-              <h5><a href="timeline.html">Olivia Steward</a></h5>
-              <a href="#" class="text-green">Add friend</a>
-            </div>
-          </div>
-          <div class="follow-user">
-            <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left" />
-            <div>
-              <h5><a href="timeline.html">Sophia Page</a></h5>
-              <a href="#" class="text-green">Add friend</a>
-            </div>
-          </div>
-        </div>
+        <app-timeline-follow-user></app-timeline-follow-user>
       </div>
     </div>
   </div>

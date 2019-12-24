@@ -10,6 +10,8 @@ import { TimelineSidebarComponent } from './timeline-sidebar/timeline-sidebar.co
 import { TimelineComponent } from './timeline/timeline.component';
 import { TimelineCreatePostComponent } from './timeline-create-post/timeline-create-post.component';
 import { TimelinePostListComponent } from './timeline/timeline-post-list.component';
+import { TimelineFollowUserComponent } from './timeline-follow-user/timeline-follow-user.component';
+import { TimelineChatOnlineComponent } from './timeline-chat-online/timeline-chat-online.component';
 import { SharedModule } from '../../shared/shared.module';
 
 const timelineRoutes: Routes = [
@@ -36,6 +38,8 @@ const timelineRoutes: Routes = [
         TimelineComponent,
         TimelineCreatePostComponent,
         TimelinePostListComponent,
+        TimelineChatOnlineComponent,
+        TimelineFollowUserComponent
     ]
 })
 export class TimelineModule { }

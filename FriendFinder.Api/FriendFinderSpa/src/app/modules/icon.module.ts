@@ -7,7 +7,8 @@ import {
   Settings, Bell, BellOff, Box,
   Trash2, Search, AtSign, MoreVertical, FileText,
   Users, Gift, DownloadCloud, LifeBuoy, X,
-  Code, Server, Monitor, User, Mail, Share2
+  Code, Server, Monitor, User, Mail, Share2, Video,
+  Mic, Home, PhoneCall
 } from 'angular-feather/icons';
 
 const icons = {
@@ -16,7 +17,8 @@ const icons = {
   Settings, Bell, BellOff, Box,
   Trash2, Search, AtSign, MoreVertical, FileText,
   Users, Gift, DownloadCloud, LifeBuoy, X,
-  Code, Server, Monitor, User, Mail, Share2
+  Code, Server, Monitor, User, Mail, Share2, Video,
+  Mic, Home, PhoneCall
 };
 
 @NgModule({

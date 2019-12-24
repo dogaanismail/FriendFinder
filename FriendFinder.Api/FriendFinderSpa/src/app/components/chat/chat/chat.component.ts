@@ -18,9 +18,8 @@ import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
-  styleUrls: ['../../../../../node_modules/bulma/css/bulma.css',
-    '../css-files/css/core.css', '../css-files/css/materialdesignicons.min.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['../../../../../node_modules/bulma/css/bulma.css','../css-files/css/chat.css'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class ChatComponent implements OnInit {
 
