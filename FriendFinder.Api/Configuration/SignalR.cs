@@ -1,6 +1,5 @@
 ﻿using FriendFinder.Api.Hubs;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace FriendFinder.Api.Configuration
 {
@@ -11,6 +10,8 @@ namespace FriendFinder.Api.Configuration
             app.UseSignalR(routes =>
             {
                 routes.MapHub<VideoNotificationHub>("/notificationHub");
+                routes.MapHub<ChatboxHub>("/chatboxHub");
+                routes.MapHub<ChatHub>("/chatHub");
             });
 
             return app;

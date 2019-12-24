@@ -8,6 +8,7 @@ import { ChatUserDetailComponent } from './chat-user-detail/chat-user-detail.com
 import { ChatMessagesComponent } from './chat-messages/chat-messages.component';
 import { ChatCreateMessageComponent } from './chat-create-message/chat-create-message.component';
 import { SharedModule } from '../../shared/shared.module';
+import { IconsModule } from '../../modules/icon.module';
 
 const chatRoutes: Routes = [
     { path: "chat", component: ChatComponent }
@@ -16,6 +17,7 @@ const chatRoutes: Routes = [
 @NgModule({
     imports: [
         SharedModule,
+        IconsModule,
         RouterModule.forChild(chatRoutes)
     ],
     declarations: [

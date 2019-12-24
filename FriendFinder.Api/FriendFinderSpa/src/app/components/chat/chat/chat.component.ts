@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ChatGroup } from 'src/app/models/chat-group/chat-group';
-import { SignedUser } from 'src/app/models/user/signedUser';
-import { ChatMessages } from 'src/app/models/chat/chat-messages';
+/*Models*/
+import { ChatGroup } from '../../../models/chat-group/chat-group';
+import { SignedUser } from '../../../models/user/signedUser';
+import { ChatMessages } from '../../../models/chat/chat-messages';
 /* Rxjs */
 import { Observable } from 'rxjs';
 /* NgRx */
@@ -10,6 +11,9 @@ import * as fromUser from '../../../ngrx/selectors/user.selectors';
 /* Services */
 import { ChatGroupService } from 'src/app/services/chat-group/chat-group.service';
 import { ChatService } from 'src/app/services/chat/chat.service';
+/* SignalR */
+import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
+
 
 @Component({
   selector: 'app-chat',
