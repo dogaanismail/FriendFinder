@@ -32,11 +32,11 @@
   <div class="chat-action">
     <div class="chat-action-inner">
       <div class="control">
-        <textarea class="textarea comment-textarea" rows="1"></textarea>
+        <textarea [(ngModel)]="txtMessage" class="textarea comment-textarea" rows="1"></textarea>
         <div class="dropdown compose-dropdown is-spaced is-accent is-up dropdown-trigger">
           <div>
             <div class="add-button">
-              <div class="button-inner">
+              <div (click)="sendMsg()" class="button-inner">
                 <i-feather name="plus"></i-feather>
               </div>
             </div>

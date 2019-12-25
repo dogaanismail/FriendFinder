@@ -1,4 +1,5 @@
 ﻿using FriendFinder.Business.Interfaces;
+using FriendFinder.Domain.HubModels;
 using Microsoft.AspNetCore.SignalR;
 using System.Threading.Tasks;
 
@@ -15,11 +16,11 @@ namespace FriendFinder.Api.Hubs
 
         #endregion
 
-        public async Task PrivateMessage(string username, string message)
+        public async Task PrivateMessage(PrivateMessage message)
         {
             //TODO
-            var data = _chatService.GetMessagesByGroupName(message);
-            await Clients.User("sfsff").SendAsync("ReceiveMessage", "userConnectionId", message);
+            var data = _chatService.GetMessagesByGroupName("sf");
+            await Clients.User("sfsff").SendAsync("ReceiveMessage", "userConnectionId", "sfs");
         }
     }
 }

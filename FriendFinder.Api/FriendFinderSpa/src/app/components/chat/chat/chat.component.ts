@@ -3,6 +3,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ChatGroup } from '../../../models/chat-group/chat-group';
 import { SignedUser } from '../../../models/user/signedUser';
 import { ChatMessages } from '../../../models/chat/chat-messages';
+import { Message } from 'src/app/models/chat/message';
 /* Rxjs */
 import { Observable } from 'rxjs';
 /* NgRx */
@@ -11,9 +12,6 @@ import * as fromUser from '../../../ngrx/selectors/user.selectors';
 /* Services */
 import { ChatGroupService } from 'src/app/services/chat-group/chat-group.service';
 import { ChatService } from 'src/app/services/chat/chat.service';
-/* SignalR */
-import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
-
 
 @Component({
   selector: 'app-chat',
@@ -47,6 +45,10 @@ export class ChatComponent implements OnInit {
     this.chatService.getChatMessages(groupUser.chatGroupName).subscribe((data: any) => {
       this.chatMessages = data.result;
     });
+  }
+
+  sendPrivateMessage(message: Message){
+    alert(message.message);
   }
 
 }

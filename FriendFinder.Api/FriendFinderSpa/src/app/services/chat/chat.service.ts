@@ -1,9 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
+import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
 import { Observable, throwError } from 'rxjs';
 import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { AuthService } from '../user/auth/auth.service';
-import { ChatGroup } from 'src/app/models/chat-group/chat-group';
+import { ChatGroup } from '../../models/chat-group/chat-group';
 import { tap, shareReplay, catchError } from 'rxjs/operators';
+import { Message } from '../../models/chat/message';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +13,21 @@ import { tap, shareReplay, catchError } from 'rxjs/operators';
 export class ChatService {
 
   private chatUrl = 'api/chat/';
+  private chatHubUrl = 'chatHub';
+  messageReceived = new EventEmitter<Message>();
+  connectionEstablished = new EventEmitter<Boolean>();
+
+  private connectionIsEstablished = false;
+  private _hubConnection: HubConnection;
 
   constructor(
     private http: HttpClient,
-    private authService: AuthService) { }
+    private authService: AuthService,
+  ) {
+    this.createConnection();
+    this.registerOnServerEvents();
+    this.startConnection();
+  }
 
   getChatMessages(groupName: string): Observable<ChatGroup[]> {
     const headers = new HttpHeaders
@@ -40,5 +53,33 @@ export class ChatService {
     }
     console.error(err);
     return throwError(errorMessage);
+  }
+
+  sendMessage(message: Message) {
+    this._hubConnection.invoke('PrivateMessage', message);
+  }
+
+  private createConnection() {
+    this._hubConnection = new HubConnectionBuilder()
+      .withUrl(this.chatHubUrl)
+      .build();
+  }
+
+  private startConnection(): void {
+    this._hubConnection.start().then(() => {
+      this.connectionIsEstablished = true;
+      console.log('Hub connection started');
+      this.connectionEstablished.emit(true);
+    })
+      .catch(err => {
+        console.log('Error while establishing connection, retrying...');
+        setTimeout(function () { this.startConnection(); }, 5000);
+      });
+  }
+
+  private registerOnServerEvents(): void {
+    this._hubConnection.on('ReceiveMessage', (data: any) => {
+      this.messageReceived.emit(data);
+    });
   }
 }

@@ -6,7 +6,6 @@ import { ChatHeaderComponent } from './chat-header/chat-header.component';
 import { ChatSidebarComponent } from './chat-sidebar/chat-sidebar.component';
 import { ChatUserDetailComponent } from './chat-user-detail/chat-user-detail.component';
 import { ChatMessagesComponent } from './chat-messages/chat-messages.component';
-import { ChatCreateMessageComponent } from './chat-create-message/chat-create-message.component';
 import { SharedModule } from '../../shared/shared.module';
 import { IconsModule } from '../../modules/icon.module';
 
@@ -25,8 +24,7 @@ const chatRoutes: Routes = [
         ChatHeaderComponent,
         ChatSidebarComponent,
         ChatUserDetailComponent,
-        ChatMessagesComponent,
-        ChatCreateMessageComponent
+        ChatMessagesComponent
     ]
 })
 export class ChatModule { }

@@ -4,8 +4,12 @@
 
     <app-chat-sidebar [groupUsers]="chatGroups" (onGroupSelect)="groupSelect($event)"></app-chat-sidebar>
 
-    <app-chat-messages [messages]="chatMessages" [signedUser]="signedUser$ | async"
-      [style.display]="!!showMessages ? 'block' : 'none'"></app-chat-messages>
+    <app-chat-messages 
+    [messages]="chatMessages" 
+    [signedUser]="signedUser$ | async"
+    [style.display]="!!showMessages ? 'block' : 'none'"
+    (onSendMessage)="sendPrivateMessage($event)">
+  </app-chat-messages>
 
     <app-chat-user-detail [style.display]="!!showMessages ? 'block' : 'none'"></app-chat-user-detail>
   </div>
