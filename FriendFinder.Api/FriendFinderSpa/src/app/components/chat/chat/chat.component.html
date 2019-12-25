@@ -11,6 +11,10 @@
     (onSendMessage)="sendPrivateMessage($event)">
   </app-chat-messages>
 
-    <app-chat-user-detail [style.display]="!!showMessages ? 'block' : 'none'"></app-chat-user-detail>
+    <app-chat-user-detail
+     [style.display]="!!showMessages ? 'block' : 'none'"
+     [memberDetails]="memberDetails">
+    </app-chat-user-detail
+    >
   </div>
 </div>

@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { AuthService } from '../user/auth/auth.service';
-import { ChatGroup } from 'src/app/models/chat-group/chat-group';
+import { ChatGroup } from '../../models/chat-group/chat-group';
 import { tap, shareReplay, catchError } from 'rxjs/operators';
+import { MemberDetails } from '../../models/chat-group/member-details';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,21 @@ export class ChatGroupService {
       });
 
     return this.http.get<ChatGroup[]>(this.chatGroupUrl + "getchatgroups", { headers: headers })
+      .pipe(
+        tap(),
+        shareReplay(1),
+        catchError(this.handleError)
+      );
+  }
+
+  getMemberDetails(groupName: string): Observable<MemberDetails> {
+    const headers = new HttpHeaders
+      ({
+        "Authorization": "Bearer " + this.authService.getToken,
+        'Content-Type': 'application/json'
+      });
+    const param = new HttpParams().set('groupName', groupName)
+    return this.http.get<MemberDetails>(this.chatGroupUrl + "getmemberdetails", { headers: headers, params: param, })
       .pipe(
         tap(),
         shareReplay(1),

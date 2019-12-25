@@ -1,7 +1,8 @@
 ﻿using FriendFinder.Business.Interfaces;
-using FriendFinder.Domain.HubModels;
+using FriendFinder.Domain.Dto;
 using Microsoft.AspNetCore.SignalR;
 using System.Threading.Tasks;
+using System;
 
 namespace FriendFinder.Api.Hubs
 {
@@ -9,18 +10,28 @@ namespace FriendFinder.Api.Hubs
     {
         #region Ctor
         private IChatService _chatService;
-        public ChatHub(IChatService chatService)
+        private IUserService _userService;
+        public ChatHub(IChatService chatService, IUserService userService)
         {
             _chatService = chatService;
+            _userService = userService;
         }
 
         #endregion
 
-        public async Task PrivateMessage(PrivateMessage message)
+        public async Task PrivateMessage(MessageDto message)
         {
-            //TODO
-            var data = _chatService.GetMessagesByGroupName("sf");
-            await Clients.User("sfsff").SendAsync("ReceiveMessage", "userConnectionId", "sfs");
+            var user = _userService.FindByUserName(Context.User.Identity.Name);
+            message.SenderId = user.Id;
+            message.SenderName = Context.User.Identity.Name;
+            message.ProfilePhotoUrl = user.UserDetail.ProfilePhotoPath;
+            message.CreateDate = DateTime.Now;
+            var result = _chatService.Create(message);
+            if (result.Status)
+            {
+                await Clients.All.SendAsync("ReceiveMessage", message);
+            }
+
         }
     }
 }

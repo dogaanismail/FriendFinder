@@ -5,7 +5,7 @@ import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { AuthService } from '../user/auth/auth.service';
 import { ChatGroup } from '../../models/chat-group/chat-group';
 import { tap, shareReplay, catchError } from 'rxjs/operators';
-import { Message } from '../../models/chat/message';
+import { ChatMessages } from '../../models/chat/chat-messages';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class ChatService {
 
   private chatUrl = 'api/chat/';
   private chatHubUrl = 'chatHub';
-  messageReceived = new EventEmitter<Message>();
+  messageReceived = new EventEmitter<ChatMessages>();
   connectionEstablished = new EventEmitter<Boolean>();
 
   private connectionIsEstablished = false;
@@ -55,7 +55,7 @@ export class ChatService {
     return throwError(errorMessage);
   }
 
-  sendMessage(message: Message) {
+  sendMessage(message: ChatMessages) {
     this._hubConnection.invoke('PrivateMessage', message);
   }
 

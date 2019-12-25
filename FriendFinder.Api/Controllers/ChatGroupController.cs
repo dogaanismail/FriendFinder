@@ -20,5 +20,14 @@ namespace FriendFinder.Api.Controllers
             var data = _chatGroupService.GetChatGroups(User.Identity.Name);
             return OkResponse(data);
         }
+
+        [HttpGet("GetMemberDetails")]
+        public JsonResult GetMemberDetails(string groupName)
+        {
+            var data = _chatGroupService.GetMemberDetailsByGroupName(groupName, User.Identity.Name);
+            return OkResponse(data);
+        }
+
+
     }
 }

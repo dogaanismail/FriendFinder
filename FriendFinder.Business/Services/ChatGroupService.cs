@@ -45,7 +45,6 @@ namespace FriendFinder.Business.Services
             throw new NotImplementedException();
         }
 
-
         public IEnumerable<ChatGroupDto> GetChatGroups(string username)
         {
             //needs to have code refactoring later
@@ -65,13 +64,31 @@ namespace FriendFinder.Business.Services
                     ChatGroupId = p.Id,
                     ChatGroupName = p.Name,
                     CreatedDate = p.CreatedDate,
-                    UserName = p.ChatGroupMembers.Where(x=> x.GroupMember.Id != authUser.Id).FirstOrDefault().GroupMember.UserName, //code refactoring
+                    UserName = p.ChatGroupMembers.Where(x => x.GroupMember.Id != authUser.Id).FirstOrDefault().GroupMember.UserName, //code refactoring
                     ProfilePhotoUrl = p.ChatGroupMembers.Where(x => x.GroupMember.Id != authUser.Id).FirstOrDefault().GroupMember.UserDetail.ProfilePhotoPath //code refactoring
                 });
 
                 return chatGroupsDto;
             }
             return null;
+        }
+
+        public GroupMemberDetails GetMemberDetailsByGroupName(string groupName, string userName)
+        {
+            var chatGroup = _chatGroupRepository.Find(x => x.Name == groupName,
+                x => x.Include(t => t.ChatGroupMembers)
+                .ThenInclude(us => us.GroupMember)
+                .ThenInclude(y => y.UserDetail)).FirstOrDefault();
+
+            var member = chatGroup.ChatGroupMembers.Where(x => x.GroupMember.UserName != userName).FirstOrDefault();
+            GroupMemberDetails details = new GroupMemberDetails
+            {
+                MemberId = member.GroupMember.Id,
+                MemberName = member.GroupMember.UserName,
+                ProfilePhotoUrl = member.GroupMember.UserDetail.ProfilePhotoPath
+            };
+
+            return details;
         }
     }
 }

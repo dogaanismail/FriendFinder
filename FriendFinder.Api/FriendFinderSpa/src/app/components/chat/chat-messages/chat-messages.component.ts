@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ChatMessages } from '../../../models/chat/chat-messages';
 import { SignedUser } from '../../../models/user/signedUser';
-import { Message } from '../../../models/chat/message';
 
 @Component({
   selector: 'app-chat-messages',
@@ -10,11 +9,10 @@ import { Message } from '../../../models/chat/message';
 export class ChatMessagesComponent implements OnInit {
 
   constructor() { }
-  title = "FriendFinderChatting";
   @Input() messages: ChatMessages[];
   @Input() signedUser: SignedUser;
-  @Output() onSendMessage = new EventEmitter<Message>();
-  message = new Message();
+  @Output() onSendMessage = new EventEmitter<ChatMessages>();
+  message = new ChatMessages();
   txtMessage: string = '';
 
   ngOnInit() {
@@ -22,8 +20,9 @@ export class ChatMessagesComponent implements OnInit {
 
   sendMsg() {
     if (this.txtMessage) {
-      this.message.message = this.txtMessage;
+      this.message.text = this.txtMessage;
       this.onSendMessage.emit(this.message);
+      this.txtMessage = '';
     }
   }
 }

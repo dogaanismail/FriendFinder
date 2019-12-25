@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MemberDetails } from '../../../models/chat-group/member-details';
 
 @Component({
   selector: 'app-chat-user-detail',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class ChatUserDetailComponent implements OnInit {
 
   constructor() { }
+
+  @Input() memberDetails: MemberDetails;
 
   ngOnInit() {
   }

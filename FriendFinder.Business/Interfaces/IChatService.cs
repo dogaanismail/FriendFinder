@@ -1,4 +1,5 @@
-﻿using FriendFinder.Domain.Dto;
+﻿using FriendFinder.Domain.Common;
+using FriendFinder.Domain.Dto;
 using System.Collections.Generic;
 
 namespace FriendFinder.Business.Interfaces
@@ -25,6 +26,14 @@ namespace FriendFinder.Business.Interfaces
         /// <param name="chatId"></param>
         /// <returns></returns>
         IEnumerable<MessageDto> GetMessagesByGroupName(string groupName);
+
+
+        /// <summary>
+        /// Creates a chat message.
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        ResultModel Create(MessageDto message);
 
     }
 }

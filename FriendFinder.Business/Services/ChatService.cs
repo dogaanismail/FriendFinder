@@ -1,9 +1,11 @@
 ﻿using FriendFinder.Business.Interfaces;
+using FriendFinder.Domain.Common;
 using FriendFinder.Domain.Dto;
 using FriendFinder.Entities.Entities;
 using FriendFinder.Repository.Extensions;
 using FriendFinder.Repository.Generic;
 using FriendFinder.Repository.UnitOfWork;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -69,7 +71,7 @@ namespace FriendFinder.Business.Services
 
             IEnumerable<MessageDto> data = _chatRepository.Find(x => x.ChatGroupId == chatGroup.Id,
                 x => x.Include(u => u.Sender).ThenInclude(t => t.UserDetail)
-            .Include(r => r.ChatGroup).ThenInclude(tt=>tt.CreatedUser)).ToList().Select(x => new MessageDto
+            .Include(r => r.ChatGroup).ThenInclude(tt => tt.CreatedUser)).ToList().Select(x => new MessageDto
             {
                 Text = x.Text,
                 CreateDate = x.CreatedDate,
@@ -81,6 +83,28 @@ namespace FriendFinder.Business.Services
             }).AsEnumerable();
 
             return data;
+        }
+
+        public ResultModel Create(MessageDto message)
+        {
+            try
+            {
+                var chatGroup = _chatGroup.Find(x => x.Name == message.GroupName).FirstOrDefault();
+                Chat newChat = new Chat
+                {
+                    Text = message.Text,
+                    SenderId = message.SenderId,
+                    IsRead = message.IsRead,
+                    ChatGroupId = chatGroup.Id,                   
+                };
+                _chatRepository.Create(newChat);
+                _unitOfWork.Commit();
+                return new ResultModel { Status = true, Message = "Create Process Success ! " };
+            }
+            catch (Exception ex)
+            {
+                return new ResultModel { Status = false, Message = ex.ToString() };
+            }
         }
     }
 }
