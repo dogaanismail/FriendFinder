@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FriendFinder.Entities.Migrations
 {
-    public partial class MyFirsthMigration : Migration
+    public partial class DbMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -40,7 +40,16 @@ namespace FriendFinder.Entities.Migrations
                     ProfilePhotoPath = table.Column<string>(maxLength: 100, nullable: true),
                     CoverPhotoPath = table.Column<string>(maxLength: 100, nullable: true),
                     City = table.Column<string>(maxLength: 39, nullable: true),
-                    Country = table.Column<string>(maxLength: 35, nullable: true)
+                    Country = table.Column<string>(maxLength: 35, nullable: true),
+                    AboutMe = table.Column<string>(maxLength: 250, nullable: true),
+                    Sex = table.Column<string>(maxLength: 10, nullable: true),
+                    UniversityName = table.Column<string>(maxLength: 50, nullable: true),
+                    UniStartDate = table.Column<DateTime>(nullable: true),
+                    UniFinishUpDate = table.Column<DateTime>(nullable: true),
+                    HasGraduated = table.Column<bool>(nullable: true),
+                    UniversityDesc = table.Column<string>(maxLength: 200, nullable: true),
+                    CompanyName = table.Column<string>(maxLength: 50, nullable: true),
+                    Designation = table.Column<string>(maxLength: 50, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -281,7 +290,8 @@ namespace FriendFinder.Entities.Migrations
                     ModifiedBy = table.Column<int>(nullable: true),
                     ModifiedDate = table.Column<DateTime>(nullable: true),
                     StatusId = table.Column<int>(nullable: true),
-                    Text = table.Column<string>(nullable: true)
+                    Text = table.Column<string>(nullable: true),
+                    PostType = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {

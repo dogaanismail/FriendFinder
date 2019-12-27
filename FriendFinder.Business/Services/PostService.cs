@@ -49,6 +49,7 @@ namespace FriendFinder.Business.Services
         {
             Post getPost = _postRepository.GetById(id, x => x.Include(y => y.PostImages)
              .Include(a => a.PostVideos).Include(comment => comment.PostComments)
+             .ThenInclude(tr => tr.CreatedUser).ThenInclude(hg => hg.UserDetail)
              .Include(s => s.CreatedUser).ThenInclude(t => t.UserDetail));
 
             PostListDto postListDto = new PostListDto
@@ -79,6 +80,7 @@ namespace FriendFinder.Business.Services
         {
             IEnumerable<PostListDto> data = _postRepository.GetList(null, x => x.Include(y => y.PostImages)
             .Include(a => a.PostVideos).Include(comment => comment.PostComments)
+            .ThenInclude(tr => tr.CreatedUser).ThenInclude(hg => hg.UserDetail)
             .Include(s => s.CreatedUser).ThenInclude(t => t.UserDetail))
                 .Select(p => new PostListDto
                 {
@@ -110,6 +112,7 @@ namespace FriendFinder.Business.Services
         {
             return _postRepository.Find(x => x.CreatedBy == userId, x => x.Include(y => y.PostImages)
             .Include(a => a.PostVideos).Include(b => b.PostComments)
+            .ThenInclude(tr => tr.CreatedUser).ThenInclude(hg => hg.UserDetail)
             .Include(t => t.CreatedUser).ThenInclude(e => e.UserDetail)).ToList();
         }
 
@@ -117,6 +120,7 @@ namespace FriendFinder.Business.Services
         {
             IEnumerable<PostListDto> data = _postRepository.GetList(y => y.CreatedBy == userId, x => x.Include(y => y.PostImages)
               .Include(a => a.PostVideos).Include(comment => comment.PostComments)
+              .ThenInclude(tr => tr.CreatedUser).ThenInclude(hg => hg.UserDetail)
               .Include(s => s.CreatedUser).ThenInclude(t => t.UserDetail))
               .Select(p => new PostListDto
               {

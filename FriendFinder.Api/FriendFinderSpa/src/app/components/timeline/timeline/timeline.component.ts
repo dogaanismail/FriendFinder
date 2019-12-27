@@ -24,7 +24,7 @@ export class TimelineComponent implements OnInit {
 
   constructor(
     private postStore: Store<fromPost.State>,
-    private userStore: Store<fromUser.State>,
+    private userStore: Store<fromUser.State>
   ) { }
 
   ngOnInit(): void {

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FriendFinder.Entities.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190901153020_MyFirsthMigration")]
-    partial class MyFirsthMigration
+    [Migration("20191227100732_DbMigration")]
+    partial class DbMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -93,10 +93,16 @@ namespace FriendFinder.Entities.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("AboutMe")
+                        .HasMaxLength(250);
+
                     b.Property<DateTime?>("BirthDate");
 
                     b.Property<string>("City")
                         .HasMaxLength(39);
+
+                    b.Property<string>("CompanyName")
+                        .HasMaxLength(50);
 
                     b.Property<string>("Country")
                         .HasMaxLength(35);
@@ -108,8 +114,13 @@ namespace FriendFinder.Entities.Migrations
 
                     b.Property<DateTime>("CreatedDate");
 
+                    b.Property<string>("Designation")
+                        .HasMaxLength(50);
+
                     b.Property<string>("FirstName")
                         .HasMaxLength(50);
+
+                    b.Property<bool?>("HasGraduated");
 
                     b.Property<string>("LastName")
                         .HasMaxLength(50);
@@ -121,7 +132,20 @@ namespace FriendFinder.Entities.Migrations
                     b.Property<string>("ProfilePhotoPath")
                         .HasMaxLength(100);
 
+                    b.Property<string>("Sex")
+                        .HasMaxLength(10);
+
                     b.Property<int?>("StatusId");
+
+                    b.Property<DateTime?>("UniFinishUpDate");
+
+                    b.Property<DateTime?>("UniStartDate");
+
+                    b.Property<string>("UniversityDesc")
+                        .HasMaxLength(200);
+
+                    b.Property<string>("UniversityName")
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 
@@ -364,6 +388,8 @@ namespace FriendFinder.Entities.Migrations
                     b.Property<int?>("ModifiedBy");
 
                     b.Property<DateTime?>("ModifiedDate");
+
+                    b.Property<int?>("PostType");
 
                     b.Property<int?>("StatusId");
 

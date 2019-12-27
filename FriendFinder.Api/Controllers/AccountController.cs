@@ -15,7 +15,6 @@ using System.Transactions;
 
 namespace FriendFinder.Api.Controllers
 {
-
     public class AccountController : BaseController
     {
         #region Ctor
@@ -121,6 +120,12 @@ namespace FriendFinder.Api.Controllers
                     return BadResponse(Result);
                 }
             }
+        }
+
+        [HttpPost("changepassword")]
+        public async Task<JsonResult> ChangePassword()
+        {
+            return null;
         }
     }
 }

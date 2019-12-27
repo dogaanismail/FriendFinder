@@ -27,9 +27,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() { }
 
   login() {
-    console.log(this.loginUser);
     this.authService.login(this.loginUser).subscribe((data: any) => {
-      console.log(data);
       if (data.result.status === false) {
         this.alertifyService.error(data.result.message.toString());
         this.userStore.dispatch(new userActions.LoginFail(data.result.message));

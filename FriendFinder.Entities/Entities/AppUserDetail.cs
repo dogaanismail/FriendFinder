@@ -6,7 +6,6 @@ namespace FriendFinder.Entities.Entities
     public class AppUserDetail : IEntity
     {
         public int Id { get; set; }
-
         public DateTime CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
         public int? CreatedBy { get; set; }
@@ -33,6 +32,29 @@ namespace FriendFinder.Entities.Entities
         [MaxLength(35)]
         public string Country { get; set; }
 
-       
+        [MaxLength(250)]
+        public string AboutMe { get; set; }
+
+        [MaxLength(10)]
+        public string Sex { get; set; }
+
+        [MaxLength(50)]
+        public string UniversityName { get; set; }
+
+        public DateTime? UniStartDate { get; set; }
+
+        public DateTime? UniFinishUpDate { get; set; }
+
+        public bool? HasGraduated { get; set; }
+
+        [MaxLength(200)]
+        public string UniversityDesc { get; set; }
+
+        [MaxLength(50)]
+        public string CompanyName { get; set; }
+
+        [MaxLength(50)]
+        public string Designation { get; set; }
+
     }
 }

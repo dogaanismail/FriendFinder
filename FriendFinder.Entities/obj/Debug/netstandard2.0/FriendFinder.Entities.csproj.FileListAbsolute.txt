@@ -41,3 +41,4 @@ C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Entities\obj\
 C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Entities\obj\Debug\netstandard2.0\FriendFinder.Entities.AssemblyInfo.cs
 C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Entities\obj\Debug\netstandard2.0\FriendFinder.Entities.dll
 C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Entities\obj\Debug\netstandard2.0\FriendFinder.Entities.pdb
+C:\Projects\FriendFinder\FriendFinder.Entities\obj\Debug\netstandard2.0\FriendFinder.Entities.csprojAssemblyReference.cache
