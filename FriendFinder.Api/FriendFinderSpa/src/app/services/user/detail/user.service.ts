@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { User } from 'src/app/models/user/user';
+import { User } from '../../../models/user/user';
 import { Observable, throwError } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
 import { tap, shareReplay, catchError } from 'rxjs/operators';
+import { SignedUserDetails } from '../../../models/user/signedUserDetails';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,8 @@ import { tap, shareReplay, catchError } from 'rxjs/operators';
 export class UserService {
 
   private userUrl = 'api/profile/';
+  private accountSettingsUrl: 'api/accountsettings/';
+
   constructor(
     private http: HttpClient,
     private authService: AuthService
@@ -58,6 +61,22 @@ export class UserService {
       .pipe(
         tap((data: any) => {
         }),
+        catchError(this.handleError)
+      );
+  }
+
+  getSignedUserDetails(userName: string): Observable<SignedUserDetails> {
+    const headers = new HttpHeaders
+      ({
+        "Authorization": "Bearer " + this.authService.getToken,
+        'Content-Type': 'application/json'
+      });
+
+    const params = new HttpParams().set('username', userName)
+    return this.http.get<SignedUserDetails>(this.accountSettingsUrl + "getuserinformations", { params })
+      .pipe(
+        tap(),
+        shareReplay(1),
         catchError(this.handleError)
       );
   }

@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { User } from 'src/app/models/user/user';
+import { User } from '../../models/user/user';
 
 export enum UserActionTypes {
   GetCurrentUser = '[User] Get Current User',
@@ -21,7 +21,7 @@ export enum UserActionTypes {
   Logout = '[User] Logout User',
   LogoutSuccess = '[User] Logout User Success',
   LogoutFail = '[User] Logout User Fail'
-}
+} 
 
 export class GetCurrentUser implements Action {
   readonly type = UserActionTypes.GetCurrentUser;

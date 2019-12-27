@@ -9,6 +9,7 @@ namespace FriendFinder.Business.Services
 {
     public class PostImageService : IPostImageService
     {
+        #region Ctor
         private readonly IRepository<PostImage> _postImageRepository;
         private readonly IUnitOfWork _unitOfWork;
 
@@ -18,6 +19,8 @@ namespace FriendFinder.Business.Services
             _postImageRepository = postImageRepository;
             _unitOfWork = unitOfWork;
         }
+
+        #endregion
 
         public ResultModel Create(PostImage createImageForPost)
         {

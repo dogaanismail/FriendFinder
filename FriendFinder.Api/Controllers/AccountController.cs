@@ -58,9 +58,12 @@ namespace FriendFinder.Api.Controllers
                 });
                 return OkResponse(token);
             }
-            Result.Status = false;
-            Result.Message = "Username or password are wrong !";
-            return BadResponse(Result);
+            else
+            {
+                Result.Status = false;
+                Result.Message = "Username or password are wrong !";
+                return BadResponse(Result);
+            }
         }
 
         /// <summary>

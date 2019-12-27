@@ -11,6 +11,7 @@ namespace FriendFinder.Business.Services
 {
     public class UserDetailService : IUserDetailService
     {
+        #region
         private readonly IRepository<AppUserDetail> _appUserDetailRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IUserService _userService;
@@ -24,6 +25,8 @@ namespace FriendFinder.Business.Services
             _userService = userService;
             _postService = postService;
         }
+
+        #endregion
 
         public ResultModel Create(AppUserDetail appUserDetail)
         {
@@ -42,27 +45,35 @@ namespace FriendFinder.Business.Services
 
         public AppUserDetailDto GetUserDetailByUsername(string username)
         {
-            if (username != null)
+            if (!string.IsNullOrEmpty(username))
             {
                 var appUser = _userService.FindByUserName(username);
-                AppUserDetailDto postListDto = new AppUserDetailDto
+                if (appUser != null)
                 {
-                    Id = appUser.Id,
-                    Username = appUser.UserName,
-                    UserPosts = _postService.GetUserPostsWithDto(appUser.Id),
-                    CoverPhotoUrl = appUser.UserDetail.CoverPhotoPath ?? null,
-                    ProfilePhotoUrl = appUser.UserDetail.ProfilePhotoPath ?? null,
-                    RegisteredDate = appUser.CreatedDate
-                };
-                return postListDto;
+                    AppUserDetailDto postListDto = new AppUserDetailDto
+                    {
+                        Id = appUser.Id,
+                        Username = appUser.UserName,
+                        UserPosts = _postService.GetUserPostsWithDto(appUser.Id),
+                        CoverPhotoUrl = appUser.UserDetail.CoverPhotoPath ?? null,
+                        ProfilePhotoUrl = appUser.UserDetail.ProfilePhotoPath ?? null,
+                        RegisteredDate = appUser.CreatedDate
+                    };
+                    return postListDto;
+                }
+                else
+                {
+                    return null;
+                }
             }
             return null;
         }
 
         public AppUser GetUserInformationByUsername(string username)
         {
-            if (username != null)
+            if (!string.IsNullOrEmpty(username))
             {
+
             }
             return null;
         }

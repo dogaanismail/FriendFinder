@@ -1,6 +1,5 @@
 import { User } from "../../models/user/user";
 import { UserActions, UserActionTypes } from "../actions/user.actions";
-import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { SignedUser } from 'src/app/models/user/signedUser';
 
 export interface UserState {

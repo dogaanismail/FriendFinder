@@ -20,10 +20,12 @@ import { ErrorInterceptor } from './core/errorHandlings/error.interceptors';
 import { StoreModule } from '@ngrx/store';
 import { postReducer } from './ngrx/reducers/post.reducer';
 import { userReducer } from './ngrx/reducers/user.reducer';
+import { userAccountReducer } from './ngrx/reducers/user-account.reducer';
 import { globalErrorReducer } from './ngrx/reducers/global-error.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { PostEffects } from './ngrx/effects/post.effects';
 import { UserEffects } from './ngrx/effects/user.effects';
+import { UserAccountEffects } from './ngrx/effects/user-account.effects';
 
 /* Modules */
 import { TimelineModule } from './components/timeline/timeline.module';
@@ -55,10 +57,11 @@ import { ChatModule } from './components/chat/chat.module';
     StoreModule.forRoot({}),
     StoreModule.forFeature('posts', postReducer),
     StoreModule.forFeature('users', userReducer),
+    StoreModule.forFeature('user-account', userAccountReducer),
     StoreModule.forFeature('errors', globalErrorReducer),
     EffectsModule.forRoot([]),
     EffectsModule.forFeature(
-      [PostEffects, UserEffects]
+      [PostEffects, UserEffects, UserAccountEffects]
     ),
   ],
   providers: [

@@ -11,6 +11,7 @@ namespace FriendFinder.Business.Services
 {
     public class PostCommentService : IPostCommentService
     {
+        #region Ctor
         private readonly IRepository<PostComment> _postCommentRepository;
         private readonly IUnitOfWork _unitOfWork;
 
@@ -20,6 +21,8 @@ namespace FriendFinder.Business.Services
             _postCommentRepository = postCommentRepository;
             _unitOfWork = unitOfWork;
         }
+
+        #endregion
 
         public ResultModel Create(PostComment createComment)
         {

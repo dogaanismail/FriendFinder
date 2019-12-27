@@ -9,6 +9,7 @@ namespace FriendFinder.Business.Services
 {
     public class PostVideoService : IPostVideoService
     {
+        #region Ctor
         private readonly IRepository<PostVideo> _postVideoRepository;
         private readonly IUnitOfWork _unitOfWork;
 
@@ -18,6 +19,8 @@ namespace FriendFinder.Business.Services
             _postVideoRepository = postVideoRepository;
             _unitOfWork = unitOfWork;
         }
+
+        #endregion
 
         public ResultModel Create(PostVideo createVideoForPost)
         {

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using FriendFinder.Business.Interfaces;
+﻿using FriendFinder.Business.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FriendFinder.Api.Controllers
 {
+    //[Authorize]
     public class AccountSettingsController : BaseController
     {
         #region Ctor
@@ -22,7 +19,8 @@ namespace FriendFinder.Api.Controllers
         [HttpGet("getuserinformations")]
         public JsonResult GetUserInformations()
         {
-            return null;
+            var data = _userService.GetSignedUserDetail(User.Identity.Name);
+            return OkResponse(data);
         }
     }
 }

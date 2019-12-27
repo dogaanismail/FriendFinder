@@ -1,4 +1,5 @@
 ﻿using FriendFinder.Domain.Common;
+using FriendFinder.Domain.Dto;
 using FriendFinder.Entities.Entities;
 
 namespace FriendFinder.Business.Interfaces
@@ -18,5 +19,7 @@ namespace FriendFinder.Business.Interfaces
         /// <param name="appUser"></param>
         /// <returns></returns>
         ResultModel Update(AppUser appUser);
+
+        SignedUserDetailDto GetSignedUserDetail(string username);
     }
 }
