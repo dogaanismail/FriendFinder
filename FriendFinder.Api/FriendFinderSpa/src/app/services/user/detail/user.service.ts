@@ -11,8 +11,9 @@ import { SignedUserDetails } from '../../../models/user/signedUserDetails';
 })
 export class UserService {
 
+  //TODO HEADERS MUST BE ADDED WHEN A SERVICE CALLED
   private userUrl = 'api/profile/';
-  private accountSettingsUrl: 'api/accountsettings/';
+  private accountSettingsUrl = 'api/accountsettings/';
 
   constructor(
     private http: HttpClient,
@@ -65,18 +66,16 @@ export class UserService {
       );
   }
 
-  getSignedUserDetails(userName: string): Observable<SignedUserDetails> {
+  getSignedUserDetails(): Observable<SignedUserDetails> {
     const headers = new HttpHeaders
       ({
         "Authorization": "Bearer " + this.authService.getToken,
         'Content-Type': 'application/json'
       });
 
-    const params = new HttpParams().set('username', userName)
-    return this.http.get<SignedUserDetails>(this.accountSettingsUrl + "getuserinformations", { params })
+    return this.http.get<SignedUserDetails>(this.accountSettingsUrl + "getdetails", { headers: headers })
       .pipe(
         tap(),
-        shareReplay(1),
         catchError(this.handleError)
       );
   }

@@ -10,19 +10,20 @@ import { SettingsMenuComponent } from './settings-menu/settings-menu.component';
 import { SettingsNavbarComponent } from './settings-navbar/settings-navbar.component';
 import { SharedModule } from "../../shared/shared.module";
 import { SettingsActivitiyComponent } from './settings-activitiy/settings-activitiy.component';
+import { SettingsHomeComponent } from './settings-home/settings-home.component';
 
 const settingsRoutes: Routes = [
-    { path: "settings/information", component: SettingsInformationComponent },
-    { path: "settings/account", component: SettingsAccountComponent },
-    { path: "settings/education", component: SettingsEducationComponent },
-    { path: "settings/interest", component: SettingsInterestComponent },
-    { path: "settings/password", component: SettingsPasswordComponent },
+    { path: "settings/account", component: SettingsHomeComponent },
+    { path: "settings/notifications", component: SettingsHomeComponent },
+    { path: "settings/interest", component: SettingsHomeComponent },
+    { path: "settings/password", component: SettingsHomeComponent },
+    { path: "settings/education", component: SettingsHomeComponent }
 ];
 
 @NgModule({
     imports: [
         RouterModule.forChild(settingsRoutes),
-        SharedModule
+        SharedModule,
     ],
     declarations: [
         SettingsAccountComponent,
@@ -32,7 +33,8 @@ const settingsRoutes: Routes = [
         SettingsPasswordComponent,
         SettingsMenuComponent,
         SettingsNavbarComponent,
-        SettingsActivitiyComponent
+        SettingsActivitiyComponent,
+        SettingsHomeComponent
     ]
 })
 export class SettingsModule { }

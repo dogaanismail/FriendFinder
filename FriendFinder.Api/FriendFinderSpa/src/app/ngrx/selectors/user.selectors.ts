@@ -4,7 +4,7 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { PostTypeEnum } from '../../core/enumerations/PostTypeEnum';
 
 export interface State extends fromRoot.State {
-  posts: fromUsers.UserState;
+  users: fromUsers.UserState;
 }
 
 const getUserFeatureState = createFeatureSelector<fromUsers.UserState>('users');

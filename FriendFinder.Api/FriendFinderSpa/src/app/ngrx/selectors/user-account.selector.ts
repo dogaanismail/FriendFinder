@@ -1,14 +1,14 @@
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 import * as fromRoot from '../state/app.state';
 import * as fromUserAccount from '../reducers/user-account.reducer';
-import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 export interface State extends fromRoot.State {
-    posts: fromUserAccount.UserAccountState;
-}
+    userDetails: fromUserAccount.UserAccountState;
+  }
 
-const getUserAccountFeatureState = createFeatureSelector<fromUserAccount.UserAccountState>('user-account');
+export const getUserAccountFeatureState = createFeatureSelector<fromUserAccount.UserAccountState>('userDetails');
 
 export const getSignedUserDetail = createSelector(
     getUserAccountFeatureState,
-    state => state.signedUserDetail
+    state => state.userDetails
 );

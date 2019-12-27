@@ -1,13 +1,18 @@
 import { SignedUserDetails } from '../../models/user/signedUserDetails';
-import { UserAccountActions, UserAccountActionTypes } from '../actions/user-account-actions';
+import { UserAccountActions, UserAccountActionTypes } from '../actions/user-account.actions';
+import * as fromRoot from '../state/app.state';
+
+export interface State extends fromRoot.State {
+    userDetails: UserAccountState;
+}
 
 export interface UserAccountState {
-    signedUserDetail: SignedUserDetails;
+    userDetails: SignedUserDetails;
     error: any;
 }
 
-const initialState: UserAccountState = {
-    signedUserDetail: null,
+export const initialState: UserAccountState = {
+    userDetails: null,
     error: null
 };
 
@@ -15,17 +20,20 @@ const initialState: UserAccountState = {
 export function userAccountReducer(state = initialState, action: UserAccountActions): UserAccountState {
     switch (action.type) {
         case UserAccountActionTypes.GetSignedUserDetailSuccess:
+
             return {
                 ...state,
-                signedUserDetail: action.payload,
+                userDetails: action.payload,
                 error: null
             };
 
-            case UserAccountActionTypes.GetSignedUserDetailFail:
+        case UserAccountActionTypes.GetSignedUserDetailFail:
             return {
                 ...state,
-                signedUserDetail: null,
+                userDetails: null,
                 error: action.payload
             };
+        default:
+            return state;
     }
 }

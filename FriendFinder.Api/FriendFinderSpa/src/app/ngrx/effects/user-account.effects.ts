@@ -6,7 +6,7 @@ import { UserService } from '../../services/user/detail/user.service';
 /* NgRx */
 import { Action } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import * as userAccountActions from '../actions/user-account-actions';
+import * as userAccountActions from '../actions/user-account.actions';
 
 @Injectable()
 export class UserAccountEffects {
@@ -20,8 +20,8 @@ export class UserAccountEffects {
     @Effect()
     getSignedUserDetail$: Observable<Action> = this.actions$.pipe(
         ofType(userAccountActions.UserAccountActionTypes.GetSignedUserDetail),
-        mergeMap((userName: string) =>
-            this.userService.getSignedUserDetails(userName).pipe(
+        mergeMap(action =>
+            this.userService.getSignedUserDetails().pipe(
                 map((userDetail: any) => (new userAccountActions.GetSignedUserDetailSuccess(userDetail.result))),
                 catchError(err => of(new userAccountActions.GetSignedUserDetailFail(err)))
             )

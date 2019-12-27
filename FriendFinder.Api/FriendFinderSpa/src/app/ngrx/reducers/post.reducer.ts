@@ -98,7 +98,10 @@ export function postReducer(state = initialState, action: PostActions): PostStat
       };
 
     case PostActionTypes.CreateCommentSuccess:
+      console.log(state.posts);
+      console.log(action.payload);
       const post: Post = state.posts.filter((item: any) => item.id == action.payload.postId)[0];
+      console.log(post);
       post.comments.push(action.payload);
       return {
         ...state,

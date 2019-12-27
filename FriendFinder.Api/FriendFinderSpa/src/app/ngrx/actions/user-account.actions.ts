@@ -8,8 +8,6 @@ export enum UserAccountActionTypes {
 
 export class GetSignedUserDetail implements Action {
     readonly type = UserAccountActionTypes.GetSignedUserDetail;
-
-    constructor(public payload: any) { }
 }
 
 export class GetSignedUserDetailSuccess implements Action {

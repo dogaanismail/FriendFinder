@@ -16,7 +16,7 @@ namespace FriendFinder.Api.Controllers
 
         #endregion
 
-        [HttpGet("getuserinformations")]
+        [HttpGet("getdetails")]
         public JsonResult GetUserInformations()
         {
             var data = _userService.GetSignedUserDetail(User.Identity.Name);

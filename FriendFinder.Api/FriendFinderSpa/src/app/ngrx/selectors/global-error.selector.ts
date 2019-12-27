@@ -3,7 +3,7 @@ import * as fromGlobalError from '../reducers/global-error.reducer';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 export interface State extends fromRoot.State {
-    posts: fromGlobalError.ErrorState;
+    errors: fromGlobalError.ErrorState;
 }
 
 const getErrorFeatureState = createFeatureSelector<fromGlobalError.ErrorState>('errors');

@@ -34,6 +34,7 @@ import { SettingsModule } from './components/settings/setting.module';
 import { VideoConferenceModule } from './components/video-conference/video-conference.module';
 import { ChatModule } from './components/chat/chat.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +58,7 @@ import { ChatModule } from './components/chat/chat.module';
     StoreModule.forRoot({}),
     StoreModule.forFeature('posts', postReducer),
     StoreModule.forFeature('users', userReducer),
-    StoreModule.forFeature('user-account', userAccountReducer),
+    StoreModule.forFeature('userDetails', userAccountReducer),
     StoreModule.forFeature('errors', globalErrorReducer),
     EffectsModule.forRoot([]),
     EffectsModule.forFeature(
