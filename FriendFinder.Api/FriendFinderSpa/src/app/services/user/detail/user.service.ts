@@ -80,6 +80,19 @@ export class UserService {
       );
   }
 
+  updateBasicInformation(details: SignedUserDetails): Observable<SignedUserDetails> {
+    const headers = new HttpHeaders
+      ({
+        "Authorization": "Bearer " + this.authService.getToken
+      });
+    return this.http.post(this.accountSettingsUrl + "updatebasic", details, { headers: headers })
+      .pipe(
+        tap((data: any) => {
+        }),
+        catchError(this.handleError)
+      );
+  }
+
   private handleError(err: any) {
     let errorMessage: string;
     if (err.error instanceof ErrorEvent) {

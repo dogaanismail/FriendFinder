@@ -1,4 +1,5 @@
 ﻿using FriendFinder.Business.Interfaces;
+using FriendFinder.Domain.Dto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FriendFinder.Api.Controllers
@@ -8,10 +9,11 @@ namespace FriendFinder.Api.Controllers
     {
         #region Ctor
         private readonly IUserService _userService;
-
-        public AccountSettingsController(IUserService userService)
+        private readonly IUserDetailService _userDetailService;
+        public AccountSettingsController(IUserService userService, IUserDetailService userDetailService)
         {
             _userService = userService;
+            _userDetailService = userDetailService;
         }
 
         #endregion
@@ -21,6 +23,23 @@ namespace FriendFinder.Api.Controllers
         {
             var data = _userService.GetSignedUserDetail(User.Identity.Name);
             return OkResponse(data);
+        }
+
+        [HttpPost("updatebasic")]
+        public JsonResult UpdateBasicInformation([FromBody] SignedUserDetailDto detailDto)
+        {
+            detailDto.UserName = User.Identity.Name;
+            var result = _userDetailService.Update(detailDto);
+            if (result.Status)
+            {
+                var data = _userService.GetSignedUserDetail(User.Identity.Name);
+                return OkResponse(data);
+            }
+            else
+            {
+                return BadResponse(result);
+            }
+
         }
     }
 }

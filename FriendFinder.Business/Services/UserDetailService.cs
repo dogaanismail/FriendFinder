@@ -77,5 +77,37 @@ namespace FriendFinder.Business.Services
             }
             return null;
         }
+
+        public ResultModel Update(SignedUserDetailDto detailDto)
+        {
+            try
+            {
+                var userDetail = _userService.FindByUserName(detailDto.UserName);
+                var detail = userDetail.UserDetail;
+
+                detail.FirstName = detailDto.FirstName;
+                detail.LastName = detailDto.LastName;
+                detail.BirthDate = detailDto.BirthDate;
+                detail.City = detailDto.City;
+                detail.Country = detailDto.Country;
+                detail.AboutMe = detailDto.Sex;
+                detail.UniversityName = detailDto.UniversityName;
+                detail.UniStartDate = detailDto.StartDate;
+                detail.UniFinishUpDate = detailDto.FinishUpDate;
+                detail.HasGraduated = detailDto.HasGraduated;
+                detail.UniversityDesc = detailDto.UniversityDesc;
+                detail.CompanyName = detailDto.CompanyName;
+                detail.Designation = detailDto.Designation;
+                detail.ModifiedDate = DateTime.Now;
+                _appUserDetailRepository.Update(detail);
+                _unitOfWork.Commit();
+                return new ResultModel { Status = true, Message = "Update Process Success ! " };
+            }
+            catch (Exception ex)
+            {
+                return new ResultModel { Status = false, Message = ex.ToString() };
+                throw;
+            }
+        }
     }
 }

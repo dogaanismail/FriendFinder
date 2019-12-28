@@ -9,11 +9,13 @@ export interface State extends fromRoot.State {
 export interface UserAccountState {
     userDetails: SignedUserDetails;
     error: any;
+    loading: boolean;
 }
 
 export const initialState: UserAccountState = {
     userDetails: null,
-    error: null
+    error: null,
+    loading: false
 };
 
 
@@ -33,6 +35,29 @@ export function userAccountReducer(state = initialState, action: UserAccountActi
                 userDetails: null,
                 error: action.payload
             };
+
+        case UserAccountActionTypes.UpdateBasicInformations:
+            return {
+                ...state,
+                error: null,
+                loading: true
+            };
+
+        case UserAccountActionTypes.UpdateBasicInformationsSuccess:
+            return {
+                ...state,
+                userDetails: action.payload,
+                error: null,
+                loading: false
+            };
+
+        case UserAccountActionTypes.UpdateBasicInformationsFail:
+            return {
+                ...state,
+                error: action.payload,
+                loading: false
+            };
+
         default:
             return state;
     }

@@ -46,4 +46,8 @@ export class SettingsHomeComponent implements OnInit {
     alert(value)
   }
 
+  updateBasicInformations(details: SignedUserDetails){
+    this.userAccountStore.dispatch(new userAccountActions.UpdateBasicInformations(details));
+  }
+
 }

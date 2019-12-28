@@ -21,7 +21,8 @@
 
         <app-settings-information 
         *ngIf="activeUrl === '/settings/account'"
-        [signedUserDetails]="signedUserDetail$ | async">        
+        [signedUserDetails]="signedUserDetail$ | async"
+        (onUpdateBasic)="updateBasicInformations($event)">        
         </app-settings-information>
 
         <app-settings-interest 

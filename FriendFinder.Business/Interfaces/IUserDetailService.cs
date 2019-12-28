@@ -26,5 +26,12 @@ namespace FriendFinder.Business.Interfaces
         /// <returns></returns>
         AppUser GetUserInformationByUsername(string username);
 
+        /// <summary>
+        /// Updates signed user detail.
+        /// </summary>
+        /// <param name="detailDto"></param>
+        /// <returns></returns>
+        ResultModel Update(SignedUserDetailDto detailDto);
+
     }
 }

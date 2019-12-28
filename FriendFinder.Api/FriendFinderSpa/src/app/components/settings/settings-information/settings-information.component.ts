@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
 import { SignedUserDetails } from "../../../models/user/signedUserDetails";
 /* Rxjs */
 import { Observable } from "rxjs";
@@ -21,11 +21,24 @@ import { UserService } from "../../../services/user/detail/user.service";
   templateUrl: "./settings-information.component.html"
 })
 export class SettingsInformationComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder) {}
+  years: number[];
+  days: number[];
+  constructor(private formBuilder: FormBuilder) {
+    this.years = [];
+    this.days = [];
+    for (let i = 0; i < 50; ++i) {
+      this.years.push(1950 + i);
+    }
+
+    for (let a = 1; a <= 31; a++) {
+      this.days.push(a);
+    }
+  }
 
   basicInfForm: FormGroup;
   signedUserDetail: SignedUserDetails;
   @Input() signedUserDetails: SignedUserDetails;
+  @Output() onUpdateBasic = new EventEmitter<SignedUserDetails>();
 
   ngOnInit() {
     this.createRegisterForm();
@@ -36,9 +49,9 @@ export class SettingsInformationComponent implements OnInit {
       firstName: ["", Validators.required],
       lastName: ["", Validators.required],
       email: ["", Validators.required],
-      city: ["", Validators.min(5)],
-      country: ["", Validators.min(5)],
-      aboutMe: ["", Validators.min(5)]
+      city: ["", Validators.nullValidator],
+      country: ["", Validators.nullValidator],
+      aboutMe: ["", Validators.nullValidator]
     });
   }
 
@@ -50,8 +63,8 @@ export class SettingsInformationComponent implements OnInit {
 
   updateInformations() {
     if (this.basicInfForm.valid) {
-      this.signedUserDetail = Object.assign({}, this.basicInfForm.value);
-      //effect To do
+      this.signedUserDetail = Object.assign({}, this.basicInfForm.value); 
+      this.onUpdateBasic.emit(this.signedUserDetail);        
     }
   }
 }
