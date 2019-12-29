@@ -1,4 +1,5 @@
 ﻿using FriendFinder.Business.Interfaces;
+using FriendFinder.Domain.Api;
 using FriendFinder.Domain.Dto;
 using Microsoft.AspNetCore.Mvc;
 
@@ -40,6 +41,12 @@ namespace FriendFinder.Api.Controllers
                 return BadResponse(result);
             }
 
+        }
+
+        [HttpPost("updatepassword")]
+        public JsonResult UpdatePassword([FromBody] ChangePasswordApi model)
+        {
+            return null;
         }
     }
 }

@@ -1,5 +1,12 @@
-<div class="container">
+<!--preloader-->
+<div *ngIf="isUpdatedData$ | async"> 
+  <div id="spinner-wrapper">
+    <div class="spinner"></div>
+</div>
+</div>
 
+
+<div class="container">
   <!-- Timeline
   ================================================= -->
   <div class="timeline">
@@ -38,11 +45,12 @@
 
         <app-settings-education 
         *ngIf="activeUrl === '/settings/education'"
-        [signedUserDetails]="signedUserDetail$ | async">
+        [signedUserDetails]="signedUserDetail$ | async"
+        (onUpdateEducation)="updateEducation($event)"
+        (onUpdateExperience)="updateExperience($event)">
         </app-settings-education>
 
         <div class="col-md-2 static">
-          <!--Sticky Timeline Activity Sidebar-->
           <app-settings-activitiy 
           [signedUser]="signedUser$ | async"
           [signedUserDetails]="signedUserDetail$ | async">

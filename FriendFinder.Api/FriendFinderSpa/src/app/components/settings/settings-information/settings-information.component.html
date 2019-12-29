@@ -16,19 +16,19 @@
           <div class="form-group col-xs-6">
             <label for="firstname">First name</label>
             <input id="firstname" class="form-control input-group-lg" type="text" name="firstName"
-              title="Enter first name" value="{{signedUserDetails.firstName}} "formControlName="firstName" />
+              title="Enter first name" [value]="signedUserDetails.firstName" formControlName="firstName" />
           </div>
           <div class="form-group col-xs-6">
             <label for="lastname" class="">Last name</label>
             <input id="lastname" class="form-control input-group-lg" type="text" name="lastName" title="Enter last name"
-            formControlName="lastName" value="{{signedUserDetails.lastName}}" />
+            formControlName="lastName" [value]="signedUserDetails.lastName" />
           </div>
         </div>
         <div class="row">
           <div class="form-group col-xs-12">
             <label for="email">My email</label>
             <input id="email" class="form-control input-group-lg" type="text" name="email" title="Enter Email"
-            formControlName="email" value="{{signedUserDetails.email}}" />
+            formControlName="email" [value]="signedUserDetails.email" />
           </div>
         </div>
         <!-- <div class="row">
@@ -82,12 +82,12 @@
         <div class="row">
           <div class="form-group col-xs-6">
             <label for="city"> My city</label>
-            <input id="city" class="form-control input-group-lg" value="{{signedUserDetails.city}}" formControlName="city" type="text" name="city" title="Enter city"
+            <input id="city" class="form-control input-group-lg" [value]="signedUserDetails.city" formControlName="city" type="text" name="city" title="Enter city"
               placeholder="Your city" />
           </div>
           <div class="form-group col-xs-6">
             <label for="country">My country</label>
-            <select class="form-control" formControlName="country" name="country" id="country">
+            <select class="form-control" formControlName="country" [value]="signedUserDetails.country" name="country" id="country">
               <option value="country">Country</option>
               <option value="AFG">Afghanistan</option>
               <option value="ALA">Ƭand Islands</option>
@@ -344,7 +344,7 @@
         <div class="row">
           <div class="form-group col-xs-12">
             <label for="my-info">About me</label>
-            <textarea id="my-info" formControlName="aboutMe" value="{{signedUserDetails.aboutMe}}" name="aboutMe" class="form-control" 
+            <textarea id="my-info" formControlName="aboutMe" [value]="signedUserDetails.aboutMe" name="aboutMe" class="form-control" 
             placeholder="Text here..." rows="4" cols="400">
             </textarea>
           </div>

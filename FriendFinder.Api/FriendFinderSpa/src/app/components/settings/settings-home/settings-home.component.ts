@@ -28,25 +28,33 @@ export class SettingsHomeComponent implements OnInit {
   signedUser$: Observable<SignedUser>;
   isNewPhoto$: Observable<boolean>;
   isNewCover$: Observable<boolean>;
+  isUpdatedData$: Observable<boolean>;
   activeUrl: string = "settings/information";
   signedUserDetail$: Observable<SignedUserDetails>;
 
   ngOnInit() {
-
     this.userAccountStore.dispatch(new userAccountActions.GetSignedUserDetail());
     this.activeUrl = this.router.url;
     this.signedUser$ = this.userStore.pipe(select(fromUser.getSignedUser)) as Observable<SignedUser>;
     this.isNewCover$ = this.userStore.pipe(select(fromUser.getIsNewCover));
     this.isNewPhoto$ = this.userStore.pipe(select(fromUser.getIsNewPhoto));
+    this.isUpdatedData$ = this.userAccountStore.pipe(select(fromUserAccount.getLoading));
     this.signedUserDetail$ = this.userAccountStore.pipe(select(fromUserAccount.getSignedUserDetail)) as Observable<SignedUserDetails>;
-   
   }
 
-  buttonSelected(value:string){
+  buttonSelected(value: string) {
     alert(value)
   }
 
-  updateBasicInformations(details: SignedUserDetails){
+  updateBasicInformations(details: SignedUserDetails) {
+    this.userAccountStore.dispatch(new userAccountActions.UpdateBasicInformations(details));
+  }
+
+  updateEducation(details: SignedUserDetails) {
+    this.userAccountStore.dispatch(new userAccountActions.UpdateBasicInformations(details));
+  }
+
+  updateExperience(details: SignedUserDetails) {
     this.userAccountStore.dispatch(new userAccountActions.UpdateBasicInformations(details));
   }
 

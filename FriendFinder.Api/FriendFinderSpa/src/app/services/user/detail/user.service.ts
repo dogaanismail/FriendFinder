@@ -1,10 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ɵChangeDetectorStatus } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { User } from '../../../models/user/user';
-import { Observable, throwError } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
+/* Rxjs */
 import { tap, shareReplay, catchError } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+/* Models */
 import { SignedUserDetails } from '../../../models/user/signedUserDetails';
+import { ChangePassword } from '../../../models/user/changePassword';
+import { User } from '../../../models/user/user';
 
 @Injectable({
   providedIn: 'root'
@@ -86,6 +89,19 @@ export class UserService {
         "Authorization": "Bearer " + this.authService.getToken
       });
     return this.http.post(this.accountSettingsUrl + "updatebasic", details, { headers: headers })
+      .pipe(
+        tap((data: any) => {
+        }),
+        catchError(this.handleError)
+      );
+  }
+
+  changePassword(data: ChangePassword): Observable<ChangePassword> {
+    const headers = new HttpHeaders
+      ({
+        "Authorization": "Bearer " + this.authService.getToken
+      });
+    return this.http.post(this.accountSettingsUrl + "updatepassword", data, { headers: headers })
       .pipe(
         tap((data: any) => {
         }),

@@ -12,3 +12,8 @@ export const getSignedUserDetail = createSelector(
     getUserAccountFeatureState,
     state => state.userDetails
 );
+
+export const getLoading = createSelector(
+  getUserAccountFeatureState,
+  state => state.loading
+);

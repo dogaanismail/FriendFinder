@@ -90,7 +90,7 @@ namespace FriendFinder.Business.Services
                 detail.BirthDate = detailDto.BirthDate;
                 detail.City = detailDto.City;
                 detail.Country = detailDto.Country;
-                detail.AboutMe = detailDto.Sex;
+                detail.AboutMe = detailDto.AboutMe;
                 detail.UniversityName = detailDto.UniversityName;
                 detail.UniStartDate = detailDto.StartDate;
                 detail.UniFinishUpDate = detailDto.FinishUpDate;

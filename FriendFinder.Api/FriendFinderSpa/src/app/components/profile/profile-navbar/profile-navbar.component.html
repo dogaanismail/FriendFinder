@@ -27,10 +27,10 @@
       </div>
       <div class="col-md-9">
         <ul class="list-inline profile-menu">
-          <li><a routerLink="/profile/{{user.username}}" class="active">Timeline</a></li>
-          <li><a routerLink="/profile/about/{{user.username}}">About</a></li>
-          <li><a routerLink="/profile/album/{{user.username}}">Album</a></li>
-          <li><a routerLink="/profile/friends/{{user.username}}">Friends</a></li>
+          <li routerLinkActive="active"><a routerLink="/profile/{{user.username}}" class="active">Timeline</a></li>
+          <li routerLinkActive="active"><a routerLink="/profile/about/{{user.username}}">About</a></li>
+          <li routerLinkActive="active"><a routerLink="/profile/album/{{user.username}}">Album</a></li>
+          <li routerLinkActive="active"><a routerLink="/profile/friends/{{user.username}}">Friends</a></li>
         </ul>
         <ul class="follow-me list-inline">
           <li>1,299 people following her</li>
@@ -50,10 +50,10 @@
     </div>
     <div class="mobile-menu">
       <ul class="list-inline profile-menu">
-        <li><a routerLink="/profile/{{user.username}}" class="active">Timeline</a></li>
-        <li><a routerLink="/profile/about/{{user.username}}">About</a></li>
-        <li><a routerLink="/profile/album/{{user.username}}">Album</a></li>
-        <li><a routerLink="/profile/friends/{{user.username}}">Friends</a></li>
+        <li routerLinkActive="active"><a routerLink="/profile/{{user.username}}" class="active">Timeline</a></li>
+        <li routerLinkActive="active"><a routerLink="/profile/about/{{user.username}}">About</a></li>
+        <li routerLinkActive="active"><a routerLink="/profile/album/{{user.username}}">Album</a></li>
+        <li routerLinkActive="active"><a routerLink="/profile/friends/{{user.username}}">Friends</a></li>
       </ul>
       <button class="btn-primary">Add Friend</button>
     </div>
