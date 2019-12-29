@@ -1,7 +1,10 @@
 ﻿using FriendFinder.Business.Interfaces;
 using FriendFinder.Domain.Api;
 using FriendFinder.Domain.Dto;
+using FriendFinder.Entities.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace FriendFinder.Api.Controllers
 {
@@ -11,10 +14,13 @@ namespace FriendFinder.Api.Controllers
         #region Ctor
         private readonly IUserService _userService;
         private readonly IUserDetailService _userDetailService;
-        public AccountSettingsController(IUserService userService, IUserDetailService userDetailService)
+        private readonly UserManager<AppUser> _userManager;
+        public AccountSettingsController(IUserService userService,
+            IUserDetailService userDetailService, UserManager<AppUser> userManager)
         {
             _userService = userService;
             _userDetailService = userDetailService;
+            _userManager = userManager;
         }
 
         #endregion
@@ -44,9 +50,34 @@ namespace FriendFinder.Api.Controllers
         }
 
         [HttpPost("updatepassword")]
-        public JsonResult UpdatePassword([FromBody] ChangePasswordApi model)
+        public async Task<JsonResult> UpdatePassword([FromBody] ChangePasswordApi model)
         {
-            return null;
+            if (User.Identity.IsAuthenticated)
+            {
+                var getUser = _userService.FindByUserName(User.Identity.Name);
+                var result = await _userManager.ChangePasswordAsync(getUser, model.OldPassword, model.NewPassword);
+                if (!result.Succeeded)
+                {
+                    var error = string.Join(", ", result.Errors);
+                    Result.Status = false;
+                    Result.Message = error;
+                    return BadResponse(Result);
+                }
+                else
+                {
+                    Result.Status = true;
+                    Result.Message = "Password has been changed successfully !";
+                    return OkResponse(Result);
+                }
+
+            }
+            else
+            {
+                Result.Status = false;
+                Result.Message = "You are not authenticated !";
+                return BadResponse(Result);
+            }
+
         }
     }
 }

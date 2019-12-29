@@ -2,9 +2,12 @@
 <div *ngIf="isUpdatedData$ | async"> 
   <div id="spinner-wrapper">
     <div class="spinner"></div>
-</div>
+  </div>
 </div>
 
+<div *ngIf="errorMessage$ | async as errorMessage" class="alert alert-danger">
+  Error: {{ errorMessage }}
+</div>
 
 <div class="container">
   <!-- Timeline
@@ -37,8 +40,8 @@
         [signedUserDetails]="signedUserDetail$ | async">
         </app-settings-interest>
 
-        <app-settings-password 
-        (onSelected)="buttonSelected($event)"
+        <app-settings-password
+        (onUpdatePassword)= "updateUserPassword($event)"
         *ngIf="activeUrl === '/settings/password'"
         [signedUserDetails]="signedUserDetail$ | async">
         </app-settings-password>

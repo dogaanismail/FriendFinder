@@ -21,8 +21,8 @@ export const initialState: UserAccountState = {
 
 export function userAccountReducer(state = initialState, action: UserAccountActions): UserAccountState {
     switch (action.type) {
-        case UserAccountActionTypes.GetSignedUserDetailSuccess:
 
+        case UserAccountActionTypes.GetSignedUserDetailSuccess:
             return {
                 ...state,
                 userDetails: action.payload,
@@ -52,6 +52,27 @@ export function userAccountReducer(state = initialState, action: UserAccountActi
             };
 
         case UserAccountActionTypes.UpdateBasicInformationsFail:
+            return {
+                ...state,
+                error: action.payload,
+                loading: false
+            };
+
+        case UserAccountActionTypes.UpdatePassword:
+            return {
+                ...state,
+                error: null,
+                loading: true
+            };
+
+        case UserAccountActionTypes.UpdatePasswordSuccess:
+            return {
+                ...state,
+                error: null,
+                loading: false
+            };
+
+        case UserAccountActionTypes.UpdatePasswordFail:
             return {
                 ...state,
                 error: action.payload,

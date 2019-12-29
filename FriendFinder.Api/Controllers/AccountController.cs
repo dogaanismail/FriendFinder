@@ -125,10 +125,5 @@ namespace FriendFinder.Api.Controllers
             }
         }
 
-        [HttpPost("changepassword")]
-        public async Task<JsonResult> ChangePassword()
-        {
-            return null;
-        }
     }
 }

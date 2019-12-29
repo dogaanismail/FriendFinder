@@ -1,28 +1,52 @@
 import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
-import { SignedUser } from "../../../models/user/signedUser";
 import { SignedUserDetails } from '../../../models/user/signedUserDetails';
-
-/* Rxjs */
-import { Observable } from "rxjs";
-/* NgRx */
-import * as fromUser from "../../../ngrx/selectors/user.selectors";
-import * as userActions from "../../../ngrx/actions/user.actions";
-import { Store, select } from "@ngrx/store";
-
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ChangePassword } from '../../../models/user/changePassword';
 
 @Component({
   selector: "app-settings-password",
   templateUrl: "./settings-password.component.html"
 })
 export class SettingsPasswordComponent implements OnInit {
-  constructor() {}
-  
-  @Output() onSelected = new EventEmitter<string>();
+  constructor(private formBuilder: FormBuilder) { }
+
   @Input() signedUserDetails: SignedUserDetails;
+  @Output() onUpdatePassword = new EventEmitter<ChangePassword>();
+  changePassForm: FormGroup;
+  passworData: ChangePassword;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.createPasswordForm();
+  }
 
-  onSetPassword(){
-    this.onSelected.emit("Tıklandı");
+  createPasswordForm() {
+    this.changePassForm = this.formBuilder.group(
+      {
+        oldPassword: ["", Validators.required],
+        newPassword: [
+          "",
+          [
+            Validators.required,
+            Validators.minLength(4),
+            Validators.maxLength(12)
+          ]
+        ],
+        confirmPassword: ["", Validators.required]
+      },
+      { validator: this.passwordMatchValidator }
+    );
+  }
+
+  passwordMatchValidator(g: FormGroup) {
+    return g.get("newPassword").value === g.get("confirmPassword").value
+      ? null
+      : { misMatch: true };
+  }
+
+  updatePassword() {
+    if (this.changePassForm.valid) {
+      this.passworData = Object.assign({}, this.changePassForm.value);
+      this.onUpdatePassword.emit(this.passworData);
+    }
   }
 }

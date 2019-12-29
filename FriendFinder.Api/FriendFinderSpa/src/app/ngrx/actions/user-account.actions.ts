@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 import { SignedUserDetails } from '../../models/user/signedUserDetails';
+import { ChangePassword } from '../../models/user/changePassword';
 
 export enum UserAccountActionTypes {
     GetSignedUserDetail = '[User] Get Signed User Detail',
@@ -7,7 +8,10 @@ export enum UserAccountActionTypes {
     GetSignedUserDetailFail = '[User] Get Signed User Detail Fail',
     UpdateBasicInformations = '[User] Update Basic Informations',
     UpdateBasicInformationsSuccess = '[User] Update Basic Informations Success',
-    UpdateBasicInformationsFail = '[User] Update Basic Informations Fail'
+    UpdateBasicInformationsFail = '[User] Update Basic Informations Fail',
+    UpdatePassword = '[User] Update Password',
+    UpdatePasswordSuccess = '[User] Update Password Success',
+    UpdatePasswordFail = '[User] Update Password Fail'
 }
 
 export class GetSignedUserDetail implements Action {
@@ -44,9 +48,30 @@ export class UpdateBasicInformationsFail implements Action {
     constructor(public payload: object) { }
 }
 
+export class UpdatePassword implements Action {
+    readonly type = UserAccountActionTypes.UpdatePassword;
+
+    constructor(public payload: ChangePassword) { }
+}
+
+export class UpdatePasswordSuccess implements Action {
+    readonly type = UserAccountActionTypes.UpdatePasswordSuccess;
+
+    constructor(public payload: any) { }
+}
+
+export class UpdatePasswordFail implements Action {
+    readonly type = UserAccountActionTypes.UpdatePasswordFail;
+
+    constructor(public payload: object) { }
+}
+
 export type UserAccountActions = GetSignedUserDetail
     | GetSignedUserDetailSuccess
     | GetSignedUserDetailFail
     | UpdateBasicInformations
     | UpdateBasicInformationsSuccess
-    | UpdateBasicInformationsFail;
+    | UpdateBasicInformationsFail
+    | UpdatePassword
+    | UpdatePasswordSuccess
+    | UpdatePasswordFail;
