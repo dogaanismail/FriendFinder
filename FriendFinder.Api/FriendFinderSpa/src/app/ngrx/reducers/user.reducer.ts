@@ -1,6 +1,7 @@
 import { User } from "../../models/user/user";
 import { UserActions, UserActionTypes } from "../actions/user.actions";
-import { SignedUser } from 'src/app/models/user/signedUser';
+import { SignedUser } from '../../models/user/signedUser';
+import * as fromRoot from '../../ngrx/state/app.state';
 
 export interface UserState {
     currentUser: User;

@@ -17,15 +17,13 @@ import { AuthGuard } from './helpers/auth.guard';
 import { ErrorInterceptor } from './core/errorHandlings/error.interceptors';
 
 /* NgRx */
-import { StoreModule } from '@ngrx/store';
-import { postReducer } from './ngrx/reducers/post.reducer';
-import { userReducer } from './ngrx/reducers/user.reducer';
-import { userAccountReducer } from './ngrx/reducers/user-account.reducer';
-import { globalErrorReducer } from './ngrx/reducers/global-error.reducer';
+import { StoreModule, META_REDUCERS, MetaReducer, State, USER_PROVIDED_META_REDUCERS } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { PostEffects } from './ngrx/effects/post.effects';
 import { UserEffects } from './ngrx/effects/user.effects';
 import { UserAccountEffects } from './ngrx/effects/user-account.effects';
+import { reducers } from './ngrx/state/app.state';
 
 /* Modules */
 import { TimelineModule } from './components/timeline/timeline.module';
@@ -34,6 +32,16 @@ import { SettingsModule } from './components/settings/setting.module';
 import { VideoConferenceModule } from './components/video-conference/video-conference.module';
 import { ChatModule } from './components/chat/chat.module';
 
+/* Store Mechanism */
+import { storageMetaReducer } from './core/store-infrastructure/storage-metareducer';
+import { StoreLocalStorageService } from './core/store-infrastructure/store-local-storage.service';
+import { ROOT_STORAGE_KEYS, ROOT_LOCAL_STORAGE_KEY} from './app.tokens';
+import { environment } from 'src/environments/environment';
+
+// factory meta-reducer configuration function
+export function getMetaReducers(saveKeys: string[], localStorageKey: string, storageService: StoreLocalStorageService): MetaReducer<State<any>>[] {
+  return [storageMetaReducer(saveKeys, localStorageKey, storageService)];
+}
 
 @NgModule({
   declarations: [
@@ -55,20 +63,25 @@ import { ChatModule } from './components/chat/chat.module';
     ProfileModule,
     VideoConferenceModule,
     ChatModule,
-    StoreModule.forRoot({}),
-    StoreModule.forFeature('posts', postReducer),
-    StoreModule.forFeature('users', userReducer),
-    StoreModule.forFeature('userDetails', userAccountReducer),
-    StoreModule.forFeature('errors', globalErrorReducer),
+    StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
     EffectsModule.forFeature(
       [PostEffects, UserEffects, UserAccountEffects]
     ),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [
     AlertifyService,
     EditorConfigService,
     // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+
+    {provide: ROOT_STORAGE_KEYS, useValue: ['users'], multi: true},
+    {provide: ROOT_LOCAL_STORAGE_KEY, useValue: '__app_storage__', multi: true},
+    {
+      provide   : USER_PROVIDED_META_REDUCERS ,
+      deps      : [ROOT_STORAGE_KEYS, ROOT_LOCAL_STORAGE_KEY, StoreLocalStorageService],
+      useFactory: getMetaReducers,
+    },
   ],
   bootstrap: [AppComponent],
 })
