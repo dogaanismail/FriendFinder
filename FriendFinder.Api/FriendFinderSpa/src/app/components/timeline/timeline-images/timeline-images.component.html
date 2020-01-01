@@ -26,7 +26,7 @@
 
         <!-- Media
         ================================================= -->
-        <div *ngIf="errorMessage" class="alert alert-danger">
+        <div *ngIf="errorMessage$ | async errorMessage" class="alert alert-danger">
           Error: {{ errorMessage }}
         </div>
 

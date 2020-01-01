@@ -12,6 +12,7 @@
     <ShowAllFiles>false</ShowAllFiles>
     <ToolsVersionPromptShown>3.1</ToolsVersionPromptShown>
     <ActiveDebugProfile>IIS Express</ActiveDebugProfile>
+    <NameOfLastUsedPublishProfile>friend-finder-server - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>

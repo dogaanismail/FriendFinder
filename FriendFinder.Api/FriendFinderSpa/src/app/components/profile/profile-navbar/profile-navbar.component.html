@@ -27,10 +27,10 @@
       </div>
       <div class="col-md-9">
         <ul class="list-inline profile-menu">
-          <li routerLinkActive="active"><a routerLink="/profile/{{user.username}}" class="active">Timeline</a></li>
-          <li routerLinkActive="active"><a routerLink="/profile/about/{{user.username}}">About</a></li>
-          <li routerLinkActive="active"><a routerLink="/profile/album/{{user.username}}">Album</a></li>
-          <li routerLinkActive="active"><a routerLink="/profile/friends/{{user.username}}">Friends</a></li>
+          <li routerLinkActive="active"><a routerLink="/profile/{{user.userName}}" class="active">Timeline</a></li>
+          <li routerLinkActive="active"><a routerLink="/profile/about/{{user.userName}}">About</a></li>
+          <li routerLinkActive="active"><a routerLink="/profile/album/{{user.userName}}">Album</a></li>
+          <li routerLinkActive="active"><a routerLink="/profile/friends/{{user.userName}}">Friends</a></li>
         </ul>
         <ul class="follow-me list-inline">
           <li>1,299 people following her</li>
@@ -45,15 +45,15 @@
   <div class="navbar-mobile hidden-lg hidden-md">
     <div class="profile-info">
       <img src="{{user.profilePhotoUrl}}" alt="" class="img-responsive profile-photo" />
-      <h4>{{user.username}}</h4>
+      <h4>{{user.userName}}</h4>
       <p class="text-muted">Computer Engineer</p>
     </div>
     <div class="mobile-menu">
       <ul class="list-inline profile-menu">
-        <li routerLinkActive="active"><a routerLink="/profile/{{user.username}}" class="active">Timeline</a></li>
-        <li routerLinkActive="active"><a routerLink="/profile/about/{{user.username}}">About</a></li>
-        <li routerLinkActive="active"><a routerLink="/profile/album/{{user.username}}">Album</a></li>
-        <li routerLinkActive="active"><a routerLink="/profile/friends/{{user.username}}">Friends</a></li>
+        <li routerLinkActive="active"><a routerLink="/profile/{{user.userName}}" class="active">Timeline</a></li>
+        <li routerLinkActive="active"><a routerLink="/profile/about/{{user.userName}}">About</a></li>
+        <li routerLinkActive="active"><a routerLink="/profile/album/{{user.userName}}">Album</a></li>
+        <li routerLinkActive="active"><a routerLink="/profile/friends/{{user.userName}}">Friends</a></li>
       </ul>
       <button class="btn-primary">Add Friend</button>
     </div>
