@@ -53,7 +53,7 @@ namespace FriendFinder.Business.Services
                     AppUserDetailDto postListDto = new AppUserDetailDto
                     {
                         Id = appUser.Id,
-                        Username = appUser.UserName,
+                        UserName = appUser.UserName,
                         UserPosts = _postService.GetUserPostsWithDto(appUser.Id),
                         CoverPhotoUrl = appUser.UserDetail.CoverPhotoPath ?? null,
                         ProfilePhotoUrl = appUser.UserDetail.ProfilePhotoPath ?? null,

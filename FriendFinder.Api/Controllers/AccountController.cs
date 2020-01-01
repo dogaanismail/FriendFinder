@@ -50,7 +50,7 @@ namespace FriendFinder.Api.Controllers
                 var token = _tokenService.GenerateToken(new AppUserDto
                 {
                     AppUserId = user.Id,
-                    UserName = user.Username,
+                    UserName = user.UserName,
                     CoverPhotoUrl = user.CoverPhotoUrl,
                     ProfilePhotoUrl = user.ProfilePhotoUrl,
                     UserPosts = user.UserPosts,

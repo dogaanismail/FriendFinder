@@ -101,13 +101,6 @@ C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Api\obj\Debug
 C:\Projects\FriendFinder\FriendFinder.Api\obj\Debug\netcoreapp2.2\FriendFinder.Api.csprojAssemblyReference.cache
 C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\appsettings.Development.json
 C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\appsettings.json
-C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\FriendFinderSpa\angular.json
-C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\FriendFinderSpa\package-lock.json
-C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\FriendFinderSpa\package.json
-C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\FriendFinderSpa\tsconfig.app.json
-C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\FriendFinderSpa\tsconfig.json
-C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\FriendFinderSpa\tsconfig.spec.json
-C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\FriendFinderSpa\tslint.json
 C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
 C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\FriendFinder.Api.deps.json
 C:\Projects\FriendFinder\FriendFinder.Api\bin\Debug\netcoreapp2.2\FriendFinder.Api.runtimeconfig.json
