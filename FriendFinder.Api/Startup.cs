@@ -7,10 +7,13 @@ using FriendFinder.Core.Attributes;
 using FriendFinder.Core.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Net.Http.Headers;
+using System.Linq;
 
 namespace FriendFinder.Api
 {
@@ -44,8 +47,22 @@ namespace FriendFinder.Api
             services.AddSignalR();
 
             //Twilio-Video Conference
-            services.Configure<TwilioSettings>(Configuration.GetSection(nameof(TwilioSettings)))
+            services.Configure<TwilioVideoSettings>(Configuration.GetSection(nameof(TwilioVideoSettings)))
                     .AddTransient<IVideoConferenceService, VideoConferenceService>();
+
+            //Configurations of gif settings
+            services.Configure<ImageProcessingOptions>(Configuration.GetSection(nameof(ImageProcessingOptions)));
+            services.Configure<ImageCaptureOptions>(Configuration.GetSection(nameof(ImageCaptureOptions)));
+            services.Configure<ImageRepositoryOptions>(Configuration.GetSection(nameof(ImageRepositoryOptions)));
+            services.Configure<TwilioSmsSettings>(Configuration.GetSection(nameof(TwilioSmsSettings)));
+
+            services.AddResponseCompression(
+                options => options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[]
+                                {
+                                    "image/jpeg",
+                                    "image/png",
+                                    "image/gif"
+                                }));
 
             //Angular
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "FriendFinderSpa/dist/"; });
@@ -63,10 +80,6 @@ namespace FriendFinder.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
-                {
-                    HotModuleReplacement = true
-                });
             }
             else
             {
@@ -79,7 +92,13 @@ namespace FriendFinder.Api
             app.UseAuthentication();
 
             app.UseHttpsRedirection()
-              .UseStaticFiles()
+              .UseResponseCompression()
+              .UseStaticFiles(new StaticFileOptions
+              {
+                  // 6 hour cache
+                  OnPrepareResponse =
+                      _ => _.Context.Response.Headers[HeaderNames.CacheControl] = "public,max-age=21600"
+              })
               .UseSpaStaticFiles();
 
             app.UseMySwagger();

@@ -18,9 +18,9 @@ namespace FriendFinder.Business.Services
     public class VideoConferenceService : IVideoConferenceService
     {
         #region Ctor
-        private readonly TwilioSettings _twilioSettings;
+        private readonly TwilioVideoSettings _twilioSettings;
 
-        public VideoConferenceService(Microsoft.Extensions.Options.IOptions<TwilioSettings> options)
+        public VideoConferenceService(Microsoft.Extensions.Options.IOptions<TwilioVideoSettings> options)
         {
             _twilioSettings = options?.Value
                 ?? throw new ArgumentNullException(nameof(options));

@@ -77,3 +77,5 @@ C:\Projects\FriendFinder\FriendFinder.Business\obj\Debug\netstandard2.0\FriendFi
 C:\Projects\FriendFinder\FriendFinder.Business\obj\Debug\netstandard2.0\FriendFinder.Business.csproj.CopyComplete
 C:\Projects\FriendFinder\FriendFinder.Business\obj\Debug\netstandard2.0\FriendFinder.Business.dll
 C:\Projects\FriendFinder\FriendFinder.Business\obj\Debug\netstandard2.0\FriendFinder.Business.pdb
+C:\Projects\FriendFinder\FriendFinder.Business\bin\Debug\netstandard2.0\FriendFinder.Core.dll
+C:\Projects\FriendFinder\FriendFinder.Business\bin\Debug\netstandard2.0\FriendFinder.Core.pdb

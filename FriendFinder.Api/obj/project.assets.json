@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.2": {
+      "Centare.Extensions/1.0.19": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "2.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/Centare.Extensions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Centare.Extensions.dll": {}
+        }
+      },
       "CloudinaryDotNet/1.8.0": {
         "type": "package",
         "dependencies": {
@@ -3262,6 +3274,48 @@
           "lib/netstandard1.2/Serilog.Sinks.PeriodicBatching.dll": {}
         }
       },
+      "SixLabors.Core/1.0.0-beta0005": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp2.0/SixLabors.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/SixLabors.Core.dll": {}
+        }
+      },
+      "SixLabors.ImageSharp/1.0.0-beta0004": {
+        "type": "package",
+        "dependencies": {
+          "SixLabors.Core": "1.0.0-beta0005",
+          "System.Buffers": "4.4.0",
+          "System.Memory": "4.5.0-rc1",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.0-rc1"
+        },
+        "compile": {
+          "lib/netstandard2.0/SixLabors.ImageSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SixLabors.ImageSharp.dll": {}
+        }
+      },
+      "SixLabors.ImageSharp.Web/1.0.0-beta0003": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.0.0",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.0.0",
+          "Microsoft.AspNetCore.Http.Extensions": "2.0.0",
+          "Microsoft.AspNetCore.WebUtilities": "2.0.0",
+          "Microsoft.Extensions.Caching.Abstractions": "2.0.0",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "2.0.0",
+          "SixLabors.ImageSharp": "1.0.0-beta0003"
+        },
+        "compile": {
+          "lib/netstandard2.0/SixLabors.ImageSharp.Web.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SixLabors.ImageSharp.Web.dll": {}
+        }
+      },
       "Swashbuckle.AspNetCore/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -4972,13 +5026,31 @@
           "lib/netstandard2.0/Twilio.dll": {}
         }
       },
+      "WindowsAzure.Storage/9.3.3": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.2"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
+        }
+      },
       "FriendFinder.Business/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Centare.Extensions": "1.0.19",
+          "FriendFinder.Core": "1.0.0",
           "FriendFinder.Domain": "1.0.0",
           "FriendFinder.Repository": "1.0.0",
-          "Twilio": "5.34.0"
+          "SixLabors.ImageSharp": "1.0.0-beta0004",
+          "SixLabors.ImageSharp.Web": "1.0.0-beta0003",
+          "Twilio": "5.34.0",
+          "WindowsAzure.Storage": "9.3.3"
         },
         "compile": {
           "bin/placeholder/FriendFinder.Business.dll": {}
@@ -5054,6 +5126,18 @@
     }
   },
   "libraries": {
+    "Centare.Extensions/1.0.19": {
+      "sha512": "zILi5H/au0k3PCc+AY34avx6sVTIaLN6EhqefKknfohlkbXc+1XR9oTpBNXuQ2WmqZt08+cLta6fUJpa2VN81w==",
+      "type": "package",
+      "path": "centare.extensions/1.0.19",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "centare.extensions.1.0.19.nupkg.sha512",
+        "centare.extensions.nuspec",
+        "lib/netstandard2.0/Centare.Extensions.dll"
+      ]
+    },
     "CloudinaryDotNet/1.8.0": {
       "sha512": "jrxUPvVmdGL+8wDGQn4rBrRh7jKPDTqUW1kBj+fwmGdiMW5aBArQ3P2ErnYA84AQgvJnb2JwP3WTlwD2Yc/kdA==",
       "type": "package",
@@ -8898,6 +8982,53 @@
         "lib/netstandard1.2/Serilog.Sinks.PeriodicBatching.xml",
         "serilog.sinks.periodicbatching.2.1.1.nupkg.sha512",
         "serilog.sinks.periodicbatching.nuspec"
+      ]
+    },
+    "SixLabors.Core/1.0.0-beta0005": {
+      "sha512": "RnLbRe5J9kjSH+EDA8a58shzI+nNt96aJw1WgXxdn+DSc/ryirdEPO/2EIITvaSX6Nk9Lepcj8EOVfq16fhUmg==",
+      "type": "package",
+      "path": "sixlabors.core/1.0.0-beta0005",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp2.0/SixLabors.Core.dll",
+        "lib/netcoreapp2.0/SixLabors.Core.xml",
+        "lib/netstandard1.1/SixLabors.Core.dll",
+        "lib/netstandard1.1/SixLabors.Core.xml",
+        "sixlabors.core.1.0.0-beta0005.nupkg.sha512",
+        "sixlabors.core.nuspec"
+      ]
+    },
+    "SixLabors.ImageSharp/1.0.0-beta0004": {
+      "sha512": "ypYAt2A8FLJ85y42VOVzrCTaULbTwKMM87kYspWOpeBQG/nGBfKWGzFikNJUqOFET7lqQ1nCMp30Nin/W3DPhQ==",
+      "type": "package",
+      "path": "sixlabors.imagesharp/1.0.0-beta0004",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard1.1/SixLabors.ImageSharp.dll",
+        "lib/netstandard1.1/SixLabors.ImageSharp.xml",
+        "lib/netstandard1.3/SixLabors.ImageSharp.dll",
+        "lib/netstandard1.3/SixLabors.ImageSharp.xml",
+        "lib/netstandard2.0/SixLabors.ImageSharp.dll",
+        "lib/netstandard2.0/SixLabors.ImageSharp.xml",
+        "sixlabors.imagesharp.1.0.0-beta0004.nupkg.sha512",
+        "sixlabors.imagesharp.nuspec"
+      ]
+    },
+    "SixLabors.ImageSharp.Web/1.0.0-beta0003": {
+      "sha512": "o9ug6EyDRwswyCf/8eKBu73GGxOmrgMKzzBbFzRYN0jCg1w0Jn4NyP21+RcbZFHC9MSDmy5bari2bAq5gEZApw==",
+      "type": "package",
+      "path": "sixlabors.imagesharp.web/1.0.0-beta0003",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard1.4/SixLabors.ImageSharp.Web.dll",
+        "lib/netstandard1.4/SixLabors.ImageSharp.Web.xml",
+        "lib/netstandard2.0/SixLabors.ImageSharp.Web.dll",
+        "lib/netstandard2.0/SixLabors.ImageSharp.Web.xml",
+        "sixlabors.imagesharp.web.1.0.0-beta0003.nupkg.sha512",
+        "sixlabors.imagesharp.web.nuspec"
       ]
     },
     "Swashbuckle.AspNetCore/4.0.1": {
@@ -13626,6 +13757,30 @@
         "lib/netstandard2.0/Twilio.xml",
         "twilio.5.34.0.nupkg.sha512",
         "twilio.nuspec"
+      ]
+    },
+    "WindowsAzure.Storage/9.3.3": {
+      "sha512": "VUV8j6dzkU/7vDgk5k+ob5g7nnch2fNByr0p9aOxMGFGk+tAnTehrZ4qnClF04CVozP1GNN2zrnbsxCmr+iZBg==",
+      "type": "package",
+      "path": "windowsazure.storage/9.3.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Microsoft.WindowsAzure.Storage.dll",
+        "lib/net45/Microsoft.WindowsAzure.Storage.pdb",
+        "lib/net45/Microsoft.WindowsAzure.Storage.xml",
+        "lib/netstandard1.0/Microsoft.WindowsAzure.Storage.dll",
+        "lib/netstandard1.0/Microsoft.WindowsAzure.Storage.pdb",
+        "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll",
+        "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.pdb",
+        "lib/win8/Microsoft.WindowsAzure.Storage.dll",
+        "lib/win8/Microsoft.WindowsAzure.Storage.pdb",
+        "lib/wp8/Microsoft.WindowsAzure.Storage.dll",
+        "lib/wp8/Microsoft.WindowsAzure.Storage.pdb",
+        "lib/wpa/Microsoft.WindowsAzure.Storage.dll",
+        "lib/wpa/Microsoft.WindowsAzure.Storage.pdb",
+        "windowsazure.storage.9.3.3.nupkg.sha512",
+        "windowsazure.storage.nuspec"
       ]
     },
     "FriendFinder.Business/1.0.0": {

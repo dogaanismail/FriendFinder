@@ -1,6 +1,6 @@
 ﻿namespace FriendFinder.Business.Configuration
 {
-    public class TwilioSettings
+    public class TwilioVideoSettings
     {
         /// <summary>
         /// The primary Twilio account SID, displayed prominently on your twilio.com/console dashboard.

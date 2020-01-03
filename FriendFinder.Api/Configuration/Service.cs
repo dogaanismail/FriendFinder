@@ -1,4 +1,5 @@
 ﻿using FriendFinder.Business.Interfaces;
+using FriendFinder.Business.Provider;
 using FriendFinder.Business.Services;
 using FriendFinder.Core.Security;
 using FriendFinder.Repository.Generic;
@@ -27,8 +28,10 @@ namespace FriendFinder.Api.Configuration
             services.AddScoped<IChatService, ChatService>();
             services.AddScoped<IChatGroupService, ChatGroupService>();
             services.AddScoped<IChatGroupUserService, ChatGroupUserService>();
-
-
+            services.AddTransient<IImageProcessorService, ImageProcessorService>();
+            services.AddTransient<IImageRepositoryService, ImageRepositoryService>();
+            services.AddSingleton<IContainerProvider, ContainerProvider>();
+            services.AddSingleton<ITextMessagingService, TextMessagingService>();
             services.AddScoped<ITokenService, TokenService>();
 
         }
