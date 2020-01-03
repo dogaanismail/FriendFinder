@@ -5,7 +5,7 @@ import { StorageService } from '../../../services/video-conference/storage.servi
 @Component({
     selector: 'app-camera',
     styleUrls: ['../css-file/bootstrap4.css', './camera.component.css'],
-    templateUrl: './camera.component.html',
+    templateUrl: './camera.component.html'
 })
 export class CameraComponent implements AfterViewInit {
     @ViewChild('preview', { static: false }) previewElement: ElementRef;

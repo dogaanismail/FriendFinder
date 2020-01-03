@@ -59,6 +59,8 @@ namespace FriendFinder.Business.Services
             blob.Properties.ContentType = "image/gif";
             FileStream file = new FileStream(filePath, FileMode.Open);
             await blob.UploadFromStreamAsync(file);
+            file.Close();
+            File.Delete(filePath);
         }
     }
 }

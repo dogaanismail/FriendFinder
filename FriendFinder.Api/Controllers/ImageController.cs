@@ -7,13 +7,13 @@ namespace FriendFinder.Api.Controllers
 {
     public class ImageController : BaseController
     {
-        [HttpPost, Route("generate")]
+        [HttpPost("generate")]
         public async Task<IActionResult> Generate(
              [FromBody] ImagesPostRequest imagesPostRequest,
              [FromServices] IImageProcessorService imageProcessor)
              => Json(await imageProcessor.ProcessImagesAsync("http://friend-finder-server.azurewebsites.net/", imagesPostRequest));
 
-        [HttpGet, Route("options")]
+        [HttpGet("options")]
         public IActionResult GetOptions(
             [FromServices] IImageProcessorService imageProcessor)
             => Json(imageProcessor.GetImageOptions());

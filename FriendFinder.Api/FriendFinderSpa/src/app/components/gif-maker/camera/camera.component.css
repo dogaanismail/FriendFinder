@@ -1,0 +1,134 @@
+/* ReSharper disable once CssNotResolved */
+:host {
+    overflow: hidden !important;    
+}
+
+.video-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden !important;
+}
+
+video {
+    object-fit: contain;
+    max-height: 100%;
+    width: 100% !important;
+    overflow: hidden !important;
+}
+
+.camera-flash {
+    animation-name: flash;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+}
+
+@keyframes flash {
+    0% { background: white; }
+    50% { background: whitesmoke; }
+    100% { background: #688b8b; }
+}
+
+@-webkit-keyframes flash {
+    0% { background: white; }
+    50% { background: whitesmoke; }
+    100% { background: #688b8b; }
+}
+
+
+.black-glow {
+    text-shadow: 0 0 80px #010101;    
+}
+
+.black-inset {
+    box-shadow: inset 0 0 100px rgba(0,0,0, .5);
+}
+
+.ccc-orange {
+    color: #f15322;
+}
+
+.ccc-cream {
+    color: #ecd290;
+}
+
+.ccc-blue {
+    color: #688b8b;
+}
+
+.ccc-black {
+    color: #010101;
+}
+
+.ccc-bg-orange {
+    background-color: #f15322;
+}
+
+.ccc-bg-cream {
+    background-color: #ecd290;
+}
+
+.ccc-bg-blue {
+    background-color: #688b8b;
+}
+
+.ccc-bg-black {
+    background-color: #010101;
+}
+
+.twitter-blue {
+    color: #1da1f2;
+}
+
+.ccc-button {
+    font-size: 60px;
+    padding: 32px 64px;
+    border-radius: 12px;
+    border-width: 0px;
+    color: whitesmoke;
+    box-shadow: 0 0 80px #010101;
+    text-shadow: 0 0 20px #010101;
+}
+
+.ccc-button.disabled,
+.ccc-button:disabled {
+    color: #aeaeae;
+    opacity: .7;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.glyphicon.fast-spinner {
+    -webkit-animation: glyphicon-spin-r 1s infinite linear;
+    animation: glyphicon-spin-r 1s infinite linear;
+}
+
+@-webkit-keyframes glyphicon-spin-r {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+@keyframes glyphicon-spin-r {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}

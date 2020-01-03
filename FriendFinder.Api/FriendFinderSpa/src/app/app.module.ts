@@ -31,11 +31,12 @@ import { ProfileModule } from './components/profile/profile-module';
 import { SettingsModule } from './components/settings/setting.module';
 import { VideoConferenceModule } from './components/video-conference/video-conference.module';
 import { ChatModule } from './components/chat/chat.module';
+import { GifMakerModule } from './components/gif-maker/gif-maker.module';
 
 /* Store Mechanism */
 import { storageMetaReducer } from './core/store-infrastructure/storage-metareducer';
 import { StoreLocalStorageService } from './core/store-infrastructure/store-local-storage.service';
-import { ROOT_STORAGE_KEYS, ROOT_LOCAL_STORAGE_KEY} from './app.tokens';
+import { ROOT_STORAGE_KEYS, ROOT_LOCAL_STORAGE_KEY } from './app.tokens';
 import { environment } from 'src/environments/environment';
 
 // factory meta-reducer configuration function
@@ -63,6 +64,7 @@ export function getMetaReducers(saveKeys: string[], localStorageKey: string, sto
     ProfileModule,
     VideoConferenceModule,
     ChatModule,
+    GifMakerModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
     EffectsModule.forFeature(
@@ -75,11 +77,11 @@ export function getMetaReducers(saveKeys: string[], localStorageKey: string, sto
     EditorConfigService,
     // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
 
-    {provide: ROOT_STORAGE_KEYS, useValue: ['users'], multi: true},
-    {provide: ROOT_LOCAL_STORAGE_KEY, useValue: '__app_storage__', multi: true},
+    { provide: ROOT_STORAGE_KEYS, useValue: ['users'], multi: true },
+    { provide: ROOT_LOCAL_STORAGE_KEY, useValue: '__app_storage__', multi: true },
     {
-      provide   : USER_PROVIDED_META_REDUCERS ,
-      deps      : [ROOT_STORAGE_KEYS, ROOT_LOCAL_STORAGE_KEY, StoreLocalStorageService],
+      provide: USER_PROVIDED_META_REDUCERS,
+      deps: [ROOT_STORAGE_KEYS, ROOT_LOCAL_STORAGE_KEY, StoreLocalStorageService],
       useFactory: getMetaReducers,
     },
   ],

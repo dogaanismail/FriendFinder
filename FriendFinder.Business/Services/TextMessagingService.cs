@@ -15,19 +15,19 @@ namespace FriendFinder.Business.Services
     public class TextMessagingService : ITextMessagingService
     {
         #region Ctor
-        private readonly TwilioSmsSettings _options;
+        private readonly TwilioSmsSettings _smsOptions;
         private readonly ILogger<TextMessagingService> _logger;
 
         public TextMessagingService(
-            IOptions<TwilioSmsSettings> twilioOptions,
+            IOptions<TwilioSmsSettings> smsOptions,
             ILogger<TextMessagingService> logger)
         {
-            _options = twilioOptions?.Value ?? throw new ArgumentNullException(nameof(twilioOptions));
+            _smsOptions = smsOptions?.Value ?? throw new ArgumentNullException(nameof(smsOptions));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
-            var accountId = _options.AccountIdKey;
+            var accountId = _smsOptions.AccountIdKey;
 
-            var authToken = _options.AuthTokenKey;
+            var authToken = _smsOptions.AuthTokenKey;
 
             TwilioClient.Init(accountId, authToken);
         }
@@ -43,7 +43,7 @@ namespace FriendFinder.Business.Services
                     var message =
                         MessageResource.Create(
                             to: toPhoneNumber,
-                            from: _options.FromPhoneNumber,
+                            from: _smsOptions.FromPhoneNumber,
                             body: image.ToString());
 
                     _logger.LogInformation($"Texted {toPhoneNumber}: {image}. Message: {message}.");
@@ -64,7 +64,7 @@ namespace FriendFinder.Business.Services
                     var message =
                         MessageResource.Create(
                             to: toPhoneNumber,
-                            from: _options.FromPhoneNumber,
+                            from: _smsOptions.FromPhoneNumber,
                             body: body);
 
                     _logger.LogInformation($"Texted {toPhoneNumber}: {body}. Message: {message}.");
