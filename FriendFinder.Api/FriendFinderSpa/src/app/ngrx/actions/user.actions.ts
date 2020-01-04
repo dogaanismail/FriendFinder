@@ -119,6 +119,10 @@ export class RegisterFail implements Action {
   constructor(public payload: object) { }
 }
 
+export class Logout implements Action{
+  readonly type = UserActionTypes.Logout;
+}
+
 export class LogoutSuccess implements Action {
   readonly type = UserActionTypes.LogoutSuccess;
 }

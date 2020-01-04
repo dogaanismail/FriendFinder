@@ -4,6 +4,7 @@ import { User } from "../../../models/user/user";
 import { Post } from "../../../models/post/post";
 import { PostTypeEnum } from '../../../core/enumerations/PostTypeEnum';
 import { ModalService } from '../../../services/modal/modal.service';
+import { SignedUser } from '../../../models/user/signedUser';
 /* Rxjs */
 import { map, catchError } from 'rxjs/operators';
 /* NgRx */
@@ -13,6 +14,7 @@ import * as userActions from "../../../ngrx/actions/user.actions";
 import * as postActions from './../../../ngrx/actions/post.actions';
 import { Observable, throwError } from "rxjs";
 import { Store, select } from "@ngrx/store";
+
 
 @Component({
   selector: "app-profile-album",
@@ -25,6 +27,7 @@ export class ProfileAlbumComponent implements OnInit {
   user$: Observable<User>;
   imagePost$: Observable<Post[]>;
   selectedPost: Post;
+  signedUser$: Observable<SignedUser>;
 
   constructor(
     private modalService: ModalService,
@@ -45,6 +48,7 @@ export class ProfileAlbumComponent implements OnInit {
       this.isNewCover$ = this.userStore.pipe(select(fromUser.getIsNewCover));
       this.isNewPhoto$ = this.userStore.pipe(select(fromUser.getIsNewPhoto));
     }
+    this.signedUser$ = this.userStore.pipe(select(fromUser.getSignedUser)) as Observable<SignedUser>;
   }
 
   openModal(id: string, postId: number) {

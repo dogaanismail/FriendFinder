@@ -6,7 +6,11 @@
   ================================================= -->
   <div class="timeline">
 
-    <app-profile-navbar [user]="user$ | async" [newPhoto]="isNewPhoto$ | async" [newCover]="isNewCover$ | async">
+    <app-profile-navbar 
+    [user]="user$ | async" 
+    [newPhoto]="isNewPhoto$ | async" 
+    [newCover]="isNewCover$ | async"
+    [signedUser]="signedUser$ | async">
     </app-profile-navbar>
 
     <div id="page-contents">

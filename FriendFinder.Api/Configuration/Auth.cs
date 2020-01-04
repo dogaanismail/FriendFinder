@@ -1,6 +1,7 @@
 ﻿using FriendFinder.Core.Security.JwtSecurity;
 using FriendFinder.Entities.Data;
 using FriendFinder.Entities.Entities;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,7 +12,7 @@ namespace FriendFinder.Api.Configuration
     public static class Auth
     {
         /// <summary>
-        /// Cors policy işlemleri için gerekli izin ayarlaması yapılır
+        /// Cors policy processes.
         /// </summary>
         /// <param name="services"></param>
         /// <param name="configuration"></param>
@@ -35,6 +36,10 @@ namespace FriendFinder.Api.Configuration
 
             }).AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+
+            // Uncomment the following lines to enable logging in with third party login providers
 
             JwtTokenDefinitions.LoadFromConfiguration(configuration);
             services.ConfigureJwtAuthentication();

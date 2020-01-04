@@ -43,7 +43,7 @@ namespace FriendFinder.Api.Controllers
         [HttpPost("login")]
         public async Task<JsonResult> Login([FromBody] LoginApiRequest model)
         {
-            var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, false, false);
+            var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, false);
             var user = _userDetailService.GetUserDetailByUsername(model.Username);
             if (result.Succeeded && user != null)
             {
@@ -124,6 +124,16 @@ namespace FriendFinder.Api.Controllers
                 }
             }
         }
+
+        [HttpPost("logout")]
+        public async Task<JsonResult> LogOut()
+        {
+            await _signInManager.SignOutAsync();
+            Result.Status = true;
+            Result.Message = "Successfully has logged out !";
+            return OkResponse(Result);
+        }
+
 
     }
 }

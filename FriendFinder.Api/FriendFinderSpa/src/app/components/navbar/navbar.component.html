@@ -30,6 +30,7 @@
               <li><a routerLink="/settings/account">Account Settings</a></li>
             </ul>
           </li>
+          <li class="dropdown" *ngIf="signedUser"><a (click)="signOut()">Log out</a></li>
         </ul>
         <form class="navbar-form navbar-right hidden-sm">
           <div class="form-group">

@@ -48,6 +48,13 @@ export class AuthService {
 
   logOut() {
     localStorage.removeItem(this.TOKEN_KEY);
+    let headers = new HttpHeaders();
+    headers.append("Content-Type", "application/json");
+    return this.httpClient.post(this.path + "/logout", { headers: headers }).pipe(
+      tap((data: any) => {
+      }),
+      catchError(this.handleError)
+    );
   }
 
   saveToken(token: any) {

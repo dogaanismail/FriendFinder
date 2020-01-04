@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-
 import { Observable, of } from 'rxjs';
 import { mergeMap, map, catchError } from 'rxjs/operators';
-
+import { AuthService } from '../../services/user/auth/auth.service';
 import { UserService } from '../../services/user/detail/user.service';
 
 /* NgRx */
@@ -11,11 +10,13 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import * as userActions from '../actions/user.actions';
 import { User } from 'src/app/models/user/user';
 
+
 @Injectable()
 export class UserEffects {
     constructor
         (
             private userService: UserService,
+            private authService: AuthService,
             private actions$: Actions
         ) { }
 
@@ -52,6 +53,17 @@ export class UserEffects {
             this.userService.changeCoverPhoto(file).pipe(
                 map((newPhotoUrl: any) => (new userActions.ChangeCoverPhotoSuccess(newPhotoUrl.result))),
                 catchError(err => of(new userActions.ChangeCoverPhotoFail(err)))
+            )
+        )
+    );
+
+    @Effect()
+    userLogOut$: Observable<Action> = this.actions$.pipe(
+        ofType(userActions.UserActionTypes.Logout),
+        mergeMap(action =>
+            this.authService.logOut().pipe(
+                map((result: any) => (new userActions.LogoutSuccess())),
+                catchError(err => of(new userActions.LogoutFail(err)))
             )
         )
     );
