@@ -1,20 +1,13 @@
-<meta name="twitter:image" content="{{giftUrl}}">
-    <meta name="twitter:url" content="{{giftUrl}}">
-    <meta property="og:image" content="{{giftUrl}}">
-    <meta property="og:url" content="{{giftUrl}}">
-    <meta itemprop="image" content="{{giftUrl}}">
-
-
 <div class="container-fluid">
   <ccc-audio #resetSound [src]="'https://www.soundjay.com/button/sounds/beep-027.mp3'"></ccc-audio>
   <div class="row">
     <div class="col-12 body-content">
+      <button class="ccc-button ccc-bg-blue" style="size:10px !important;" (click)="goBack(resetSound)">
+        <i class="glyphicon glyphicon-left"></i><br /> Go Back
+      </button>
       <div class="wrapper">
         <div class="gif">
-          <img *ngIf="giftUrl" src="{{giftUrl}}" alt="Friend Finder - Selfie Animation" />
-          <button class="ccc-button ccc-bg-blue" (click)="goBack(resetSound)">
-            <i class="glyphicon glyphicon-left"></i><br /> Go Back
-        </button>
+          <img *ngIf="giftUrl" src="{{giftUrl}}" alt="Friend Finder - Selfie Animation" />       
         </div>
 
         <section class="facebook" (click)="onFacebookClick()">
