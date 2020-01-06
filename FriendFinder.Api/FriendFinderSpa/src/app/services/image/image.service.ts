@@ -1,15 +1,16 @@
 import { Inject, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { ImageOptions } from '../../models/gif-maker/image-options';
 import { Generated } from '../../models/gif-maker/generated';
-
+import { ShareGifModel } from '../../models/gif-maker/share-gif';
+import { AuthService } from '../user/auth/auth.service';
 
 @Injectable()
 export class ImageService {
   private readonly httpOptions;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private authService: AuthService) {
     this.httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -20,6 +21,17 @@ export class ImageService {
 
   public getOptions(): Promise<ImageOptions> {
     return this.http.get<ImageOptions>("api/image/options").toPromise();
+  }
+
+  public getSharingGif(giftUrl: string): Promise<ShareGifModel> {
+    console.log(giftUrl);
+    const headers = new HttpHeaders
+      ({
+        "Authorization": "Bearer " + this.authService.getToken,
+        'Content-Type': 'application/json'
+      });
+    const param = new HttpParams().set('id', giftUrl)
+    return this.http.get<ShareGifModel>("api/image/share", { headers: headers, params: param }).toPromise();
   }
 
   public generateAnimation(phoneNumber: string, images: string[]) {

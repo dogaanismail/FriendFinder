@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FriendFinder.Domain.Dto;
+using System;
 using System.Threading.Tasks;
 
 namespace FriendFinder.Business.Interfaces
@@ -8,5 +9,7 @@ namespace FriendFinder.Business.Interfaces
         Task UploadImageAsync(string id, string filePath);
 
         Task<Uri> GetImageUriAsync(string id);
+
+        ShareGifDto GetGifUrl(string id);
     }
 }

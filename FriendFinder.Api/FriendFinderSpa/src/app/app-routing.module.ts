@@ -5,6 +5,7 @@ import { LoginComponent } from './components/account/login/login.component';
 import { TimelineComponent } from './components/timeline/timeline/timeline.component';
 import { HomeComponent } from './components/video-conference/home/home.component';
 import { CameraComponent } from './components/gif-maker/camera/camera.component';
+import { ShareGifComponent } from './components/gif-maker/share-gif/share-gif.component';
 
 const routes: Routes = [
   { path: '', component: TimelineComponent, pathMatch: 'full' },

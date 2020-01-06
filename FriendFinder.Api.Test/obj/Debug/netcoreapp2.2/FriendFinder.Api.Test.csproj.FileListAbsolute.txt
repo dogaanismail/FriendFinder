@@ -65,4 +65,3 @@ C:\Projects\FriendFinder\FriendFinder.Api.Test\obj\Debug\netcoreapp2.2\FriendFin
 C:\Projects\FriendFinder\FriendFinder.Api.Test\obj\Debug\netcoreapp2.2\FriendFinder.Api.Test.AssemblyInfo.cs
 C:\Projects\FriendFinder\FriendFinder.Api.Test\obj\Debug\netcoreapp2.2\FriendFinder.Api.Test.dll
 C:\Projects\FriendFinder\FriendFinder.Api.Test\obj\Debug\netcoreapp2.2\FriendFinder.Api.Test.pdb
-C:\Projects\FriendFinder\FriendFinder.Api.Test\obj\Debug\netcoreapp2.2\FriendFinder.Api.Test.csprojAssemblyReference.cache

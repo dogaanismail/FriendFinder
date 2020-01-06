@@ -1,6 +1,7 @@
 ﻿using Centare.Extensions;
 using FriendFinder.Business.Interfaces;
 using FriendFinder.Business.Provider;
+using FriendFinder.Domain.Dto;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using System;
@@ -26,6 +27,8 @@ namespace FriendFinder.Business.Services
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
+
+
         #endregion
 
         public async Task<Uri> GetImageUriAsync(string id)
@@ -50,6 +53,16 @@ namespace FriendFinder.Business.Services
             });
 
             return cachedUri;
+        }
+
+        public ShareGifDto GetGifUrl(string id)
+        {
+            Uri getUrl = GetImageUriAsync(id).Result;
+            ShareGifDto dto = new ShareGifDto
+            {
+                GifUrl = getUrl.ToString()
+            };
+            return dto;
         }
 
         public async Task UploadImageAsync(string id, string filePath)

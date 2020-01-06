@@ -70,7 +70,7 @@ namespace FriendFinder.Business.Services
 
                 await UploadImageAsync(id, image);
 
-                _textMessagingService.SendText($"+{request.Phone}", $"{baseUrl}/{id}");
+                //_textMessagingService.SendText($"+{request.Phone}", $"{baseUrl}/{id}");
 
                 return new ImagesPostResponse { Id = id, IsSuccessful = true };
             }

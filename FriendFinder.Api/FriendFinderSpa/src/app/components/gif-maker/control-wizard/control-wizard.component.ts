@@ -1,7 +1,9 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { AudioComponent } from '../audio/audio.component';
 import { ImageOptions } from '../../../models/gif-maker/image-options';
 import { ImageService } from '../../../services/image/image.service';
+import { Generated } from '../../../models/gif-maker/generated';
+import { ShareGifModel } from '../../../models/gif-maker/share-gif';
 
 export enum WizardState {
   Idle,
@@ -9,7 +11,8 @@ export enum WizardState {
   TakingPhoto,
   PresentingPhotos,
   SendingPhoto,
-  TextingLink
+  TextingLink,
+  ShareGif
 };
 
 export interface PhotoDetails {
@@ -26,6 +29,8 @@ export class ControlWizardComponent implements OnInit {
   @Output() takePhoto = new EventEmitter<PhotoDetails>();
   @Output() stateChange = new EventEmitter<WizardState>();
   @Output() optionsReceived = new EventEmitter<ImageOptions>();
+  @Output() sentPhotoReceived = new EventEmitter<string>();
+  @Input() fullReset: string;
 
   public get isIdle(): boolean {
     return this.state === WizardState.Idle;
@@ -47,6 +52,10 @@ export class ControlWizardComponent implements OnInit {
     return this.state === WizardState.TextingLink;
   }
 
+  public get isSharingGif(): boolean {
+    return this.state === WizardState.ShareGif;
+  }
+
   public get gridClasses(): any {
     return {
       'grid-start': this.isIdle,
@@ -64,10 +73,10 @@ export class ControlWizardComponent implements OnInit {
   public images: string[] = [];
   public animationIndex: number = 0;
   public phoneNumber: string = '+90 (531) 812 42 37';
+  public sentPhotoId: string;
 
   private countDownTimer: NodeJS.Timer;
   private animationTimer: NodeJS.Timer;
-
   private imageOptions: ImageOptions;
   private photosTaken: number = 0;
 
@@ -112,7 +121,11 @@ export class ControlWizardComponent implements OnInit {
       const id =
         await this.imageService
           .generateAnimation(this.phoneNumber, this.images)
-          .then(() => this.isSending = false);
+          .then((result: any) => {
+            this.isSending = false;
+            this.sentPhotoId = result.id;
+          });
+      this.sentPhotoReceived.emit(this.sentPhotoId)
     }
   }
 
@@ -121,6 +134,13 @@ export class ControlWizardComponent implements OnInit {
       await sound.play();
     }
     this.changeState(WizardState.TextingLink);
+  }
+
+  public async share(sound: AudioComponent) {
+    if (sound) {
+      await sound.play();
+    }
+    this.changeState(WizardState.ShareGif);
   }
 
   public onPhoneNumberChanged(number: string): void {
@@ -189,4 +209,5 @@ export class ControlWizardComponent implements OnInit {
       clearInterval(this.countDownTimer);
     }
   }
+
 }

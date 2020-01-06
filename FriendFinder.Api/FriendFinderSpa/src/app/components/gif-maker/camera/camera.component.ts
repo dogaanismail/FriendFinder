@@ -1,6 +1,7 @@
 import { Component, Inject, ViewChild, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 import { WizardState, PhotoDetails } from '../control-wizard/control-wizard.component';
 import { ImageOptions } from '../../../models/gif-maker/image-options';
+import { ShareGifModel } from '../../../models/gif-maker/share-gif';
 
 @Component({
   selector: 'camera',
@@ -10,6 +11,8 @@ import { ImageOptions } from '../../../models/gif-maker/image-options';
 export class CameraComponent implements AfterViewInit {
   @ViewChild('video', { static: false }) videoElement: ElementRef;
   private video: HTMLVideoElement;
+  giftUrl: string;
+  shareReset: boolean;
 
   @ViewChild('canvas', { static: false }) canvasElement: ElementRef;
   private canvas: HTMLCanvasElement;
@@ -17,6 +20,7 @@ export class CameraComponent implements AfterViewInit {
   public isPresentingPhotos = false;
   public isTextingLink = false;
   public isTakingPhoto = false;
+  public isSharingGif = false;
   public imageWidth = 640;
   public imageHeight = 480;
 
@@ -67,6 +71,16 @@ export class CameraComponent implements AfterViewInit {
     this.isPresentingPhotos = state === WizardState.PresentingPhotos;
     this.isTextingLink = state === WizardState.TextingLink;
     this.isTakingPhoto = state === WizardState.TakingPhoto;
+    this.isSharingGif = state === WizardState.ShareGif;
+  }
+
+  public onStateChangedShare(state: WizardState): void {
+    this.isPresentingPhotos = state === WizardState.PresentingPhotos;
+    this.isTextingLink = state === WizardState.TextingLink;
+    this.isTakingPhoto = state === WizardState.TakingPhoto;
+    this.isSharingGif = state === WizardState.ShareGif;
+    this.ngAfterViewInit();
+    this.shareReset = true;
   }
 
   public onOptionsReceived(imageOptions: ImageOptions): void {
@@ -74,6 +88,10 @@ export class CameraComponent implements AfterViewInit {
       this.imageHeight = imageOptions.imageHeight;
       this.imageWidth = imageOptions.imageWidth;
     }
+  }
+
+  public onSentPhotoReceived(giftUrl: string) {
+    this.giftUrl = giftUrl;
   }
 
   public adjustVideoHeight(event): void {

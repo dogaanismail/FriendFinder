@@ -6,6 +6,7 @@ import { ControlWizardComponent } from './control-wizard/control-wizard.componen
 import { NumberPadComponent } from './number-pad/number-pad.component';
 import { PhoneNumberPipe } from '../../core/pipes/phone-number.pipe';
 import { SharedModule } from '../../shared/shared.module';
+import { ShareGifComponent } from './share-gif/share-gif.component';
 
 @NgModule({
     declarations: [
@@ -13,7 +14,8 @@ import { SharedModule } from '../../shared/shared.module';
         CameraComponent,
         ControlWizardComponent,
         NumberPadComponent,
-        PhoneNumberPipe
+        PhoneNumberPipe,
+        ShareGifComponent
     ],
     imports: [
         SharedModule

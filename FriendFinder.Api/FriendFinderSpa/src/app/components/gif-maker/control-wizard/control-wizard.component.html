@@ -1,4 +1,4 @@
-<div class="overlay" [ngClass]="{ 'hide': isTakingPhoto }">
+<div class="overlay" [ngClass]="{ 'hide': isTakingPhoto || isSharingGif }">
 
   <ccc-audio #resetSound [src]="'https://www.soundjay.com/button/sounds/beep-027.mp3'"></ccc-audio>
   <ccc-audio #startSound [src]="'https://www.soundjay.com/switch/sounds/switch-19.mp3'"></ccc-audio>
@@ -56,14 +56,18 @@
               <i class="glyphicon glyphicon-th"></i><br /> Text Me
           </button>
 
-          <button *ngIf="isTextingLink" class="ccc-button ccc-bg-orange" (tap)="generate(sendSound)" [disabled]="isSending">
+          <button *ngIf="isTextingLink" class="ccc-button ccc-bg-orange" style="font-size: 24px !important;" (tap)="generate(sendSound)" [disabled]="isSending">
               <div *ngIf="isSending">
-                  <i class="glyphicon glyphicon-repeat fast-spinner"></i><br /> Sending
+                  <i class="glyphicon glyphicon-repeat fast-spinner"></i><br /> Processing
               </div>
               <div *ngIf="!isSending">
-                  <i class="glyphicon glyphicon-send"></i><br /> Send
+                  <i class="glyphicon glyphicon-send"></i><br /> Save and Send
               </div>
           </button>
+
+          <button *ngIf="isTextingLink" (tap)="share(sendSound)" style="margin-top: 25px; font-size: 20px;" class="ccc-button ccc-bg-blue" [disabled]="isSending">
+            <i class="glyphicon glyphicon-share"></i><br /> Share
+            </button>
       </div>
 
       <footer *ngIf="!isPresentingPhotos" class="grid-footer">
