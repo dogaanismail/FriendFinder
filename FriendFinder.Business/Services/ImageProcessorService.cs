@@ -69,10 +69,11 @@ namespace FriendFinder.Business.Services
                 }
 
                 await UploadImageAsync(id, image);
+                Uri getUrl = _imageRepository.GetImageUriAsync(id).Result;
 
                 //_textMessagingService.SendText($"+{request.Phone}", $"{baseUrl}/{id}");
 
-                return new ImagesPostResponse { Id = id, IsSuccessful = true };
+                return new ImagesPostResponse { Id = id, IsSuccessful = true, Url = getUrl.ToString() };
             }
             catch (Exception ex)
             {

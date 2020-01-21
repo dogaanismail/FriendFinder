@@ -63,7 +63,7 @@ namespace FriendFinder.Api.Controllers
             {
                 try
                 {
-                    if (model.Text == null)
+                    if (!string.IsNullOrEmpty(model.Text))
                     {
                         Result.Status = false;
                         Result.Message = "You can not add a post without writing text ! ";
@@ -216,7 +216,6 @@ namespace FriendFinder.Api.Controllers
             }
         }
 
-
         [HttpGet("postlist")]
         [AllowAnonymous]
         public JsonResult GetPostList()
@@ -289,6 +288,63 @@ namespace FriendFinder.Api.Controllers
                     Result.Message = ex.ToString();
                     return BadResponse(Result);
                 }
+            }
+        }
+
+        [HttpPost("creategif")]
+        public JsonResult CreateGif([FromBody] GifCreateApi model)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(model.Text) && !string.IsNullOrEmpty(model.GifUrl))
+                {
+                    Result.Status = false;
+                    Result.Message = "You can not add a post without text and gif url ! ";
+                    return BadResponse(Result);
+                }
+                else
+                {
+                    var appUser = _userService.FindByUserName(User.Identity.Name);
+                    if (appUser == null)
+                    {
+                        return BadResponse(new ResultModel
+                        {
+                            Status = false,
+                            Message = "User not found !"
+                        });
+                    }
+
+                    var newPost = new Post
+                    {
+                        Text = model.Text,
+                        PostType = (int)PostTypeEnum.PostImage,
+                        CreatedBy = appUser.Id
+                    };
+                    ResultModel postModel = _postService.Create(newPost);
+
+                    if (!postModel.Status)
+                    {
+                        return BadResponse(ResultModel.Error("The upload process can not be done !"));
+                    }
+
+                    return OkResponse(new PostListDto
+                    {
+                        Id = newPost.Id,
+                        Text = newPost.Text,
+                        ImageUrl = model.GifUrl,
+                        CreatedByUserName = appUser.UserName,
+                        CreatedByUserPhoto = appUser.UserDetail.ProfilePhotoPath,
+                        CreatedDate = newPost.CreatedDate,
+                        PostType = newPost.PostType,
+                        Comments = null
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                Result.Status = false;
+                Result.Message = ex.ToString();
+                return BadResponse(Result);
             }
         }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { EditorConfigService } from "../../../config/editorConfig/editor-config.service";
+import { EditorConfigService } from '../../../core/configs/editor-configs/editor-config.service';
 import { AuthService } from "../../../services/user/auth/auth.service";
 import { FileUploader } from "ng2-file-upload";
 import { Post } from "src/app/models/post/post";

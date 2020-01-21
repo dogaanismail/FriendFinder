@@ -29,6 +29,19 @@ export class PostService {
       );
   }
 
+  createGif(post: any): Observable<Post> {
+    const headers = new HttpHeaders
+      ({
+        "Authorization": "Bearer " + this.authService.getToken
+      });
+    return this.http.post(this.postUrl + "creategif", post, { headers: headers })
+      .pipe(
+        tap((data: any) => {
+        }),
+        catchError(this.handleError)
+      );
+  }
+
   getPosts(): Observable<Post[]> {
     const headers = new HttpHeaders
       ({

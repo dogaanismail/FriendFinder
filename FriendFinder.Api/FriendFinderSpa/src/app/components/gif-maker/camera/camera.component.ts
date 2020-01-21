@@ -2,6 +2,7 @@ import { Component, Inject, ViewChild, OnInit, AfterViewInit, ElementRef } from 
 import { WizardState, PhotoDetails } from '../control-wizard/control-wizard.component';
 import { ImageOptions } from '../../../models/gif-maker/image-options';
 import { ShareGifModel } from '../../../models/gif-maker/share-gif';
+import { ModalService } from '../../../services/modal/modal.service';
 
 @Component({
   selector: 'camera',

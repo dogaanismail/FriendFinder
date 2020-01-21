@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from '../../../models/post/post';
 import { PostTypeEnum } from '../../../core/enumerations/PostTypeEnum';
 import { ModalService } from '../../../services/modal/modal.service';
-import { EditorConfigService } from '../../../config/editorConfig/editor-config.service';
+import { EditorConfigService } from '../../../core/configs/editor-configs/editor-config.service';
 import { SignedUser } from 'src/app/models/user/signedUser';
 /* Rxjs */
 import { Observable } from 'rxjs';

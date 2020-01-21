@@ -12,8 +12,8 @@ import { LoginComponent } from './components/account/login/login.component';
 import { PageNotFoundComponent } from './common/components/page-not-found/page-not-found.component';
 
 import { AlertifyService } from './services/alertfiy/alertify.service';
-import { EditorConfigService } from './config/editorConfig/editor-config.service';
-import { AuthGuard } from './helpers/auth.guard';
+import { EditorConfigService } from './core/configs/editor-configs/editor-config.service';
+import { AuthGuard } from './core/helpers/auth.guard';
 import { ErrorInterceptor } from './core/errorHandlings/error.interceptors';
 
 /* NgRx */

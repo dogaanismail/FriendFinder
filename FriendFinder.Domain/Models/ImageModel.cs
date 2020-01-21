@@ -16,6 +16,7 @@ namespace FriendFinder.Domain.Models
         public string Error { get; set; }
 
         public string Id { get; set; }
+        public string Url { get; set; }
     }
 
     public class ImageOptionsResponse

@@ -7,7 +7,7 @@ import { ChatSidebarComponent } from './chat-sidebar/chat-sidebar.component';
 import { ChatUserDetailComponent } from './chat-user-detail/chat-user-detail.component';
 import { ChatMessagesComponent } from './chat-messages/chat-messages.component';
 import { SharedModule } from '../../shared/shared.module';
-import { IconsModule } from '../../modules/icon.module';
+import { IconsModule } from '../../common/modules/icon.module';
 
 const chatRoutes: Routes = [
     { path: "chat", component: ChatComponent }

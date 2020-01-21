@@ -42,6 +42,18 @@ export class PostEffects {
     );
 
     @Effect()
+    createGif$: Observable<Action> = this.actions$.pipe(
+        ofType(postActions.PostActionTypes.CreateGif),
+        map(((action: postActions.CreateGif) => action.payload)),
+        mergeMap((post: any) =>
+            this.postService.createGif(post).pipe(
+                map((newPost: any) => (new postActions.CreateGifSuccess(newPost.result))),
+                catchError(err => of(new postActions.CreateGifFail(err)))
+            )
+        )
+    );
+
+    @Effect()
     createComment$: Observable<Action> = this.actions$.pipe(
         ofType(postActions.PostActionTypes.CreateComment),
         map((action: postActions.CreateComment) => action.payload),

@@ -21,6 +21,9 @@ export enum PostActionTypes {
   CreateComment = '[Post] Create Comment',
   CreateCommentSuccess = '[Post] Create Comment Success',
   CreateCommentFail = '[Post] Create Comment Fail',
+  CreateGif = '[Post] Create Gif',
+  CreateGifSuccess = '[Post] Create Gif Success',
+  CreateGifFail = '[Post] Create Gif Fail'
 }
 
 export class TogglePost implements Action {
@@ -68,7 +71,7 @@ export class CreatePost implements Action {
 export class CreatePostSuccess implements Action {
   readonly type = PostActionTypes.CreatePostSuccess;
 
-  constructor(public payload: Post) {}
+  constructor(public payload: Post) { }
 }
 
 export class CreatePostFail implements Action {
@@ -95,6 +98,24 @@ export class CreateCommentFail implements Action {
   constructor(public payload: string) { }
 }
 
+export class CreateGif implements Action {
+  readonly type = PostActionTypes.CreateGif;
+
+  constructor(public payload: any) { }
+}
+
+export class CreateGifSuccess implements Action {
+  readonly type = PostActionTypes.CreateGifSuccess;
+
+  constructor(public payload: any) { }
+}
+
+export class CreateGifFail implements Action {
+  readonly type = PostActionTypes.CreateGifFail;
+
+  constructor(public payload: string) { }
+}
+
 export type PostActions = TogglePost
   | SetCurrentPost
   | ClearCurrentPost
@@ -107,4 +128,7 @@ export type PostActions = TogglePost
   | CreatePostFail
   | CreateComment
   | CreateCommentSuccess
-  | CreateCommentFail;
+  | CreateCommentFail
+  | CreateGif
+  | CreateGifSuccess
+  | CreateGifFail;

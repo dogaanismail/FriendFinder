@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Post } from '../../../models/post/post';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import { EditorConfigService } from 'src/app/config/editorConfig/editor-config.service';
+import { EditorConfigService } from '../../../core/configs/editor-configs/editor-config.service';
 import { SignedUser } from 'src/app/models/user/signedUser';
 
 /* NgRx */

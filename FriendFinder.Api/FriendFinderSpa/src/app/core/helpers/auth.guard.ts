@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { SignedUser } from '../models/user/signedUser';
+import { SignedUser } from '../../models/user/signedUser';
 /* NgRx */
 import { Store, select } from '@ngrx/store';
-import * as fromUser from '../ngrx/selectors/user.selectors';
+import * as fromUser from '../../ngrx/selectors/user.selectors';
 import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })

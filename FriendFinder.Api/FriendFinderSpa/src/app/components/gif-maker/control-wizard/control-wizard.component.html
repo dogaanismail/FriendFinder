@@ -1,82 +1,119 @@
 <div class="overlay" [ngClass]="{ 'hide': isTakingPhoto || isSharingGif }">
 
-  <ccc-audio #resetSound [src]="'https://www.soundjay.com/button/sounds/beep-027.mp3'"></ccc-audio>
-  <ccc-audio #startSound [src]="'https://www.soundjay.com/switch/sounds/switch-19.mp3'"></ccc-audio>
-  <ccc-audio #sendSound [src]="'https://www.soundjay.com/button/sounds/button-43.mp3'"></ccc-audio>
+    <ccc-audio #resetSound [src]="'https://www.soundjay.com/button/sounds/beep-027.mp3'"></ccc-audio>
+    <ccc-audio #startSound [src]="'https://www.soundjay.com/switch/sounds/switch-19.mp3'"></ccc-audio>
+    <ccc-audio #sendSound [src]="'https://www.soundjay.com/button/sounds/button-43.mp3'"></ccc-audio>
 
-  <div class="grid" [ngClass]="gridClasses">
-      <header class="grid-header"></header>
+    <div class="grid" [ngClass]="gridClasses">
+        <header class="grid-header"></header>
 
-      <div class="grid-left">
-          <button style="width:360px" *ngIf="isPresentingPhotos" class="ccc-button ccc-bg-blue" (tap)="reset(resetSound)">
-              <i class="glyphicon glyphicon-share-alt" style="transform: scale(-1, 1);"></i><br /> Do Over
-          </button>
-
-          <button *ngIf="isTextingLink" class="ccc-button ccc-bg-blue" (tap)="reset(resetSound)" [disabled]="isSending">
-              <i class="glyphicon glyphicon-ok"></i><br /> Done
-          </button>
-      </div>
-
-      <div class="grid-content">
-
-          <div *ngIf="isIdle">
-              <button class="ccc-button ccc-bg-morph" (tap)="start(startSound)">
-                  <i class="glyphicon glyphicon-camera"></i><br /> Start
-              </button>
-          </div>
-
-          <div *ngIf="isCountingDown">
-              <div class="countdown black-glow" [attr.data-countdown]="photoCountDown">{{ photoCountDown }}</div>
-          </div>
-
-          <div *ngIf="isTakingPhoto">
-              <ccc-audio [src]="'https://www.soundjay.com/mechanical/sounds/camera-shutter-click-07.mp3'" [autoplay]="true">
-              </ccc-audio>
-          </div>
-
-          <div *ngIf="isPresentingPhotos" style="width:940px; margin:auto" class="card ccc-border-beige black-glow">
-              <div class="gif-side">
-              </div>
-              <div class="col-1">
-                  <img *ngIf="images.length" src="{{ images[animationIndex] }}" width="640" height="480" />
-              </div>
-              <div class="gif-side">
-              </div>
-          </div>
-
-          <div *ngIf="isTextingLink" class="card">
-              <div class="col-1 w-100">
-                  <number-pad (numberChanged)="onPhoneNumberChanged($event)"></number-pad>
-              </div>
-          </div>
-      </div>
-
-      <div class="grid-right">
-          <button *ngIf="isPresentingPhotos" style="width:360px" class="ccc-button ccc-bg-orange" (tap)="send(sendSound)">
-              <i class="glyphicon glyphicon-th"></i><br /> Text Me
-          </button>
-
-          <button *ngIf="isTextingLink" class="ccc-button ccc-bg-orange" style="font-size: 24px !important;" (tap)="generate(sendSound)" [disabled]="isSending">
-              <div *ngIf="isSending">
-                  <i class="glyphicon glyphicon-repeat fast-spinner"></i><br /> Processing
-              </div>
-              <div *ngIf="!isSending">
-                  <i class="glyphicon glyphicon-send"></i><br /> Save and Send
-              </div>
-          </button>
-
-          <button *ngIf="isTextingLink" (tap)="share(sendSound)" style="margin-top: 25px; font-size: 20px;" class="ccc-button ccc-bg-blue" [disabled]="isSending">
-            <i class="glyphicon glyphicon-share"></i><br /> Share
+        <div class="grid-left">
+            <button style="width:360px" *ngIf="isPresentingPhotos" class="ccc-button ccc-bg-blue"
+                (tap)="reset(resetSound)">
+                <i class="glyphicon glyphicon-share-alt" style="transform: scale(-1, 1);"></i><br /> Do Over
             </button>
-      </div>
 
-      <footer *ngIf="!isPresentingPhotos" class="grid-footer">
-          <img *ngIf="isIdle" class="black-glow" height="250" />
-          <div *ngIf="isTextingLink" class="phone-number black-glow">
-              {{ phoneNumber | phone }}
-          </div>
-          <span style="color:silver">Standard phone rates will apply.</span>
-      </footer>
-  </div>
+            <button *ngIf="isTextingLink" class="ccc-button ccc-bg-blue" (tap)="reset(resetSound)"
+                [disabled]="isSending">
+                <i class="glyphicon glyphicon-ok"></i><br /> Done
+            </button>
+        </div>
+
+        <div class="grid-content">
+
+            <div *ngIf="isIdle">
+                <button class="ccc-button ccc-bg-morph" (tap)="start(startSound)">
+                    <i class="glyphicon glyphicon-camera"></i><br /> Start
+                </button>
+            </div>
+
+            <div *ngIf="isCountingDown">
+                <div class="countdown black-glow" [attr.data-countdown]="photoCountDown">{{ photoCountDown }}</div>
+            </div>
+
+            <div *ngIf="isTakingPhoto">
+                <ccc-audio [src]="'https://www.soundjay.com/mechanical/sounds/camera-shutter-click-07.mp3'"
+                    [autoplay]="true">
+                </ccc-audio>
+            </div>
+
+            <div *ngIf="isPresentingPhotos" style="width:940px; margin:auto" class="card ccc-border-beige black-glow">
+                <div class="gif-side">
+                </div>
+                <div class="col-1">
+                    <img *ngIf="images.length" src="{{ images[animationIndex] }}" width="640" height="480" />
+                </div>
+                <div class="gif-side">
+                </div>
+            </div>
+
+            <div *ngIf="isTextingLink" class="card">
+                <div class="col-1 w-100">
+                    <number-pad (numberChanged)="onPhoneNumberChanged($event)"></number-pad>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-right">
+            <button *ngIf="isPresentingPhotos" style="width:360px" class="ccc-button ccc-bg-orange"
+                (tap)="send(sendSound)">
+                <i class="glyphicon glyphicon-th"></i><br /> Text Me
+            </button>
+
+            <button *ngIf="isTextingLink" class="ccc-button ccc-bg-orange" style="font-size: 24px !important;"
+                (tap)="generate(sendSound)" [disabled]="isSending">
+                <div *ngIf="isSending">
+                    <i class="glyphicon glyphicon-repeat fast-spinner"></i><br /> Processing
+                </div>
+                <div *ngIf="!isSending">
+                    <i class="glyphicon glyphicon-send"></i><br /> Save and Send
+                </div>
+            </button>
+
+            <button *ngIf="isTextingLink" (tap)="share(sendSound,'gif-modal')"
+                style="margin-top: 25px; font-size: 20px;" class="ccc-button ccc-bg-blue" [disabled]="isSending">
+                <i class="glyphicon glyphicon-share"></i><br /> Share
+            </button>
+        </div>
+
+        <footer *ngIf="!isPresentingPhotos" class="grid-footer">
+            <img *ngIf="isIdle" class="black-glow" height="250" />
+            <div *ngIf="isTextingLink" class="phone-number black-glow">
+                {{ phoneNumber | phone }}
+            </div>
+            <span style="color:silver">Standard phone rates will apply.</span>
+        </footer>
+    </div>
 
 </div>
+
+<!--Popup-->
+<jw-modal id="gif-modal" *ngIf="sentPhotoId">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create Gif</h3>
+                <button type="button" class="close" (click)="closeModal('gif-modal');">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="post-content">
+                    <img src="{{giftUrl}}" *ngIf="giftUrl" alt="post-image" class="img-responsive post-image" />
+                    <div class="line-divider"></div>
+                    <div class="post-container">
+                        <div class="post-comment">
+                            <input type="text" style="border-color:cornflowerblue;" class="form-control" placeholder="Text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info">Save Changes</button>
+                <button type="button" class="btn btn-outline-info waves-effect" (click)="closeModal('gif-modal');" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</jw-modal>
+<!--Popup End-->

@@ -4,6 +4,10 @@ import { ImageOptions } from '../../../models/gif-maker/image-options';
 import { ImageService } from '../../../services/image/image.service';
 import { Generated } from '../../../models/gif-maker/generated';
 import { ShareGifModel } from '../../../models/gif-maker/share-gif';
+import { defaultDialogConfig } from 'src/app/core/configs/dialog-configs/default-dialog-config';
+import { MatDialog } from '@angular/material';
+import { CreateGifComponent } from 'src/app/common/components/dialogs/create-gif/create-gif.component';
+import { ModalService } from '../../../services/modal/modal.service';
 
 export enum WizardState {
   Idle,
@@ -30,6 +34,7 @@ export class ControlWizardComponent implements OnInit {
   @Output() stateChange = new EventEmitter<WizardState>();
   @Output() optionsReceived = new EventEmitter<ImageOptions>();
   @Output() sentPhotoReceived = new EventEmitter<string>();
+  @Output() openGifModal = new EventEmitter<string>();
   @Input() fullReset: string;
 
   public get isIdle(): boolean {
@@ -74,13 +79,14 @@ export class ControlWizardComponent implements OnInit {
   public animationIndex: number = 0;
   public phoneNumber: string = '+90 (531) 812 42 37';
   public sentPhotoId: string;
+  public giftUrl: string;
 
   private countDownTimer: NodeJS.Timer;
   private animationTimer: NodeJS.Timer;
   private imageOptions: ImageOptions;
   private photosTaken: number = 0;
 
-  constructor(private readonly imageService: ImageService) { }
+  constructor(private readonly imageService: ImageService, private modalService: ModalService) { }
 
   async ngOnInit() {
     this.imageOptions = await this.imageService.getOptions();
@@ -124,6 +130,7 @@ export class ControlWizardComponent implements OnInit {
           .then((result: any) => {
             this.isSending = false;
             this.sentPhotoId = result.id;
+            this.giftUrl = result.url;
           });
       this.sentPhotoReceived.emit(this.sentPhotoId)
     }
@@ -136,11 +143,15 @@ export class ControlWizardComponent implements OnInit {
     this.changeState(WizardState.TextingLink);
   }
 
-  public async share(sound: AudioComponent) {
+  share(sound: AudioComponent, modalId: string) {
     if (sound) {
-      await sound.play();
+      sound.play();
     }
-    this.changeState(WizardState.ShareGif);
+    this.modalService.open(modalId);
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
   }
 
   public onPhoneNumberChanged(number: string): void {
