@@ -1,3 +1,8 @@
+<!--preloader-->
+<div id="spinner-wrapper" *ngIf="newPost">
+  <div class="spinner"></div>
+</div>
+
 <div class="overlay" [ngClass]="{ 'hide': isTakingPhoto || isSharingGif }">
 
     <ccc-audio #resetSound [src]="'https://www.soundjay.com/button/sounds/beep-027.mp3'"></ccc-audio>
@@ -97,22 +102,23 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-
+            <form #gifCreateForm="ngForm" (ngSubmit)="saveGif()"> 
             <div class="modal-body">
                 <div class="post-content">
                     <img src="{{giftUrl}}" *ngIf="giftUrl" alt="post-image" class="img-responsive post-image" />
                     <div class="line-divider"></div>
                     <div class="post-container">
                         <div class="post-comment">
-                            <input type="text" style="border-color:cornflowerblue;" class="form-control" placeholder="Text">
+                            <input type="text" [(ngModel)]="gifCreate.text" name="text" required style="border-color:cornflowerblue;" class="form-control" placeholder="Text">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-info">Save Changes</button>
+                <button type="submit" [disabled]="!gifCreateForm.valid" class="btn btn-info">Save Changes</button>
                 <button type="button" class="btn btn-outline-info waves-effect" (click)="closeModal('gif-modal');" data-dismiss="modal">Cancel</button>
             </div>
+        </form>
         </div>
     </div>
 </jw-modal>

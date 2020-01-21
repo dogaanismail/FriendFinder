@@ -45,7 +45,7 @@ namespace FriendFinder.Business.Services
 
         public AppUserDetailDto GetUserDetailByUsername(string username)
         {
-            if (!string.IsNullOrEmpty(username))
+            if (!string.IsNullOrEmpty(username)) 
             {
                 var appUser = _userService.FindByUserName(username);
                 if (appUser != null)

@@ -9,6 +9,12 @@ import { MatDialog } from '@angular/material';
 import { CreateGifComponent } from 'src/app/common/components/dialogs/create-gif/create-gif.component';
 import { ModalService } from '../../../services/modal/modal.service';
 
+/* NgRx */
+import { Store, select } from "@ngrx/store";
+import * as fromPost from "../../../ngrx/selectors/post.selectors";
+import * as postActions from "../../../ngrx/actions/post.actions";
+import { Observable } from "rxjs";
+
 export enum WizardState {
   Idle,
   CountingDown,
@@ -35,6 +41,7 @@ export class ControlWizardComponent implements OnInit {
   @Output() optionsReceived = new EventEmitter<ImageOptions>();
   @Output() sentPhotoReceived = new EventEmitter<string>();
   @Output() openGifModal = new EventEmitter<string>();
+  @Input() newPost: boolean;
   @Input() fullReset: string;
 
   public get isIdle(): boolean {
@@ -80,13 +87,16 @@ export class ControlWizardComponent implements OnInit {
   public phoneNumber: string = '+90 (531) 812 42 37';
   public sentPhotoId: string;
   public giftUrl: string;
-
+  gifCreate: any = {};
   private countDownTimer: NodeJS.Timer;
   private animationTimer: NodeJS.Timer;
   private imageOptions: ImageOptions;
   private photosTaken: number = 0;
 
-  constructor(private readonly imageService: ImageService, private modalService: ModalService) { }
+  constructor(private readonly imageService: ImageService,
+    private modalService: ModalService,
+    private postStore: Store<fromPost.State>
+  ) { }
 
   async ngOnInit() {
     this.imageOptions = await this.imageService.getOptions();
@@ -152,6 +162,11 @@ export class ControlWizardComponent implements OnInit {
 
   closeModal(id: string) {
     this.modalService.close(id);
+  }
+
+  saveGif() {
+    this.gifCreate.gifUrl = this.giftUrl;
+    this.postStore.dispatch(new postActions.CreateGif(this.gifCreate));
   }
 
   public onPhoneNumberChanged(number: string): void {

@@ -63,7 +63,7 @@ namespace FriendFinder.Api.Controllers
             {
                 try
                 {
-                    if (!string.IsNullOrEmpty(model.Text))
+                    if (string.IsNullOrEmpty(model.Text))
                     {
                         Result.Status = false;
                         Result.Message = "You can not add a post without writing text ! ";
@@ -233,7 +233,7 @@ namespace FriendFinder.Api.Controllers
             {
                 try
                 {
-                    if (model.Text == null)
+                    if (string.IsNullOrEmpty(model.Text))
                     {
                         Result.Status = false;
                         Result.Message = "Comment text can not be null ! ";
@@ -294,57 +294,83 @@ namespace FriendFinder.Api.Controllers
         [HttpPost("creategif")]
         public JsonResult CreateGif([FromBody] GifCreateApi model)
         {
-            try
+            using (var scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
             {
-                if (!string.IsNullOrEmpty(model.Text) && !string.IsNullOrEmpty(model.GifUrl))
+                try
                 {
-                    Result.Status = false;
-                    Result.Message = "You can not add a post without text and gif url ! ";
-                    return BadResponse(Result);
-                }
-                else
-                {
-                    var appUser = _userService.FindByUserName(User.Identity.Name);
-                    if (appUser == null)
+                    if (string.IsNullOrEmpty(model.Text) && string.IsNullOrEmpty(model.GifUrl)) //if model.text is null 
                     {
-                        return BadResponse(new ResultModel
+                        Result.Status = false;
+                        Result.Message = "You can not add a post without text and gif url ! ";
+                        return BadResponse(Result);
+                    }
+                    else
+                    {
+                        var appUser = _userService.FindByUserName(User.Identity.Name);
+                        if (appUser == null)
                         {
-                            Status = false,
-                            Message = "User not found !"
+                            return BadResponse(new ResultModel
+                            {
+                                Status = false,
+                                Message = "User not found !"
+                            });
+                        }
+
+                        #region New Post
+                        var newPost = new Post
+                        {
+                            Text = model.Text,
+                            PostType = (int)PostTypeEnum.PostImage,
+                            CreatedBy = appUser.Id
+                        };
+                        ResultModel postModel = _postService.Create(newPost);
+
+                        if (!postModel.Status)
+                        {
+                            scope.Dispose();
+                            return BadResponse(ResultModel.Error("The upload process can not be done !"));
+                        }
+                        #endregion
+
+                        #region Post Image
+                        var postImages = new PostImage
+                        {
+                            PostId = newPost.Id,
+                            ImageUrl = model.GifUrl
+                        };
+                        ResultModel postImageModel = _postImageService.Create(postImages);
+
+                        if (!postImageModel.Status)
+                        {
+                            scope.Dispose();
+                            return BadResponse(ResultModel.Error("The upload process can not be done !"));
+                        }
+                        #endregion
+
+                        scope.Complete();
+                        //TODO
+                        //There must be an integration that returns the last post that has just been createad.
+
+                        return OkResponse(new PostListDto
+                        {
+                            Id = newPost.Id,
+                            Text = newPost.Text,
+                            ImageUrl = model.GifUrl,
+                            CreatedByUserName = appUser.UserName,
+                            CreatedByUserPhoto = appUser.UserDetail.ProfilePhotoPath,
+                            CreatedDate = newPost.CreatedDate,
+                            PostType = newPost.PostType,
+                            Comments = null
                         });
                     }
-
-                    var newPost = new Post
-                    {
-                        Text = model.Text,
-                        PostType = (int)PostTypeEnum.PostImage,
-                        CreatedBy = appUser.Id
-                    };
-                    ResultModel postModel = _postService.Create(newPost);
-
-                    if (!postModel.Status)
-                    {
-                        return BadResponse(ResultModel.Error("The upload process can not be done !"));
-                    }
-
-                    return OkResponse(new PostListDto
-                    {
-                        Id = newPost.Id,
-                        Text = newPost.Text,
-                        ImageUrl = model.GifUrl,
-                        CreatedByUserName = appUser.UserName,
-                        CreatedByUserPhoto = appUser.UserDetail.ProfilePhotoPath,
-                        CreatedDate = newPost.CreatedDate,
-                        PostType = newPost.PostType,
-                        Comments = null
-                    });
                 }
-            }
-            catch (Exception ex)
-            {
-                Result.Status = false;
-                Result.Message = ex.ToString();
-                return BadResponse(Result);
+                catch (Exception ex)
+                {
+                    scope.Dispose();
+                    Result.Status = false;
+                    Result.Message = ex.ToString();
+                    return BadResponse(Result);
+                }
             }
         }
 

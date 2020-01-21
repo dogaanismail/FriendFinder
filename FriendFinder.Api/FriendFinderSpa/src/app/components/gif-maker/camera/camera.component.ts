@@ -1,8 +1,13 @@
 import { Component, Inject, ViewChild, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 import { WizardState, PhotoDetails } from '../control-wizard/control-wizard.component';
 import { ImageOptions } from '../../../models/gif-maker/image-options';
-import { ShareGifModel } from '../../../models/gif-maker/share-gif';
-import { ModalService } from '../../../services/modal/modal.service';
+/* Rxjs */
+import { Observable } from 'rxjs';
+/* NgRx */
+import { Store, select } from '@ngrx/store';
+import * as fromPost from '../../../ngrx/selectors/post.selectors';
+import * as fromUser from '../../../ngrx/selectors/user.selectors';
+import * as postActions from '../../../ngrx/actions/post.actions';
 
 @Component({
   selector: 'camera',
@@ -13,6 +18,8 @@ export class CameraComponent implements AfterViewInit {
   @ViewChild('video', { static: false }) videoElement: ElementRef;
   private video: HTMLVideoElement;
   giftUrl: string;
+  newPost$: Observable<boolean>;
+  errorMessage$: Observable<string>;
   shareReset: boolean;
 
   @ViewChild('canvas', { static: false }) canvasElement: ElementRef;
@@ -25,7 +32,7 @@ export class CameraComponent implements AfterViewInit {
   public imageWidth = 640;
   public imageHeight = 480;
 
-  constructor() { }
+  constructor(private postStore: Store<fromPost.State>) { }
 
   ngAfterViewInit(): void {
     if (this.videoElement && this.videoElement.nativeElement) {
@@ -40,6 +47,11 @@ export class CameraComponent implements AfterViewInit {
     if (this.canvasElement && this.canvasElement.nativeElement) {
       this.canvas = this.canvasElement.nativeElement as HTMLCanvasElement;
     }
+  }
+
+  ngOnInit(): void {
+    this.errorMessage$ = this.postStore.pipe(select(fromPost.getError));
+    this.newPost$ = this.postStore.pipe(select(fromPost.getIsNewPost));
   }
 
   private getMediaStreamPromise(constraints: MediaStreamConstraints): Promise<MediaStream> {
