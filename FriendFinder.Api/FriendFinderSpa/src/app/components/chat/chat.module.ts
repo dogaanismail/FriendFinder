@@ -41,7 +41,7 @@ export function getChatsConfig(saveKeys: string[], localStorageKey: string, stor
     providers: [
         StoreLocalStorageService,
         { provide: CHATS_LOCAL_STORAGE_KEY, useValue: '__chats_storage__' },
-        { provide: CHATS_STORAGE_KEYS, useValue: ['chats'] },
+        { provide: CHATS_STORAGE_KEYS, useValue: ['chats','viewMode'] },
         {
             provide: CHATS_CONFIG_TOKEN,
             deps: [CHATS_STORAGE_KEYS, CHATS_LOCAL_STORAGE_KEY, StoreLocalStorageService],

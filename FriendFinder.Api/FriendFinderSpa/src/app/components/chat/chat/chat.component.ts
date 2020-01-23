@@ -37,11 +37,13 @@ export class ChatComponent implements OnInit {
   activeChatGroup: ChatGroup;
   signedUser$: Observable<SignedUser>;
   memberDetails$: Observable<MemberDetails>;
-  
+  loading$: Observable<boolean>;
+
   ngOnInit() {
     this.chatStore.dispatch(new chatActions.LoadChatbox());
     this.chatGroups$ = this.chatStore.pipe(select(fromChat.getChatGroups)) as Observable<ChatGroup[]>;
     this.signedUser$ = this.userStore.pipe(select(fromUser.getSignedUser)) as Observable<SignedUser>;
+    this.loading$ = this.chatStore.pipe(select(fromChat.getLoading)) as Observable<boolean>;
   }
 
   groupSelect(groupUser: ChatGroup) {

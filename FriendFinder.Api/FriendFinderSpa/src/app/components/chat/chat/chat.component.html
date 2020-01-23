@@ -1,3 +1,8 @@
+<!--preloader-->
+<div id="spinner-wrapper" *ngIf="loading$ | async">
+  <div class="spinner"></div>
+</div>
+
 <div class="chat-wrapper is-standalone">
   <div class="chat-inner">
     <app-chat-header [signedUser]="signedUser$ | async"></app-chat-header>

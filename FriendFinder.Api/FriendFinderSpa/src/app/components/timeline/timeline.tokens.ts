@@ -1,5 +1,5 @@
-import {InjectionToken} from '@angular/core';
-import {StoreConfig} from '@ngrx/store/src/store_module';
+import { InjectionToken } from '@angular/core';
+import { StoreConfig } from '@ngrx/store/src/store_module';
 import * as fromReducer from '../../ngrx/reducers/post.reducer';
 import * as fromActions from '../../ngrx/actions/post.actions';
 
