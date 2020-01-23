@@ -2,10 +2,10 @@
   <div class="chat-inner">
     <app-chat-header [signedUser]="signedUser$ | async"></app-chat-header>
 
-    <app-chat-sidebar [groupUsers]="chatGroups" (onGroupSelect)="groupSelect($event)"></app-chat-sidebar>
+    <app-chat-sidebar [groupUsers]="chatGroups$ | async" (onGroupSelect)="groupSelect($event)"></app-chat-sidebar>
 
     <app-chat-messages 
-    [messages]="chatMessages" 
+    [messages]="chatMessages$ | async" 
     [signedUser]="signedUser$ | async"
     [style.display]="!!showMessages ? 'block' : 'none'"
     (onSendMessage)="sendPrivateMessage($event)">
@@ -13,7 +13,7 @@
 
     <app-chat-user-detail
      [style.display]="!!showMessages ? 'block' : 'none'"
-     [memberDetails]="memberDetails">
+     [memberDetails]="memberDetails$ | async">
     </app-chat-user-detail
     >
   </div>

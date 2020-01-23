@@ -23,6 +23,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { PostEffects } from './ngrx/effects/post.effects';
 import { UserEffects } from './ngrx/effects/user.effects';
 import { UserAccountEffects } from './ngrx/effects/user-account.effects';
+import { ChatEffects } from './ngrx/effects/chat.effects';
 import { reducers } from './ngrx/state/app.state';
 
 /* Modules */
@@ -38,6 +39,7 @@ import { storageMetaReducer } from './core/store-infrastructure/storage-metaredu
 import { StoreLocalStorageService } from './core/store-infrastructure/store-local-storage.service';
 import { ROOT_STORAGE_KEYS, ROOT_LOCAL_STORAGE_KEY } from './app.tokens';
 import { environment } from 'src/environments/environment';
+
 
 // factory meta-reducer configuration function
 export function getMetaReducers(saveKeys: string[], localStorageKey: string, storageService: StoreLocalStorageService): MetaReducer<State<any>>[] {
@@ -68,7 +70,7 @@ export function getMetaReducers(saveKeys: string[], localStorageKey: string, sto
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
     EffectsModule.forFeature(
-      [PostEffects, UserEffects, UserAccountEffects]
+      [PostEffects, UserEffects, UserAccountEffects, ChatEffects]
     ),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],

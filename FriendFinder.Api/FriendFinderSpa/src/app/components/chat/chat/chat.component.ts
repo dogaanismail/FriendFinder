@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
 /* NgRx */
 import { Store, select } from '@ngrx/store';
 import * as fromUser from '../../../ngrx/selectors/user.selectors';
+import * as fromChat from '../../../ngrx/selectors/chat.selectors';
+import * as chatActions from '../../../ngrx/actions/chat.actions';
 /* Services */
 import { ChatGroupService } from '../../../services/chat-group/chat-group.service';
 import { ChatService } from '../../../services/chat/chat.service';
@@ -25,37 +27,32 @@ export class ChatComponent implements OnInit {
   constructor(
     private chatGroupService: ChatGroupService,
     private chatService: ChatService,
+    private chatStore: Store<fromChat.State>,
     private userStore: Store<fromUser.State>,
-    private _ngZone: NgZone
-  ) {
-    this.subscribeToEvents();
-  }
+  ) { }
   title = "FriendFinderChatting";
-  chatGroups: ChatGroup[];
-  chatMessages: ChatMessages[];
+  chatGroups$: Observable<ChatGroup[]>;
+  chatMessages$: Observable<ChatMessages[]>;
   showMessages: boolean = false;
   activeChatGroup: ChatGroup;
   signedUser$: Observable<SignedUser>;
-  memberDetails: MemberDetails;
-
+  memberDetails$: Observable<MemberDetails>;
+  
   ngOnInit() {
-    this.chatGroupService.getChatGroups().subscribe((data: any) => {
-      this.chatGroups = data.result;
-    });
-
+    this.chatStore.dispatch(new chatActions.LoadChatbox());
+    this.chatGroups$ = this.chatStore.pipe(select(fromChat.getChatGroups)) as Observable<ChatGroup[]>;
     this.signedUser$ = this.userStore.pipe(select(fromUser.getSignedUser)) as Observable<SignedUser>;
   }
 
   groupSelect(groupUser: ChatGroup) {
     this.activeChatGroup = groupUser;
     this.showMessages = true;
-    this.chatService.getChatMessages(groupUser.chatGroupName).subscribe((data: any) => {
-      this.chatMessages = data.result;
-    });
-
-    this.chatGroupService.getMemberDetails(groupUser.chatGroupName).subscribe((data: any) => {
-      this.memberDetails = data.result;
-    })
+    /* Loading Chat Messages */
+    this.chatStore.dispatch(new chatActions.LoadMessages(groupUser.chatGroupName));
+    this.chatMessages$ = this.chatStore.pipe(select(fromChat.getChatMessages)) as Observable<ChatMessages[]>;
+    /* Loading Member Details */
+    this.chatStore.dispatch(new chatActions.LoadMemberDetail(groupUser.chatGroupName));
+    this.memberDetails$ = this.chatStore.pipe(select(fromChat.getMemberDetails)) as Observable<MemberDetails>;
   }
 
   sendPrivateMessage(message: ChatMessages) {
@@ -63,13 +60,4 @@ export class ChatComponent implements OnInit {
     message.profilePhotoUrl = this.activeChatGroup.profilePhotoUrl;
     this.chatService.sendMessage(message);
   }
-
-  private subscribeToEvents(): void {
-    this.chatService.messageReceived.subscribe((message: ChatMessages) => {
-      this._ngZone.run(() => {
-        this.chatMessages.push(message);
-      });
-    });
-  }
-
 }
