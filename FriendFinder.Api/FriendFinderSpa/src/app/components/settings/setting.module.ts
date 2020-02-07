@@ -19,7 +19,6 @@ import * as fromReducer from '../../ngrx/reducers/user-account.reducer';
 import { DETAILS_CONFIG_TOKEN, DETAILS_STORAGE_KEYS, DETAILS_LOCAL_STORAGE_KEY } from './user-details.tokens';
 
 const settingsRoutes: Routes = [
-    { path: "settings/account", component: SettingsHomeComponent },
     { path: "settings/notifications", component: SettingsHomeComponent },
     { path: "settings/interest", component: SettingsHomeComponent },
     { path: "settings/password", component: SettingsHomeComponent },

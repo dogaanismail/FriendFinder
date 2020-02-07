@@ -11,7 +11,6 @@ import { ProfileCreatePostComponent } from "./profile-create-post/profile-create
 import { SharedModule } from "../../shared/shared.module";
 
 const profileRoutes: Routes = [
-  { path: "profile/:username", component: ProfileComponent },
   { path: "profile/about/:username", component: ProfileAboutComponent },
   { path: "profile/album/:username", component: ProfileAlbumComponent },
   { path: "profile/friends/:username", component: ProfileFriendsComponent }
