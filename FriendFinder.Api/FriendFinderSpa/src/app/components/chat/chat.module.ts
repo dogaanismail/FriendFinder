@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
 
 import { ChatComponent } from './chat/chat.component';
 import { ChatHeaderComponent } from './chat-header/chat-header.component';
@@ -16,9 +15,6 @@ import { StoreModule } from '@ngrx/store';
 import { CHATS_CONFIG_TOKEN, CHATS_LOCAL_STORAGE_KEY, CHATS_STORAGE_KEYS } from './chat.tokens';
 import { StoreLocalStorageService } from '../../core/store-infrastructure/store-local-storage.service';
 
-const chatRoutes: Routes = [
-    { path: "chat", component: ChatComponent }
-];
 
 export function getChatsConfig(saveKeys: string[], localStorageKey: string, storageService: StoreLocalStorageService) {
     return { metaReducers: [storageMetaReducer(saveKeys, localStorageKey, storageService)] };
@@ -28,7 +24,6 @@ export function getChatsConfig(saveKeys: string[], localStorageKey: string, stor
     imports: [
         SharedModule,
         IconsModule,
-        RouterModule.forChild(chatRoutes),
         StoreModule.forFeature('chats', fromReducer.chatReducer, CHATS_CONFIG_TOKEN)
     ],
     declarations: [
