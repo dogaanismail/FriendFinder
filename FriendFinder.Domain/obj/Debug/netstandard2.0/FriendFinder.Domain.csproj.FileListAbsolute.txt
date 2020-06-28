@@ -34,10 +34,3 @@ C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Domain\obj\De
 C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Domain\obj\Debug\netstandard2.0\FriendFinder.Domain.AssemblyInfo.cs
 C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Domain\obj\Debug\netstandard2.0\FriendFinder.Domain.dll
 C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Domain\obj\Debug\netstandard2.0\FriendFinder.Domain.pdb
-C:\Projects\FriendFinder\FriendFinder.Domain\bin\Debug\netstandard2.0\FriendFinder.Domain.deps.json
-C:\Projects\FriendFinder\FriendFinder.Domain\bin\Debug\netstandard2.0\FriendFinder.Domain.dll
-C:\Projects\FriendFinder\FriendFinder.Domain\bin\Debug\netstandard2.0\FriendFinder.Domain.pdb
-C:\Projects\FriendFinder\FriendFinder.Domain\obj\Debug\netstandard2.0\FriendFinder.Domain.AssemblyInfoInputs.cache
-C:\Projects\FriendFinder\FriendFinder.Domain\obj\Debug\netstandard2.0\FriendFinder.Domain.AssemblyInfo.cs
-C:\Projects\FriendFinder\FriendFinder.Domain\obj\Debug\netstandard2.0\FriendFinder.Domain.dll
-C:\Projects\FriendFinder\FriendFinder.Domain\obj\Debug\netstandard2.0\FriendFinder.Domain.pdb

@@ -13,6 +13,6 @@
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgMicrosoft_EntityFrameworkCore_Tools Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools)' == '' ">C:\Users\dogan\.nuget\packages\microsoft.entityframeworkcore.tools\2.2.0</PkgMicrosoft_EntityFrameworkCore_Tools>
+    <PkgMicrosoft_EntityFrameworkCore_Tools Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools)' == '' ">C:\Users\dogan\.nuget\packages\microsoft.entityframeworkcore.tools\3.1.5</PkgMicrosoft_EntityFrameworkCore_Tools>
   </PropertyGroup>
 </Project>
