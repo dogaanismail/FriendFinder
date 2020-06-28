@@ -75,7 +75,7 @@ namespace FriendFinder.Api.Controllers
 
                 if (imageUploadResult.StatusCode == HttpStatusCode.OK)
                 {
-                    appUser.UserDetail.ProfilePhotoPath = imageUploadResult.Uri.ToString();
+                    appUser.UserDetail.ProfilePhotoPath = imageUploadResult.Url.ToString();
                     var result = _userService.Update(appUser);
                     if (result.Status)
                         return OkResponse(appUser.UserDetail.ProfilePhotoPath);
@@ -114,7 +114,7 @@ namespace FriendFinder.Api.Controllers
 
                 if (imageUploadResult.StatusCode == HttpStatusCode.OK)
                 {
-                    appUser.UserDetail.CoverPhotoPath = imageUploadResult.Uri.ToString();
+                    appUser.UserDetail.CoverPhotoPath = imageUploadResult.Url.ToString();
                     var result = _userService.Update(appUser);
                     if (result.Status)
                         return OkResponse(appUser.UserDetail.CoverPhotoPath);

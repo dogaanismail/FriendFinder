@@ -154,7 +154,7 @@ namespace FriendFinder.Api.Controllers
                         var postImages = new PostImage
                         {
                             PostId = newPost.Id,
-                            ImageUrl = imageUploadResult.Uri.ToString()
+                            ImageUrl = imageUploadResult.Url.ToString()
                         };
                         ResultModel postImageModel = _postImageService.Create(postImages);
 
@@ -174,7 +174,7 @@ namespace FriendFinder.Api.Controllers
                         var postVideos = new PostVideo
                         {
                             PostId = newPost.Id,
-                            VideoUrl = videoUploadResult.Uri.ToString()
+                            VideoUrl = videoUploadResult.Url.ToString()
                         };
                         ResultModel postVideoModel = _postVideoService.Create(postVideos);
 
@@ -197,11 +197,11 @@ namespace FriendFinder.Api.Controllers
                     {
                         Id = newPost.Id,
                         Text = newPost.Text,
-                        ImageUrl = imageUploadResult.Uri?.ToString(),
+                        ImageUrl = imageUploadResult.Url?.ToString(),
                         CreatedByUserName = appUser.UserName,
                         CreatedByUserPhoto = appUser.UserDetail.ProfilePhotoPath,
                         CreatedDate = newPost.CreatedDate,
-                        VideoUrl = videoUploadResult.Uri?.ToString(),
+                        VideoUrl = videoUploadResult.Url?.ToString(),
                         PostType = newPost.PostType,
                         Comments = null
                     });
