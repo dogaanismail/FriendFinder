@@ -34,11 +34,3 @@ C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Entities\obj\
 C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Entities\obj\Debug\netstandard2.0\FriendFinder.Entities.AssemblyInfo.cs
 C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Entities\obj\Debug\netstandard2.0\FriendFinder.Entities.dll
 C:\Users\dogan\Source\Repos\dogaanismail\FriendFinder\FriendFinder.Entities\obj\Debug\netstandard2.0\FriendFinder.Entities.pdb
-C:\Projects\FriendFinder\FriendFinder.Entities\bin\Debug\netstandard2.0\FriendFinder.Entities.deps.json
-C:\Projects\FriendFinder\FriendFinder.Entities\bin\Debug\netstandard2.0\FriendFinder.Entities.dll
-C:\Projects\FriendFinder\FriendFinder.Entities\bin\Debug\netstandard2.0\FriendFinder.Entities.pdb
-C:\Projects\FriendFinder\FriendFinder.Entities\obj\Debug\netstandard2.0\FriendFinder.Entities.AssemblyInfoInputs.cache
-C:\Projects\FriendFinder\FriendFinder.Entities\obj\Debug\netstandard2.0\FriendFinder.Entities.AssemblyInfo.cs
-C:\Projects\FriendFinder\FriendFinder.Entities\obj\Debug\netstandard2.0\FriendFinder.Entities.dll
-C:\Projects\FriendFinder\FriendFinder.Entities\obj\Debug\netstandard2.0\FriendFinder.Entities.pdb
-C:\Projects\FriendFinder\FriendFinder.Entities\obj\Debug\netstandard2.0\FriendFinder.Entities.csprojAssemblyReference.cache
