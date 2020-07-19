@@ -11534,11 +11534,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\FriendFinder\\FriendFinder.Api\\FriendFinder.Api.csproj",
+      "projectUniqueName": "D:\\Projects\\FriendFinder\\FriendFinder.Api\\FriendFinder.Api.csproj",
       "projectName": "FriendFinder.Api",
-      "projectPath": "C:\\Projects\\FriendFinder\\FriendFinder.Api\\FriendFinder.Api.csproj",
+      "projectPath": "D:\\Projects\\FriendFinder\\FriendFinder.Api\\FriendFinder.Api.csproj",
       "packagesPath": "C:\\Users\\dogan\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\FriendFinder\\FriendFinder.Api\\obj\\",
+      "outputPath": "D:\\Projects\\FriendFinder\\FriendFinder.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dogan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -11554,17 +11554,17 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Projects\\FriendFinder\\FriendFinder.Business\\FriendFinder.Business.csproj": {
-              "projectPath": "C:\\Projects\\FriendFinder\\FriendFinder.Business\\FriendFinder.Business.csproj"
+            "D:\\Projects\\FriendFinder\\FriendFinder.Business\\FriendFinder.Business.csproj": {
+              "projectPath": "D:\\Projects\\FriendFinder\\FriendFinder.Business\\FriendFinder.Business.csproj"
             },
-            "C:\\Projects\\FriendFinder\\FriendFinder.Core\\FriendFinder.Core.csproj": {
-              "projectPath": "C:\\Projects\\FriendFinder\\FriendFinder.Core\\FriendFinder.Core.csproj"
+            "D:\\Projects\\FriendFinder\\FriendFinder.Core\\FriendFinder.Core.csproj": {
+              "projectPath": "D:\\Projects\\FriendFinder\\FriendFinder.Core\\FriendFinder.Core.csproj"
             },
-            "C:\\Projects\\FriendFinder\\FriendFinder.Domain\\FriendFinder.Domain.csproj": {
-              "projectPath": "C:\\Projects\\FriendFinder\\FriendFinder.Domain\\FriendFinder.Domain.csproj"
+            "D:\\Projects\\FriendFinder\\FriendFinder.Domain\\FriendFinder.Domain.csproj": {
+              "projectPath": "D:\\Projects\\FriendFinder\\FriendFinder.Domain\\FriendFinder.Domain.csproj"
             },
-            "C:\\Projects\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj": {
-              "projectPath": "C:\\Projects\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj"
+            "D:\\Projects\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj": {
+              "projectPath": "D:\\Projects\\FriendFinder\\FriendFinder.Entities\\FriendFinder.Entities.csproj"
             }
           }
         }
@@ -11641,7 +11641,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

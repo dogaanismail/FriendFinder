@@ -7698,11 +7698,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\FriendFinder\\FriendFinder.Domain\\FriendFinder.Domain.csproj",
+      "projectUniqueName": "D:\\Projects\\FriendFinder\\FriendFinder.Domain\\FriendFinder.Domain.csproj",
       "projectName": "FriendFinder.Domain",
-      "projectPath": "C:\\Projects\\FriendFinder\\FriendFinder.Domain\\FriendFinder.Domain.csproj",
+      "projectPath": "D:\\Projects\\FriendFinder\\FriendFinder.Domain\\FriendFinder.Domain.csproj",
       "packagesPath": "C:\\Users\\dogan\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\FriendFinder\\FriendFinder.Domain\\obj\\",
+      "outputPath": "D:\\Projects\\FriendFinder\\FriendFinder.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dogan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7757,7 +7757,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
