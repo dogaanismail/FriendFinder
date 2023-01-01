@@ -39,7 +39,7 @@
     "ngx-bootstrap": "^5.1.1",
     "ngx-editor": "^4.1.0",
     "ngx-order-pipe": "^2.0.3",
-    "postcss-loader": "^3.0.0",
+    "postcss-loader": "^7.0.2",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
     "twilio-video": "^2.0.0-beta15",
@@ -47,7 +47,7 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.800.6",
+    "@angular-devkit/build-angular": "~15.0.4",
     "@angular-devkit/core": "^8.3.15",
     "@angular/cli": "^8.3.21",
     "@angular/compiler-cli": "~8.0.3",
